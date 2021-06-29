@@ -1,0 +1,36 @@
+{
+    "name": "topdot/core",
+    "description": "Core Module for topdot Ecommerce Panel",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Muhammad Saqib Ali",
+            "email": "saqib.topdot@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": "^7.3|^8.0",
+        "illuminate/support": "~5.6.0|~5.7.0|~5.8.0|^6.0|^7.0|^8.0",
+        "spatie/laravel-medialibrary": "^9.6",
+        "livewire/livewire" : ">2.0",
+        "saqijaan/laravel-json-column-trait": "dev-master",
+        "phpoffice/phpspreadsheet" : ">1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Topdot\\Core\\": "src/"
+        },
+        "files": [
+            "src/Utils/Files/functions.php"
+        ]
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Topdot\\Core\\CoreServiceProvider"
+            ]
+        }
+    }
+}
