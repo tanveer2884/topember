@@ -2,6 +2,7 @@
 
 return [
 
+    'adminRouteNamePrefix' => 'admin.',
     /*
     |--------------------------------------------------------------------------
     | Application Name

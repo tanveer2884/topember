@@ -6,11 +6,17 @@
     "license": "MIT",
     "require": {
         "php": "^7.3|^8.0",
+        "beyondcode/laravel-server-timing": "dev-master",
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/framework": "^8.40",
-        "laravel/tinker": "^2.5"
+        "laravel/helpers": "^1.4",
+        "laravel/tinker": "^2.5",
+        "laravel/ui": "^3.3",
+        "topdot/core": "dev-master",
+        "topdot/order": "dev-master",
+        "topdot/product": "dev-master"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
@@ -55,5 +61,23 @@
         "sort-packages": true
     },
     "minimum-stability": "dev",
-    "prefer-stable": true
+    "prefer-stable": true,
+    "repositories": [
+        {
+            "type": "path",
+            "url": "Modules/Core"
+        },
+        {
+            "type": "path",
+            "url": "Modules/Category"
+        },
+        {
+            "type": "path",
+            "url": "Modules/Product"
+        },
+        {
+            "type": "path",
+            "url": "Modules/Order"
+        }
+    ]
 }
