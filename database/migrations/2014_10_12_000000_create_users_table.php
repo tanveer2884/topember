@@ -25,7 +25,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
 
             $table->boolean('is_salon')->default(false)->index();
-            $table->boolean('is_stylist')->nullable(false)->index();
+            $table->boolean('is_stylist')->default(false)->index();
             $table->boolean('is_client')->default(true)->index();
             $table->boolean('is_admin_staff')->default(false)->index();
 
