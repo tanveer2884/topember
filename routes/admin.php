@@ -9,7 +9,7 @@ use Topdot\Coupon\Facades\CouponRoutes;
 use Topdot\Order\Facades\OrderRoutes;
 use Topdot\Product\Facades\ProductRoutes;
 
-Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
+Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard.index')->middleware('auth');
 
 Route::middleware(['permission.check'])->group(function(){
 
