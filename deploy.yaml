@@ -5,13 +5,16 @@ import:
 
 config:
   application: 'fr.dotlogicstest.com'
-  repository: 'git@github.com:lorisleiva/mylaravelapp.git'
+  repository: 'git@bitbucket.org:dotlogics/store-box.git'
   php_fpm_version: '8.0'
+  writable_mode: chown
+  writable_use_sudo: true
 
 hosts:
   prod:
-    remote_user: root
+    remote_user: ubuntu
     hostname: fr.dotlogicstest.com
+    forwardAgent: true
     deploy_path: '/var/www/staging/{{hostname}}'
 
 tasks:
@@ -22,13 +25,9 @@ tasks:
     - artisan:view:cache
     - artisan:config:cache
     - artisan:migrate
-    - npm:install
-    - npm:run:prod
     - deploy:publish
     - php-fpm:reload
-  npm:run:prod:
-    script:
-      - 'cd {{release_or_current_path}} && npm run prod'
+
 
 after:
   deploy:failed: deploy:unlock
