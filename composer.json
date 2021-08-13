@@ -7,6 +7,7 @@
     "require": {
         "php": "^7.3|^8.0",
         "beyondcode/laravel-server-timing": "dev-master",
+        "deployer/deployer": "^7.0",
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
@@ -14,7 +15,11 @@
         "laravel/helpers": "^1.4",
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.3",
+        "spatie/laravel-db-snapshots": "^2.0",
+        "topdot/cart": "dev-master",
+        "topdot/cms": "dev-master",
         "topdot/core": "dev-master",
+        "topdot/coupon": "dev-master",
         "topdot/order": "dev-master",
         "topdot/product": "dev-master"
     },
@@ -78,6 +83,18 @@
         {
             "type": "path",
             "url": "Modules/Order"
+        },
+        {
+            "type": "path",
+            "url": "Modules/Cms"
+        },
+        {
+            "type": "path",
+            "url": "Modules/Cart"
+        },
+        {
+            "type": "path",
+            "url": "Modules/Coupon"
         }
     ]
 }

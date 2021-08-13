@@ -83,7 +83,7 @@ class User extends Authenticatable implements HasMedia, HasStatus
             return route('api.medias.show',Auth::user()->getFirstMedia('profile'));
         }
 
-        return asset('images/logo.jpeg');
+        return asset('images/admin/logo.png');
     }
 
     public function isAdmin()
