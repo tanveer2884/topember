@@ -8,7 +8,7 @@ use Illuminate\Support\ServiceProvider;
 class CategoryServiceProvider extends ServiceProvider
 {
     public $routeFilePath = '/routes';
-    public $publishedViewPath = '/views/admin/category';
+    public $publishedViewPath = 'views/admin/category';
     public $configPath = '/config/category.php';
 
     public function boot()
