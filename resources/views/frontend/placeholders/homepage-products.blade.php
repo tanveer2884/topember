@@ -1,8 +1,6 @@
 <div class="featured-products div-flex">
     
     @foreach (getHomepageProducts() as $product)
-        
-    @endforeach
     <a href="{{ route('product-category-route',$product->slug) }}" class="featured-prdt div-flex">
         <div class="featured-prdt-img div-flex">
             <img src="{{ $product->feature_image }}" alt="" class="img-fluid" />
@@ -15,6 +13,5 @@
             <h3>${{ number_format($product->getPrice(),2) }}</h3>
         </div>
     </a>
-
-
+    @endforeach
 </div>
