@@ -14,6 +14,7 @@
         "laravel/helpers": "^1.4",
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.3",
+        "rap2hpoutre/laravel-log-viewer": "^1.7",
         "spatie/laravel-db-snapshots": "^2.0",
         "topdot/cart": "dev-master",
         "topdot/cms": "dev-master",
