@@ -79,11 +79,30 @@
                 </ul>
             </li>
 
+            
             @if (hasRoute(config('app.adminRouteNamePrefix') . 'orders.index'))
                 <li class="nav-item {{ $isActive(config('app.adminRouteNamePrefix') . 'orders.index') }}">
                     <a href="{{ route(config('app.adminRouteNamePrefix') . 'orders.index') }}">
                         <i class="feather icon-dollar-sign"></i>
                         <span class="menu-title">Orders</span>
+                    </a>
+                </li>
+            @endif
+
+            @if (hasRoute(config('app.adminRouteNamePrefix') . 'faqs.index'))
+                <li class="nav-item {{ $isActive(config('app.adminRouteNamePrefix') . 'faqs.index') }}">
+                    <a href="{{ route(config('app.adminRouteNamePrefix') . 'faqs.index') }}">
+                        <i class="fa fa-question-circle-o"></i>
+                        <span class="menu-title">Faqs</span>
+                    </a>
+                </li>
+            @endif
+
+            @if (hasRoute(config('app.adminRouteNamePrefix') . 'testimonials.index'))
+                <li class="nav-item {{ $isActive(config('app.adminRouteNamePrefix') . 'testimonials.index') }}">
+                    <a href="{{ route(config('app.adminRouteNamePrefix') . 'testimonials.index') }}">
+                        <i class="fa fa-quote-left"></i>
+                        <span class="menu-title">Testimonials</span>
                     </a>
                 </li>
             @endif

@@ -313,6 +313,6 @@
 <div class="clearfix"></div>
 
 <!-- Instagram  -->
-@include('name')
+@include('frontend.layouts.instagram')
 <!-- Instagram  -->
 <div class="clearfix"></div>

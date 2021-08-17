@@ -1,4 +1,7 @@
 <?php
+
+use App\Models\Faq;
+use App\Models\Testimonial;
 use App\Models\User;
 use Topdot\Product\Models\Product;
 use Topdot\Category\Models\Category;
@@ -110,11 +113,6 @@ function getFeaturedCategories(){
 }
 
 
-// function customerReviews()
-// {
-//     return HappyCustomer::query()->limit(12)->get();
-// }
-
 function getFeaturedProducts(){
     return Product::whereIsFeatured(1)->whereIsActive(1)->get();
 }
@@ -145,4 +143,14 @@ function isActiveUrl($url,$activeClass ='active' )
 function getHomepageProducts()
 {
     return Product::query()->active()->homepage()->get();
+}
+
+function getHomepageFaqs()
+{
+    return Faq::query(Faq::TYPE_HOMEPAGE)->get();
+}
+
+function getHomepageTestimonials()
+{
+    return Testimonial::query()->limit(12)->get();
 }
