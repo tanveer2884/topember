@@ -31,6 +31,11 @@ class Product extends Model implements HasMedia, ContractsProduct
     {
         return $builder->where('is_active',true);
     }
+    
+    public function scopeHomepage(Builder $builder)
+    {
+        return $builder->where('is_active',true);
+    }
 
     public function categories(): BelongsToMany
     {

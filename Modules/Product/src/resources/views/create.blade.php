@@ -179,6 +179,18 @@
                                             </div>
                                         </div>
                                     </div>
+                                    
+                                    <div class="row form-group">
+                                        <div class="col-md-2">
+                                            <label>Show On Homepage</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="custom-control custom-control-inline custom-switch">
+                                                <input type="checkbox" value="1" name="is_show_on_homepage" {{ old('is_show_on_homepage') ?'checked':'' }} class="custom-control-input" id="is_show_on_homepage">
+                                                <label class="custom-control-label" for="is_show_on_homepage"></label>
+                                            </div>
+                                        </div>
+                                    </div>
 
                                     <h4>Special Price</h4>
                                     <hr>
