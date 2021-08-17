@@ -313,6 +313,8 @@
 <div class="clearfix"></div>
 
 <!-- Instagram  -->
-@include('frontend.layouts.instagram')
+<div class="instagram">
+    [[General-Instagram-Placeholder]]
+</div>
 <!-- Instagram  -->
 <div class="clearfix"></div>
