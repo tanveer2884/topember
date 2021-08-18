@@ -44,6 +44,8 @@
 
     @include('frontend.layouts.js')
     @livewireScripts
+    @include('layouts.livewirejs')
+    @include('frontend.layouts.toastr-events')
     @stack('page_js')
 </body>
 
