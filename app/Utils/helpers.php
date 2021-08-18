@@ -13,10 +13,11 @@ function cleanString($string)
     return $res;
 }
 
-// function states($columns = ['id','code'])
-// {
-//     return State::select($columns)->get();
-// }
+function states($columns = ['id','code'])
+{
+    // return State::select($columns)->get();
+    return collect();
+}
 
 function isCategory($slug)
 {

@@ -15,7 +15,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Auth::routes();
+Route::prefix('admin')->group(function(){
+    Auth::routes(['register' => false]);
+});
 
 CoreRoutes::registerPublic();
 Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index')->middleware('auth');
