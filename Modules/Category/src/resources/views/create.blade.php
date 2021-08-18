@@ -33,7 +33,7 @@
                                     </div>
                                 </div>
 
-                                <div class="controls row mb-1 align-items-center">
+                                {{-- <div class="controls row mb-1 align-items-center">
                                     <label class="col-md-3 text-md-right">Parent</label>
                                     <div class="col-md-6">
                                         <select class="form-control" name="parent" >
@@ -46,7 +46,7 @@
                                         <div class="help-block text-danger"> {{ $message }} </div>
                                         @enderror
                                     </div>
-                                </div>
+                                </div> --}}
 
                                 <div class="controls row mb-1 align-items-center">
                                     <label class="col-md-3 text-md-right">Status</label>

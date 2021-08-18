@@ -1,7 +1,7 @@
 <div class="featured-products div-flex">
     
     @foreach (getHomepageProducts() as $product)
-    <a href="{{ route('product-category-route',$product->slug) }}" class="featured-prdt div-flex">
+    <a href="{{ route('product.index',$product->slug) }}" class="featured-prdt div-flex">
         <div class="featured-prdt-img div-flex">
             <img src="{{ $product->feature_image }}" alt="" class="img-fluid" />
         </div>

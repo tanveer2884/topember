@@ -26,9 +26,11 @@
             </div>
         </div>
         <a class="forgot-pass" href="{{ route('user.forgot-password') }}">Forgot Password?</a>
-        <div class="sign-in-side-butn position-relative">
-            <button wire:click="login" class="sign-in-butn general-btn">LOGIN</button>
-            @include('layouts.livewire.button-loading')
+        <div class="sign-in-side-butn">
+            <button wire:click="login" class="sign-in-butn general-btn position-relative">
+                LOGIN
+                @include('layouts.livewire.button-loading')
+            </button>
         </div>
     </div>
 </div>

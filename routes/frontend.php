@@ -10,7 +10,7 @@ use App\Http\Controllers\Frontend\Account\PasswordController;
 use App\Http\Controllers\Frontend\Auth\PasswordResetController;
 use App\Http\Controllers\Frontend\Auth\ForgotPasswordController;
 
-Route::get('b/{categoryOrProductSlug}', CategoryProductController::class)->name('product-category-route');
+Route::get('products/{categoryOrProductSlug?}', CategoryProductController::class)->name('product.index');
 
 
 /**

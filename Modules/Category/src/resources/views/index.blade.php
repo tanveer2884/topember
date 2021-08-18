@@ -17,8 +17,8 @@
                                 <thead>
                                 <tr>
                                     <th>Name</th>
-                                    <th>Parent Category</th>
-                                    <th class="text-center">Sub Categories</th>
+                                    {{-- <th>Parent Category</th>
+                                    <th class="text-center">Sub Categories</th> --}}
                                     <th class="text-center">Active</th>
                                     <th>
                                         Created At
@@ -32,12 +32,12 @@
                                         <td>
                                             {{ $category->name }}
                                         </td>
-                                        <td>
+                                        {{-- <td>
                                             {{ optional($category->parentCategory)->name }}
                                         </td>
                                         <td class="text-center">
                                             {{ $category->sub_categories_count }}
-                                        </td>
+                                        </td> --}}
                                         <td class="text-center">
                                             @if ($category->isActive())
                                                 <i>Active</i>

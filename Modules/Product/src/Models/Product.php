@@ -3,6 +3,7 @@
 namespace Topdot\Product\Models;
 
 use Carbon\Carbon;
+use Database\Factories\ProductFactory;
 use Spatie\Sluggable\HasSlug;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\Sluggable\SlugOptions;
@@ -32,9 +33,14 @@ class Product extends Model implements HasMedia, ContractsProduct
         return $builder->where('is_active',true);
     }
     
+    public function scopeFeatured(Builder $builder)
+    {
+        return $builder->where('is_featured',true);
+    }
+    
     public function scopeHomepage(Builder $builder)
     {
-        return $builder->where('is_active',true);
+        return $builder->where('is_show_on_homepage',true);
     }
 
     public function categories(): BelongsToMany
@@ -178,10 +184,6 @@ class Product extends Model implements HasMedia, ContractsProduct
      */
     protected static function newFactory()
     {
-        if ( config('product.factoryClass') ){
-            return new (config('product.factoryClass'));
-        }
-
-        return null;
+        return new ProductFactory();
     }
 }

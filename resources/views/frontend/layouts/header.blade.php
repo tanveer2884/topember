@@ -4,8 +4,8 @@
             <div class="col-md-12">
                 <nav class="navbar navbar-expand-lg">
                     <!-- Brand -->
-                    <a class="navbar-brand" href="index">
-                        <img src="images/box-store-logo.png" alt="The Box Store" />
+                    <a class="navbar-brand" href="/">
+                        <img src="/images/box-store-logo.png" alt="The Box Store" />
                     </a>
 
                     <!-- Toggler/collapsibe Button -->
@@ -17,7 +17,7 @@
                     <div class="collapse navbar-collapse" id="collapsibleNavbar">
                         <ul class="navbar-nav navbar-left ml-auto mr-auto">
                             <li class="nav-item">
-                                <a class="nav-link" href="product-listing">Shop Boxes & Supplies</a>
+                                <a class="nav-link" href="{{ route('product.index') }}">Shop Boxes & Supplies</a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
@@ -83,7 +83,7 @@
         <input type="search" class="form-control" id="exampleFormControlInput1" placeholder="Item Title">
         <div class="serach-over-flow-wrap">
             <div class="search-container">
-                <div class="srch-pic-holder" style="background-image:url('images/search-One.png');"></div>
+                <div class="srch-pic-holder" style="background-image:url('/images/search-One.png');"></div>
                 <div class="search-data-cont">
                     <h3>Item Title</h3>
                     <p>
@@ -99,7 +99,7 @@
             <div class="search-arrow-set"></div>
             <div class="hr search-sp-hr"></div>
             <div class="search-container">
-                <div class="srch-pic-holder" style="background-image:url('images/search-Two.png');"></div>
+                <div class="srch-pic-holder" style="background-image:url('/images/search-Two.png');"></div>
                 <div class="search-data-cont">
                     <h3>Item Title</h3>
                     <p>
@@ -114,7 +114,7 @@
             </div>
             <div class="hr search-sp-hr"></div>
             <div class="search-container">
-                <div class="srch-pic-holder" style="background-image:url('images/search-Three.png');"></div>
+                <div class="srch-pic-holder" style="background-image:url('/images/search-Three.png');"></div>
                 <div class="search-data-cont">
                     <h3>Item Title</h3>
                     <p>

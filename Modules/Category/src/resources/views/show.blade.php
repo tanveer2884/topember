@@ -6,7 +6,7 @@
                 <div class="card">
                     <div class="card-header">
                         <h4 class="mb-0"> <strong>Category: </strong> {{ $category->name }}</h4>
-                        <a href="{{ route(config('blog.routeNamePrefix').'categories.index') }}" class="btn btn-primary">Back to List</a>
+                        <a href="{{ route(config('category.routeNamePrefix').'categories.index') }}" class="btn btn-primary">Back to List</a>
                     </div>
                     <hr>
                     <div class="card-content">
