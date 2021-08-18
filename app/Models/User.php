@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Topdot\Core\Models\User as ModelsUser;
+use Illuminate\Auth\Notifications\ResetPassword as ResetPasswordNotification;
 
 class User extends ModelsUser
 {
@@ -41,4 +42,17 @@ class User extends ModelsUser
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function sendPasswordResetNotification($token)
+    {
+        if ( $this->isCustomer() ){
+            ResetPasswordNotification::createUrlUsing(function() use($token){
+                return route('user.reset-password',['token'=>$token,'email'=>$this->email]);
+            });    
+            $this->notify(new ResetPasswordNotification($token));
+            return;
+        }
+        
+        $this->notify(new ResetPasswordNotification($token));
+    }
 }

@@ -1,20 +1,28 @@
-<div>
-    <div class="form-inline reseting-form">
-        <label for="email">E-Mail Adress </label>
-        <input type="email" wire:model.defer="email" name="email">
-    </div>
-    @error('email')
-    <div class="error-class" style="float:right; width: 234px; text-align: left;margin-bottom:1rem;">
-        {{ $message }}
-    </div>
-    @enderror
-   
-    <div class="clearfix"></div>
+<div class="sign-in-wrapper">
+    <h2>Forgot Your Password?</h2>
+    <p>
+        Don’t worry! Just fill in your email and we'll send
+        you a link to reset your password.
+    </p>
 
     <div>
-        <button type="submit" wire:click="sendPasswordResetLink" class="btn reset-button position-relative">
-            SEND PASSWORD RESET LINK
-            @include('layouts.livewire.button-loading')
-        </button>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <input type="email" wire:model.defer="email" class="form-control forgot-sp-wide" id="exampleFormControlInput1" placeholder="Your Email Address">
+                    @error('email')
+                    <div class="error">
+                        {{ $message }}
+                    </div>
+                    @enderror
+                </div>
+            </div>
+        </div>
+        <div class="sign-in-side-butn">
+            <button class="sign-in-butn general-btn position-relative" wire:click="sendPasswordResetLink">
+                Reset Password
+                @include('layouts.livewire.button-loading')
+            </button>
+        </div>
     </div>
 </div>
