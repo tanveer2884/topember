@@ -37,6 +37,16 @@ class Product extends Model implements HasMedia, ContractsProduct
     {
         return $builder->where('is_featured',true);
     }
+
+    public function scopeInStock(Builder $builder)
+    {
+        return $builder->where('is_inStock',true);
+    }
+
+    public function scopeIsAvailable(Builder $builder)
+    {
+        return $builder->where('products.qty','>',0);
+    }
     
     public function scopeHomepage(Builder $builder)
     {

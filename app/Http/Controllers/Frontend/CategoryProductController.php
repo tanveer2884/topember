@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use Topdot\Category\Models\Category;
+use Topdot\Product\Models\Attribute;
 
 class CategoryProductController
 {
@@ -42,6 +43,29 @@ class CategoryProductController
         //     return view('frontend.products.categories',compact('category','categories','baseUrl','categoriesList'));
         // }
 
-        return view('frontend.products.product-list', compact('category', 'categories', 'baseUrl'));
+        $filters = $this->getProductFilters($category);
+        $maxPrice = $category->products()->max('price');
+        return view('frontend.products.index', compact('category','categories', 'maxPrice', 'filters', 'baseUrl'));
+    }
+
+    private function getProductFilters($category)
+    {
+        $query = Attribute::query();
+
+        $query->whereHas('products',function($query) use($category){
+            return $query->whereHas('categories',function($query) use($category){
+                return $query->where('id',$category->id);
+            });
+        });
+
+        $query->with(['values' => function($query){
+            return $query->has('products');
+        }]);
+
+        $query->whereHas('values',function($query){
+            return $query->has('products');
+        });
+
+        return $query->get();
     }
 }
