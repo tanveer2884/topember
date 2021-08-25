@@ -51,7 +51,7 @@
                         <a href="{{ route('product.index', [$category->slug]) }}" class="sp-view-all">View All</a>
                         <div class="product-list div-float">
 
-                            @foreach ($category->products()->featured()->limit(4)->get() as $product)
+                            @foreach ($category->getTopProduct(4) as $product)
                                 <div class="product-card">
                                     <a href="{{ route('product.index', implode('/',[$category->slug,$product->slug])) }}" class="product-header div-flex">
                                         <img src="{{ $product->feature_image }}" alt="" class="img-fluid" />

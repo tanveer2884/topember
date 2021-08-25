@@ -96,6 +96,11 @@ class Product extends Model implements HasMedia, ContractsProduct
         return $this->hasMedia($collection) ? route('api.medias.show',$this->getFirstMedia($collection)) : null;
     }
 
+    public function getImages($collection = 'additional_images', $default = [])
+    {
+        return $this->hasMedia($collection) ? $this->getMedia($collection) : $default;
+    }
+
     public function getSlugOptions(): SlugOptions
     {
         return SlugOptions::create()
@@ -187,11 +192,19 @@ class Product extends Model implements HasMedia, ContractsProduct
         return $this->hasSpecialPrice() ? $this->getSpecialPrice() : $this->price;
     }
 
-    /**
-     * Create a new factory instance for the model.
-     *
-     * @return \Illuminate\Database\Eloquent\Factories\Factory
-     */
+
+    public function getRelatedProducts()
+    {
+        return Product::whereHas('categories',function($query){
+            return $query->whereIn('id',$this->categoryIds());
+        })
+        ->active()
+        ->featured()
+        ->isAvailable()
+        ->inStock()
+        ->get();
+    }
+
     protected static function newFactory()
     {
         return new ProductFactory();

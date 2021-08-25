@@ -32,6 +32,7 @@ class CategoryProductController
         $baseUrl = $categories->pluck('slug')->join('/');
 
         if ($product) {
+            $category = optional($category);
             // RecentlyViewed::add($product);
             // $product->addViewCount();
             return view('frontend.products.product-detail', compact('category', 'categories', 'baseUrl', 'product'));

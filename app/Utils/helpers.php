@@ -26,7 +26,7 @@ function isCategory($slug)
 
 function isProduct($slug,$secondLastSlug = null)
 {
-    $query = app(Product::class)->query()->where('slug',$slug);
+    $query = app(Product::class)->query()->inStock()->isAvailable()->where('slug',$slug);
     if ( $secondLastSlug ){
         $query->whereHas('categories',function($query) use($secondLastSlug){
             return $query->where('slug',$secondLastSlug);
@@ -67,41 +67,9 @@ function categoriesBySlugs($slugs = [],$columns=['id','name','slug'])
     return Category::whereIn('slug',$slugs)->get($columns);
 }
 
-// function getRecentlyViewedProducts()
-// {
-//     return \RecentlyViewed\Facades\RecentlyViewed::get(Product::class)->slice(1);
-// }
-
 function products(array $except = [],array $columns = ['id','name'])
 {
     return Product::whereNotIn('id',$except)->get($columns);
-}
-
-// function brands(array $except = [],array $columns = ['id','name'])
-// {
-//     return Brand::whereNotIn('id',$except)->get($columns);
-// }
-
-// function tagsSimple(array $except = [],array $columns = ['id','name'])
-// {
-//     return Tag::whereNotIn('id',$except)->usedIn(false)->get($columns);
-// }
-
-// function tagsUsedIn(array $except = [],array $columns = ['id','name'])
-// {
-//     return Tag::whereNotIn('id',$except)->usedIn(true)->get($columns);
-// }
-
-
-function array_filter_recursive( array $array, callable $callback = null ) {
-    $array = is_callable( $callback ) ? array_filter( $array, $callback ) : array_filter( $array );
-    foreach ( $array as &$value ) {
-        if ( is_array( $value ) ) {
-            $value = call_user_func( __FUNCTION__, $value, $callback );
-        }
-    }
-
-    return $array;
 }
 
 function cartHas($key)
@@ -117,6 +85,11 @@ function getFeaturedCategories(){
 function getFeaturedProducts(){
     return Product::whereIsFeatured(1)->whereIsActive(1)->get();
 }
+
+// function getRecentlyViewedProducts()
+// {
+//     return \RecentlyViewed\Facades\RecentlyViewed::get(Product::class)->slice(1);
+// }
 
 // function getFeaturedBlogs(){
 //     return \Topdot\Blog\Models\Blog::featured()->whereIsActive(1)->get();

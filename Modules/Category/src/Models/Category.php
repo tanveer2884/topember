@@ -58,6 +58,11 @@ class Category extends Model implements HasMedia
         return $this->hasMedia('default') ? route( 'api.medias.show',$this->getFirstMedia('default')) : $default;
     }
 
+    public function getTopProduct($qty = 4, $featured = false)
+    {
+        return $this->products()->active()->isAvailable()->inStock()->limit($qty)->get();
+    }
+
     /**
      * @return boolean
      */

@@ -13,20 +13,6 @@
                     <div class="product-listing-head div-flex">
                         <h1 class="inner-heading">Our Products</h1>
                         <div class="product-filter-main category-filter justify-content-end">
-                            {{-- <div class="product-filter">
-                                <span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="12.614" height="11.453" viewBox="0 0 12.614 11.453">
-                                        <path d="M13.614,3H2L6.646,8.494v3.8l2.323,1.161V8.494Z" transform="translate(-1.5 -2.5)" fill="none" stroke="#909090" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" />
-                                    </svg>
-                                    FILTER BY:
-                                </span>
-                                <select name="" id="" class="form-control">
-                                    <option value="">All Products</option>
-                                    <option value="">Newest</option>
-                                    <option value="">Low to High price</option>
-                                    <option value="">High to Low price</option>
-                                </select>
-                            </div> --}}
                             <div class="product-filter">
                                 <span>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="10" height="12" viewBox="0 0 10 12">

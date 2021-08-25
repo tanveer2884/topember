@@ -12,10 +12,6 @@
                     <p>
                         {!! $product->short_description !!}
                     </p>
-                    {{-- <div>
-                        {{ $product->attributes->pluck('name')->toJson() }}
-                        {{ $product->attributeValues->pluck('name')->toJson() }}
-                    </div> --}}
                     <div class="prdt-price d-flex">
                         <h4>${{ number_format($product->getPrice()) }}</h4>
                         {{-- <h4>${{ number_format($product->price) }}</h4> --}}
