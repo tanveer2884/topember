@@ -25,7 +25,7 @@
  <script src="{{ asset('js/app.js') }}"></script>
 <script>
     function confirmDelete() {
-        return confirm("Are you Sure you want to delete");
+        return confirm("Are you Sure you want to delete?");
     }
 
     function loadJsAsync(src, time) {
@@ -43,7 +43,7 @@
             allowClear: true
         });
         $('body').on('input','.slug-from',function(){
-            
+
 
             $( $(this).data('slug-to') ).val(
                 $(this).val().toString()

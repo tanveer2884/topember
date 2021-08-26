@@ -3,6 +3,7 @@
 use App\Models\Faq;
 use App\Models\Testimonial;
 use App\Models\User;
+use App\Models\State;
 use Topdot\Product\Models\Product;
 use Topdot\Category\Models\Category;
 use Darryldecode\Cart\Facades\CartFacade;
@@ -15,9 +16,9 @@ function cleanString($string)
 
 function states($columns = ['id','code'])
 {
-    // return State::select($columns)->get();
-    return collect();
+     return State::select($columns)->get();
 }
+
 
 function isCategory($slug)
 {

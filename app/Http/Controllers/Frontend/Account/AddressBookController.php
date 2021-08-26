@@ -26,7 +26,8 @@ class AddressBookController extends Controller
      */
     public function create()
     {
-        return view('frontend.account.addressBook.create');
+        $address = new Address();
+        return view('frontend.account.addressBook.create',compact('address'));
     }
 
     /**
@@ -39,6 +40,6 @@ class AddressBookController extends Controller
         if ( $address->user_id != Auth::id() ){
             throw new NotFoundHttpException();
         }
-        return view('frontend.account.addressBook.edit',compact('address'));
+        return view('frontend.account.addressBook.create',compact('address'));
     }
 }

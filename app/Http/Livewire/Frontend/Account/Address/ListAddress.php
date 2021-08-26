@@ -24,26 +24,15 @@ class ListAddress extends Component
 
     public function delete(Address $address)
     {
-        $address->unSetDefaultBilling()->unSetDefaultShipping();
         $address->delete();
-        $this->emit('alert-success','Address Deleted Successfully');
+        $this->emit('alert-success','Address Deleted Successfully.');
     }
 
     public function getAddresses()
     {
         $query = Address::query();
-        $defaultShippingAddress = Auth::user()->getDefaultShippingAddress();
-        $defaultBillingAddress = Auth::user()->getDefaultBillingAddress();
 
         $query->where('user_id',Auth::id());
-
-        if ( $defaultBillingAddress ){
-            $query->where('id','<>',$defaultBillingAddress);
-        }
-
-        if ( $defaultShippingAddress ){
-            $query->where('id','<>', $defaultShippingAddress);
-        }
 
         return $query->latest()->paginate(10);
 

@@ -9,6 +9,7 @@ use App\Http\Controllers\Frontend\CategoryProductController;
 use App\Http\Controllers\Frontend\Account\PasswordController;
 use App\Http\Controllers\Frontend\Auth\PasswordResetController;
 use App\Http\Controllers\Frontend\Auth\ForgotPasswordController;
+use App\Http\Controllers\Frontend\Account\AddressBookController;
 
 Route::get('products/{categoryOrProductSlug?}', CategoryProductController::class)->name('product.index');
 
@@ -26,11 +27,12 @@ Route::middleware('guestCustomer')->as('user.')->group(function(){
 
 
 Route::middleware('auth')->as('user.')->group(function(){
+    Route::post('logout',[LoginController::class, 'logout'])->name('logout');
 
     Route::get('my-account',ProfileController::class)->name('my-account');
     Route::get('update-password',PasswordController::class)->name('update-password');
+    Route::resource('addresses',AddressBookController::class)->only(['index','create','edit']);
     // Route::get('notifications',NotificationController::class)->name('notifications');
-    // Route::resource('addresses',AddressBookController::class)->only(['index','create','edit']);
     // Route::resource('payments',PaymentController::class)->only(['index','create']);
     // Route::resource('orders',OrderController::class)->only(['index','show']);
 

@@ -46,53 +46,34 @@ class CreateEditAddress extends Component
             'phone' => 'required|max:20',
             'address' => 'required|max:191',
             'address2' => 'nullable|max:191',
-            'city' => 'required|max:191',
-            // 'country' => 'required|max:100',
-            'state' => 'required|exists:states,code',
+            'city' => 'required',
+            'country' => 'required',
+            'state' => 'required',
             'zipCode' => 'required|max:20',
         ]);
 
-        $data['name'] = $data['first_name'];
-        unset($data['first_name']);
+        $data['full_name'] = $data['first_name'] . " " . $data['last_name'];
 
         if ( $this->_address->id ){
             $this->_address->update($data);
-            $this->_address->unSetDefaultBilling();
-            $this->_address->unSetDefaultShipping();
-            if ( $this->defaultBilling  ){
-                $this->_address->setDefaultBilling();
-            }
-            
-            if ( $this->defaultShipping  ){
-                $this->_address->setDefaultShipping();
-            }
-            
-            $this->emit('alert-success','Address Updated Successfully');
-            return;
+
+            session()->flash('alert-success','Address Updated Successfully.');
+            return redirect()->route('user.addresses.index');
         }
 
         $data['user_id'] = Auth::id();
-        $addressCreated = Address::create($data);
+        Address::create($data);
 
-        if ( $this->defaultBilling  ){
-            $addressCreated->setDefaultBilling();
-        }
-
-        if ( $this->defaultShipping  ){
-            $addressCreated->setDefaultShipping();
-        }
-
-        $this->emit('alert-success','Address Created Successfully');
-        session()->flash('alert-success','Address Created Successfully');
+        session()->flash('alert-success','Address Created Successfully.');
         $this->initializeFields();
         return redirect()->route('user.addresses.index');
-        
+
     }
 
     public function initializeFields()
     {
         $this->nickname = optional($this->_address)->nickname;
-        $this->first_name = optional($this->_address)->name;
+        $this->first_name = optional($this->_address)->first_name;
         $this->last_name = optional($this->_address)->last_name;
         $this->email = optional($this->_address)->email;
         $this->phone = optional($this->_address)->phone;
@@ -102,8 +83,5 @@ class CreateEditAddress extends Component
         $this->state = optional($this->_address)->state;
         $this->zipCode = optional($this->_address)->zipCode;
         $this->country = optional($this->_address)->country;
-
-        $this->defaultBilling = optional($this->_address)->isDefaultBilling() ? true: false;
-        $this->defaultShipping = optional($this->_address)->isDefaultShipping() ? true: false;
     }
 }
