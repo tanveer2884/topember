@@ -1,7 +1,8 @@
 @extends('frontend.layouts.master')
 
-@section('title', '')
-@section('description', '')
+@section('title', $product->meta_title)
+@section('description', $product->meta_description)
+@section('image', $product->feature_image)
 
 @section('page')
     <!-- breadcrumb -->
@@ -67,7 +68,7 @@
                                     <input class="input-number" type="text" value="1" min="1" max="100">
                                     <span class="input-number-increment">+</span>
                                 </div>
-                                <a href="my-cart.php" type="btn" class="general-btn">Add to cart</a>
+                                <a href="#" type="btn" class="general-btn">Add to cart</a>
                             </div>
 
                             <div class="select-delivery">
@@ -80,17 +81,17 @@
                             </div>
                             <div class="share-icons-div">
                                 <span>Share:</span>
-                                <a href="#">
+                                <a target="_blank" href="{{ $product->share('facebook') }}">
                                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="10" height="20" viewBox="0 0 11 23">
                                         <image width="10" height="20" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAXCAYAAADduLXGAAAA3UlEQVQ4je2TPYoCQRCFP0dNFsFEDEWEBTHY0MAbeAID2Vy8yaQmXkDB1FivYLIYaCAiCP6wmggmAyoNPVA+ZoLNt6Bp6tXX1a/p7kwYhkj0gW+g5uU7cAZ+cgIOgZ6uBqrAV2CEVgoYx9x2bicAa2AJlIGZhUsCboC6FayNrMA73cbCF6k9FXY2On5uSq0CdE2+ctBEO/j4BEYmHwQpYFJsHXwFIuCR4DkyY+/ghvc3Fnjh9XhMneeTL/4K7N7E0QrW84fAefX9lwP+w6lwQWpFhe1PcTd4M/nhjQReDe4ktJ+5u04AAAAASUVORK5CYII="></image>
                                     </svg>
                                 </a>
-                                <a href="#">
+                                <a target="_blank" href="{{ $product->share('twitter') }}">
                                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="23" height="19" viewBox="0 0 22 18">
                                         <image width="23" height="19" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAASCAYAAABfJS4tAAABh0lEQVQ4jaXUP0iWURTH8Y+iRSIWDUFBSENIf7aaGhqkoRLCgppaGlpcg6CExuhd3NrEpqaWJBEcGhoyh6BoiKJaQrRA0GrJoowDR3h4eB/uq/3g8tx7zz3fc+9zz7ldrVbLFrUXdzCCAXzEA0ym/SzWetCHhxjH2wJ0H15jf23uVAbqxYHod2MQo5jHsQL4UQ1a1WjCn2E4wLvSuBtvMNbgeBinC4HXcRUr3Xn89TTE+D5e4loGqzqV9APHMRf/+CcuYrbidAJTmMCLDBRB/+a3SYv4GrYAH8EfzOB8zXEPzmULbRR2/Guz05O7mMMyugqOJfu7zU7s7j2e5G2XHEuar4LlTb76T2houg7+nv8xLmt1m9DH+FIHh4ZwCTu3Cb5ZHVTBkVafssS3qnv40AT+jTO4gadY6hAeJXyrPtku2SeyrFc6gEYWDLczRB4fwo5MtaO4gCuVN6RJ8UxebzIGOJ6521l1neg57taegLbgWHg5jxTtJA6iP9d8w+e83CikhWJ0/AMDX0c4GPaTYQAAAABJRU5ErkJggg=="></image>
                                     </svg>
                                 </a>
-                                <a href="#">
+                                <a target="_blank" href="{{ $product->share('pinterest') }}">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="15.719" height="20" viewBox="0 0 15.719 20">
                                         <g id="XMLID_798_" transform="translate(-33.181)">
                                             <path id="XMLID_799_" d="M46.862,2.049A7.67,7.67,0,0,0,41.5,0a8.433,8.433,0,0,0-6.219,2.4,7.086,7.086,0,0,0-2.1,4.911c0,2.226.931,3.935,2.491,4.571a.825.825,0,0,0,.313.065.7.7,0,0,0,.68-.561c.053-.2.175-.687.228-.9a.843.843,0,0,0-.226-.912,2.907,2.907,0,0,1-.661-1.986,5,5,0,0,1,5.183-5.032c2.671,0,4.331,1.518,4.331,3.962a8.233,8.233,0,0,1-.936,4.022,2.767,2.767,0,0,1-2.288,1.6,1.517,1.517,0,0,1-1.207-.552,1.388,1.388,0,0,1-.243-1.206c.119-.5.281-1.03.439-1.538a9.519,9.519,0,0,0,.558-2.5,1.818,1.818,0,0,0-1.83-2c-1.391,0-2.481,1.413-2.481,3.217a4.784,4.784,0,0,0,.342,1.8c-.175.743-1.217,5.157-1.414,5.99-.114.486-.8,4.324.337,4.63,1.28.344,2.424-3.394,2.54-3.817.094-.344.425-1.643.627-2.441a3.869,3.869,0,0,0,2.581,1A5.756,5.756,0,0,0,47.163,12.4,9.282,9.282,0,0,0,48.9,6.73,6.544,6.544,0,0,0,46.862,2.049Z" transform="translate(0 0)" fill="#898989" />

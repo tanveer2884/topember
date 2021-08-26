@@ -13,6 +13,8 @@ use Illuminate\Database\Eloquent\Builder;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Jorenvh\Share\Share;
+use Jorenvh\Share\ShareFacade;
 use Topdot\Category\Models\Category;
 use Topdot\Product\Contracts\Product as ContractsProduct;
 
@@ -203,6 +205,15 @@ class Product extends Model implements HasMedia, ContractsProduct
         ->isAvailable()
         ->inStock()
         ->get();
+    }
+
+    public function share($channel)
+    {
+        if ( !method_exists(Share::class,$channel) ){
+            return '';
+        }
+
+        return (new Share)->page( route('product.index',$this->slug), $this->name )->$channel()->getRawLinks();
     }
 
     protected static function newFactory()
