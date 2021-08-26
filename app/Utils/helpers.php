@@ -1,8 +1,8 @@
 <?php
 
 use App\Models\Faq;
-use App\Models\Testimonial;
 use App\Models\User;
+use App\Models\Testimonial;
 use Topdot\Product\Models\Product;
 use Topdot\Category\Models\Category;
 use Darryldecode\Cart\Facades\CartFacade;
@@ -83,8 +83,9 @@ function getFeaturedCategories(){
 
 
 function getFeaturedProducts(){
-    return Product::whereIsFeatured(1)->whereIsActive(1)->get();
+    return Product::featured()->active()->inStock()->isAvailable()->get();
 }
+
 
 // function getRecentlyViewedProducts()
 // {
@@ -127,4 +128,9 @@ function getHomepageFaqs()
 function getHomepageTestimonials()
 {
     return Testimonial::query()->limit(12)->get();
+}
+
+function cart()
+{
+    return app('cart');
 }

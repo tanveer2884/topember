@@ -62,23 +62,16 @@
                             <p>
                                 {!! $product->short_description !!}
                             </p>
-                            <div class="product-cart-add">
-                                <div class="quantity-input-cont mt-0">
-                                    <span class="input-number-decrement">–</span>
-                                    <input class="input-number" type="text" value="1" min="1" max="100">
-                                    <span class="input-number-increment">+</span>
-                                </div>
-                                <a href="#" type="btn" class="general-btn">Add to cart</a>
-                            </div>
+                            <livewire:frontend.cart.add-to-cart-button :product="$product" />
 
-                            <div class="select-delivery">
+                            {{-- <div class="select-delivery">
                                 <span>Delivery or Store Pickup:</span>
                                 <select name="" id="" class="form-control red-select">
                                     <option value="">Select</option>
                                     <option value="">Delivery</option>
                                     <option value="">Store Pickup</option>
                                 </select>
-                            </div>
+                            </div> --}}
                             <div class="share-icons-div">
                                 <span>Share:</span>
                                 <a target="_blank" href="{{ $product->share('facebook') }}">
@@ -144,7 +137,7 @@
                                             {!! $relatedProduct->short_description !!}
                                             <div class="prdt-price d-flex">
                                                 <h4>${{ number_format($relatedProduct->getPrice()) }}</h4>
-                                                <span>Add to Cart →</span>
+                                                <livewire:frontend.cart.add-to-cart-button :product="$relatedProduct" :show-qty="false" />
                                             </div>
                                         </div>
                                     </div>

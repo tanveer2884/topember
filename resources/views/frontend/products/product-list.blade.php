@@ -62,7 +62,7 @@
                                         <p>{!! $product->short_description !!}</p>
                                         <div class="prdt-price d-flex">
                                             <h4>${{ number_format($product->getPrice()) }}</h4>
-                                            <span #>Add to Cart →</span>
+                                            <livewire:frontend.cart.add-to-cart-button :product="$product" :show-qty="false" />
                                         </div>
                                     </div>
                                 </div>
