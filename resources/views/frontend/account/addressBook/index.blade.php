@@ -1,6 +1,6 @@
 @extends('frontend.layouts.master')
 
-@section('meta_title','My Profile')
+@section('meta_title','Address')
 @section('meta_description','')
 
 @section('page')

@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 
 class CreateEditAddress extends Component
 {
+    public $user_id;
     public $nickname;
     public $first_name;
     public $last_name;

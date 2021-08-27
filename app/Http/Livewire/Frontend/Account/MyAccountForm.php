@@ -8,6 +8,7 @@ use Livewire\Component;
 class MyAccountForm extends Component
 {
     public $tax_id;
+    public $name;
     public $first_name;
     public $last_name;
     public $email;
