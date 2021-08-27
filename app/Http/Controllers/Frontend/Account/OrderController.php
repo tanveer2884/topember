@@ -30,7 +30,7 @@ class OrderController extends Controller
         if ( $order->user_id != Auth::id() ){
             throw new NotFoundHttpException();
         }
-        
+
         return view('frontend.account.orders.show',compact('order'));
     }
 }

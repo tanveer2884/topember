@@ -1,6 +1,6 @@
 @extends('frontend.layouts.master')
 
-@section('meta_title','Change Password')
+@section('meta_title','Manage Orders')
 @section('meta_description','')
 
 @section('page')
@@ -17,20 +17,17 @@
                                 </div>
 
                                 <div class="col-md-8">
-                                    <div class="profile-main">
-                                        <div class="account-head">
-                                            <h1>Change Password</h1>
-                                        </div>
-                                        <div class="profile-description">
-                                            <p>Sample Text Here Sample Text Here Sample Text Here Sample Text Here Sample Text Here Sample Text Here Sample Text Here Sample Text Here Sample Text Here Sample Text Here.</p>
+                                    <div class="my-orders-main">
+                                        <div class="my-order-head div-flex">
+                                            <h1>MY ORDERS</h1>
 
-                                            <div class="account-form">
-                                                <livewire:frontend.account.update-password-form />
-                                            </div>
+                                            <livewire:frontend.order.order-search />
                                         </div>
+
+                                        <livewire:frontend.order.order-listing />
+
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>

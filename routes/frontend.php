@@ -10,6 +10,8 @@ use App\Http\Controllers\Frontend\Account\PasswordController;
 use App\Http\Controllers\Frontend\Auth\PasswordResetController;
 use App\Http\Controllers\Frontend\Auth\ForgotPasswordController;
 use App\Http\Controllers\Frontend\Account\AddressBookController;
+use App\Http\Controllers\Frontend\Account\PaymentController;
+use App\Http\Controllers\Frontend\Account\OrderController;
 
 Route::get('products/{categoryOrProductSlug?}', CategoryProductController::class)->name('product.index');
 
@@ -33,8 +35,8 @@ Route::middleware('auth')->as('user.')->group(function(){
     Route::get('update-password',PasswordController::class)->name('update-password');
     Route::resource('addresses',AddressBookController::class)->only(['index','create','edit']);
     // Route::get('notifications',NotificationController::class)->name('notifications');
-    // Route::resource('payments',PaymentController::class)->only(['index','create']);
-    // Route::resource('orders',OrderController::class)->only(['index','show']);
+     Route::resource('payments',PaymentController::class)->only(['index','create']);
+     Route::resource('orders',OrderController::class)->only(['index','show']);
 
 });
 
