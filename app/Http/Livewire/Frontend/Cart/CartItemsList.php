@@ -31,5 +31,6 @@ class CartItemsList extends Component
     {
         CartFacade::remove($item);
         $this->emit('alert-success','Item removed from cart');
+        $this->emit('update-order-summary');
     }
 }

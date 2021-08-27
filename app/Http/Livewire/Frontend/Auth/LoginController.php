@@ -10,15 +10,21 @@ class LoginController extends Component
     public $username;
     public $password;
     public $redirect;
+    public $checkout;
 
-    public function mount($redirect = null)
+    public function mount($redirect = null,$checkout=false)
     {
         $this->resetFields();
         $this->redirect = $redirect;
+        $this->checkout = $checkout;
     }
 
     public function render()
     {
+        if ( $this->checkout ){
+            return view('livewire.frontend.auth.login-controller-checkout');
+        }
+
         return view('livewire.frontend.auth.login-controller');
     }
 

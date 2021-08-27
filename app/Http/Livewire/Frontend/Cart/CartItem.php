@@ -35,6 +35,7 @@ class CartItem extends Component
 
         $this->emit('alert-success','Quantity Updated');
         $this->emit('cart-updated');
+        $this->emit('update-order-summary');
     }
     
     public function decreaseQty()
@@ -50,6 +51,7 @@ class CartItem extends Component
         ]);
         $this->emit('alert-success','Quantity Updated');
         $this->emit('cart-updated');
+        $this->emit('update-order-summary');
     }
 
     public function hydrate()

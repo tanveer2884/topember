@@ -901,7 +901,7 @@ class Cart
     {
         return  $this->session->get(
             $this->sessionKeyExtraData
-        );
+        ,[]);
     }
 
     public function mergeExtraData(array $data)
