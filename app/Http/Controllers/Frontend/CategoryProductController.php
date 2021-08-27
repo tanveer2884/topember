@@ -16,7 +16,10 @@ class CategoryProductController
     {
         if (!$categories && !$product) {
             $categories = Category::query()->whereHas('products',function($query){
-                $query->featured();
+                $query->featured()
+                    ->active()
+                    ->inStock()
+                    ->isAvailable();
             })->get();
 
             return view('frontend.products.product-list',compact('categories'));

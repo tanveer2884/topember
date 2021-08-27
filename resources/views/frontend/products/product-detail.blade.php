@@ -118,38 +118,41 @@
 
     <div class="clearfix"></div>
 
-    <section style="background-color: #F2F2F2;">
-        <div class="product-bg">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="product-listing-main">
-                            <h2>Related Products</h2>
-                            <div class="product-list div-float">
+    @if ( ($relatedProducts = $product->getRelatedProducts()) && $relatedProducts->isNotEmpty() )
+        <section style="background-color: #F2F2F2;">
+            <div class="product-bg">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="product-listing-main">
+                                <h2>Related Products</h2>
+                                <div class="product-list div-float">
 
-                                @foreach ($product->getRelatedProducts() as $relatedProduct)
-                                    <div class="product-card">
-                                        <a href="{{ route('product.index',"{$category->slug}/{$product->slug}") }}" class="product-header div-flex">
-                                            <img src="{{ $relatedProduct->feature_image }}" alt="" class="img-fluid" />
-                                        </a>
-                                        <div class="product-body">
-                                            <h3><a href="{{ route('product.index',"{$category->slug}/{$product->slug}") }}">{{ $relatedProduct->name }}</a></h3>
-                                            {!! $relatedProduct->short_description !!}
-                                            <div class="prdt-price d-flex">
-                                                <h4>${{ number_format($relatedProduct->getPrice()) }}</h4>
-                                                <livewire:frontend.cart.add-to-cart-button :product="$relatedProduct" :show-qty="false" />
+                                    @foreach ($relatedProducts as $relatedProduct)
+                                        <div class="product-card">
+                                            <a href="{{ route('product.index',"{$category->slug}/{$relatedProduct->slug}") }}" class="product-header div-flex">
+                                                <img src="{{ $relatedProduct->feature_image }}" alt="" class="img-fluid" />
+                                            </a>
+                                            <div class="product-body">
+                                                <h3><a href="{{ route('product.index',"{$category->slug}/{$product->slug}") }}">{{ $relatedProduct->name }}</a></h3>
+                                                {!! $relatedProduct->short_description !!}
+                                                <div class="prdt-price d-flex">
+                                                    <h4>${{ number_format($relatedProduct->getPrice()) }}</h4>
+                                                    <livewire:frontend.cart.add-to-cart-button :product="$relatedProduct" :show-qty="false" />
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                @endforeach
+                                    @endforeach
 
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    @endif
+    
 @endsection
 
 @push('page_css')
