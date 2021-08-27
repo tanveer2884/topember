@@ -1,0 +1,32 @@
+<?php
+
+namespace Tests\Feature;
+
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithFaker;
+use Tests\TestCase;
+use Topdot\Product\Models\Product;
+
+class OrderTest extends TestCase
+{
+    public function test_example()
+    {
+        $this->markTestSkipped('skipped test');
+
+        $response = $this->get('/');
+
+        $response->assertStatus(200);
+    }
+
+    public function test_featured_products_showing_on_homepage()
+    {
+        // $notFeaturedProducts = Product::factory()->count(2)->notFeatured()->create();
+        $featuredProdcuts = Product::factory()->count(2)->featured()->create();
+
+        $response = $this->get('/');
+
+        foreach ($featuredProdcuts as $product) {
+            $response->assertSee($product->name);
+        }
+    }
+}

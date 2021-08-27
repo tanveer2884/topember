@@ -30,5 +30,6 @@ class CartItemsList extends Component
     public function removeItem($item)
     {
         CartFacade::remove($item);
+        $this->emit('alert-success','Item removed from cart');
     }
 }
