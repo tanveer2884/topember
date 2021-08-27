@@ -1,4 +1,4 @@
-<form class="sort-orders div-flex">
+<div class="sort-orders div-flex">
    <select name="" id="" class="form-control" style="opacity: 0">
         <option value="">Search</option>
         <option value="">Search</option>
@@ -9,4 +9,4 @@
         Search
         @include('layouts.livewire.button-loading')
     </button>
-</form>
+</div>
