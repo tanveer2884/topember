@@ -892,7 +892,7 @@ class Cart
 
     public function setExtraData($data)
     {
-        $this->session->put($this->sessionKeyExtraData,$data);
+        $this->session->put($this->sessionKeyExtraData, $data);
 
         return $this;
     }
@@ -902,5 +902,52 @@ class Cart
         return  $this->session->get(
             $this->sessionKeyExtraData
         );
+    }
+
+    public function mergeExtraData(array $data)
+    {
+        return $this->setExtraData(
+            array_merge(
+                $this->getExtraData(),
+                $data
+            )
+        );
+    }
+
+    public function getBilling()
+    {
+        return optional($this->getExtraData())['billing'];
+    }
+
+    public function setBilling(array $billingInfo = [])
+    {
+        return $this->mergeExtraData([
+            'billing' => $billingInfo
+        ]);
+    }
+
+    public function setShipping()
+    {
+        return optional($this->getExtraData())['shipping'];
+    }
+
+    public function getShipping(array $billingInfo = [])
+    {
+        return $this->mergeExtraData([
+            'shipping' => $billingInfo
+        ]);
+    }
+
+
+    public function getValue($key, $default = null)
+    {
+        return optional($this->getExtraData())[$key]?:$default;
+    }
+
+    public function setValue($key, $value)
+    {
+        return $this->mergeExtraData([
+            $key => $value
+        ]);
     }
 }

@@ -59,4 +59,22 @@ class ProductFactory extends Factory
             );
         });
     }
+
+    public function featured()
+    {
+        return $this->state(function(array $attributes){
+            return [
+                'is_featured' => true
+            ];
+        });
+    }
+
+    public function notFeatured()
+    {
+        return $this->state(function(array $attributes){
+            return [
+                'is_featured' => false
+            ];
+        });
+    }
 }
