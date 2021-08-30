@@ -1,41 +1,21 @@
-@extends('frontend.layouts.master')
+@extends('frontend.account.layouts.my-account')
 
-@section('meta_title','My Profile')
-@section('meta_description','')
+@section('meta_title', 'My Profile')
+@section('meta_description', '')
 
-@section('page')
+@section('account-page')
 
-    <div class="inner-section">
-        <section>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="account-main">
-                            <div class="row">
-                                <div class="col-md-4">
-                                    @include('frontend.account.layouts.account-menu')
-                                </div>
+    <div class="profile-main">
+        <div class="account-head">
+            <h1>My Profile</h1>
+        </div>
+        <div class="profile-description">
+            <p>Sample Text Here Sample Text Here Sample Text Here Sample Text Here Sample Text Here Sample Text Here Sample Text Here Sample Text Here Sample Text Here Sample Text Here.</p>
 
-                                <div class="col-md-8">
-                                    <div class="profile-main">
-                                        <div class="account-head">
-                                            <h1>My Profile</h1>
-                                        </div>
-                                        <div class="profile-description">
-                                            <p>Sample Text Here Sample Text Here Sample Text Here Sample Text Here Sample Text Here Sample Text Here Sample Text Here Sample Text Here Sample Text Here Sample Text Here.</p>
-
-                                            <div class="account-form">
-                                                <livewire:frontend.account.my-account-form />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="account-form">
+                <livewire:frontend.account.my-account-form />
             </div>
-        </section>
+        </div>
     </div>
 
 @endsection

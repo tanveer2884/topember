@@ -40,6 +40,6 @@ class AddressBookController extends Controller
         if ( $address->user_id != Auth::id() ){
             throw new NotFoundHttpException();
         }
-        return view('frontend.account.addressBook.create',compact('address'));
+        return view('frontend.account.addressBook.edit',compact('address'));
     }
 }

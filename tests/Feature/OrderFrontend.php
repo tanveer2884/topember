@@ -7,16 +7,11 @@ use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 use Topdot\Product\Models\Product;
 
-class OrderTest extends TestCase
+/**
+ * @ignore
+ */
+class OrderFrontendTest extends TestCase
 {
-    public function example()
-    {
-
-        $response = $this->get('/');
-
-        $response->assertStatus(200);
-    }
-
     public function featured_products_showing_on_homepage()
     {
         // $notFeaturedProducts = Product::factory()->count(2)->notFeatured()->create();
