@@ -29,13 +29,13 @@ class ForgotPasswordController extends Component
         ]);
 
         try{
-            
+
             $response = Password::broker()->sendResetLink([
                 'email' => $this->email
             ]);
-    
+
             $response == Password::RESET_LINK_SENT ?
-                $this->emit('alert-success','Email sent successfully'): 
+                $this->emit('alert-success','Email sent successfully'):
                 $this->emit('alert-danger',__($response));
             $this->email = '';
 

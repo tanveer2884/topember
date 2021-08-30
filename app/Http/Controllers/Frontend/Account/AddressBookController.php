@@ -26,7 +26,8 @@ class AddressBookController extends Controller
      */
     public function create()
     {
-        return view('frontend.account.addressBook.create');
+        $address = new Address();
+        return view('frontend.account.addressBook.create',compact('address'));
     }
 
     /**

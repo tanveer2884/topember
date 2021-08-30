@@ -8,6 +8,7 @@ use Livewire\Component;
 class MyAccountForm extends Component
 {
     public $tax_id;
+    public $name;
     public $first_name;
     public $last_name;
     public $email;
@@ -32,42 +33,42 @@ class MyAccountForm extends Component
     public function register()
     {
         $data = $this->validate([
-            'tax_id' => 'nullable|max:191',
+            //'tax_id' => 'nullable|max:191',
             'first_name' => 'required|max:191',
             'last_name' => 'required|max:191',
-            'email' => 'required|email|unique:users,email,'.Auth::id(),
+            /*'email' => 'required|email|unique:users,email,'.Auth::id(),
             'phone' => 'required|max:20',
             'address' => 'required|max:191',
             'address2' => 'nullable|max:191',
             'city' => 'required|max:191',
             'country' => 'required|max:191',
             'state' => 'required|exists:states,code',
-            'zipCode' => 'required'
+            'zipCode' => 'required'*/
         ]);
 
+        $data['name'] = $data['first_name'] ." ".$data['last_name'];
 
-        $data['name'] = $data['first_name'];
-        
         Auth::user()->update($data);
 
-        $this->emit('alert-success','Profile Updated Successfully');
+        $this->emit('alert-success','Profile Updated Successfully.');
 
         $this->initializeFields();
     }
 
     public function initializeFields()
     {
-        $user =Auth::user();
-        $this->first_name = $user->name;
+        $user = Auth::user();
+        $this->name = $user->name;
+        $this->first_name = $user->first_name;
         $this->last_name = $user->last_name;
         $this->email = $user->email;
-        $this->phone = $user->phone;
+        /*$this->phone = $user->phone;
         $this->address = $user->address;
         $this->address2 = $user->address2;
         $this->city = $user->city;
         $this->state = $user->state;
         $this->zipCode = $user->zipCode;
         $this->tax_id = $user->tax_id;
-        $this->country = $user->country;
+        $this->country = $user->country;*/
     }
 }

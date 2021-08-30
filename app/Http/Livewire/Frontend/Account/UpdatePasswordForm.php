@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Frontend\Account;
 
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Livewire\Component;
@@ -31,7 +32,7 @@ class UpdatePasswordForm extends Component
         ]);
 
         if ( !Hash::check($this->old_password,Auth::user()->password) ){
-            $this->addError('old_password','Given Password is invalid');
+            $this->addError('old_password','Given Password is invalid.');
             return;
         }
 
@@ -39,7 +40,7 @@ class UpdatePasswordForm extends Component
             'password' => bcrypt($this->new_password)
         ]);
 
-        $this->emit('alert-success','Password Updated successfully');
+        $this->emit('alert-success','Password Updated successfully.');
         $this->initializefields();
     }
 

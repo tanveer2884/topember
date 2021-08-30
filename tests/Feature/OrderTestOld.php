@@ -9,16 +9,15 @@ use Topdot\Product\Models\Product;
 
 class OrderTest extends TestCase
 {
-    public function test_example()
+    public function example()
     {
-        $this->markTestSkipped('skipped test');
 
         $response = $this->get('/');
 
         $response->assertStatus(200);
     }
 
-    public function test_featured_products_showing_on_homepage()
+    public function featured_products_showing_on_homepage()
     {
         // $notFeaturedProducts = Product::factory()->count(2)->notFeatured()->create();
         $featuredProdcuts = Product::factory()->count(2)->featured()->create();

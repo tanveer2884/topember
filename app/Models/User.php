@@ -20,6 +20,8 @@ class User extends ModelsUser
      */
     protected $fillable = [
         'name',
+        'first_name',
+        'last_name',
         'email',
         'password',
     ];
@@ -48,11 +50,11 @@ class User extends ModelsUser
         if ( $this->isCustomer() ){
             ResetPasswordNotification::createUrlUsing(function() use($token){
                 return route('user.reset-password',['token'=>$token,'email'=>$this->email]);
-            });    
+            });
             $this->notify(new ResetPasswordNotification($token));
             return;
         }
-        
+
         $this->notify(new ResetPasswordNotification($token));
     }
 }

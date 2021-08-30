@@ -1,26 +1,21 @@
 @extends('frontend.account.layouts.my-account')
 
-@section('meta_title','Change Password')
-@section('meta_description','')
+@section('meta_title', 'Change Password')
+@section('meta_description', '')
 
-@section('page-section')
+@section('account-page')
 
-<div class="div-float acc-right">
-    <div class="row mx-0 acc-right-header">
-        <div class="col-12 px-0">
-            <h2>Change Password</h2>
+    <div class="profile-main">
+        <div class="account-head">
+            <h1>Change Password</h1>
         </div>
-    </div>
-    <div class="row mx-0 acc-right-bottom">
-        <div class="col-12 px-0">
-            <div class="div-float acc-rb-inner">
+        <div class="profile-description">
+            <p>Sample Text Here Sample Text Here Sample Text Here Sample Text Here Sample Text Here Sample Text Here Sample Text Here Sample Text Here Sample Text Here Sample Text Here.</p>
 
-                <div class="div-float profile-form gnrl-form change-pass-wrap">
-                    <livewire:frontend.account.update-password-form />
-                </div>
+            <div class="account-form">
+                <livewire:frontend.account.update-password-form />
             </div>
         </div>
     </div>
-</div>
-
+    
 @endsection

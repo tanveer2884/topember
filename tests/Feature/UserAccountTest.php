@@ -61,7 +61,7 @@ class UserAccountTest extends TestCase
 
         Livewire::test(LoginController::class)
             ->set('username', $user->email)
-            ->set('password',1234568)
+            ->set('password',1234567)
             ->call('login')
             ->assertHasErrors('username');
     }

@@ -2,6 +2,8 @@
 
 use App\Models\Faq;
 use App\Models\User;
+
+use App\Models\State;
 use App\Models\Testimonial;
 use Topdot\Product\Models\Product;
 use Topdot\Category\Models\Category;
@@ -15,9 +17,9 @@ function cleanString($string)
 
 function states($columns = ['id','code'])
 {
-    // return State::select($columns)->get();
-    return collect();
+     return State::select($columns)->get();
 }
+
 
 function isCategory($slug)
 {
