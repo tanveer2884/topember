@@ -40,10 +40,11 @@ Route::middleware('auth')->as('user.')->group(function(){
     Route::get('update-password',PasswordController::class)->name('update-password');
     Route::resource('addresses',AddressBookController::class)->only(['index','create','edit']);
     // Route::get('notifications',NotificationController::class)->name('notifications');
-     Route::resource('payments',PaymentController::class)->only(['index','create']);
-     Route::resource('orders',OrderController::class)->only(['index','show']);
+    Route::resource('payments',PaymentController::class)->only(['index','create']);
+    Route::resource('orders',OrderController::class)->only(['index','show']);
 
 });
 
+Route::get('payment',[PaymentController::class, 'payment'])->name('payment');
 
 Route::any('/{page}', PageController::class)->where('page', '.*');
