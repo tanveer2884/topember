@@ -47,6 +47,37 @@
     @include('layouts.livewirejs')
     @include('frontend.layouts.toastr-events')
     @stack('page_js')
+
+<script>
+    // scroll animation
+    $(function() {
+        $('a[href*=\\#]:not([href=\\#])').on('click', function() {
+            var target = $(this.hash);
+            target = target.length ? target : $('[name=' + this.hash.substr(1) + ']');
+            if (target.length) {
+                $('html,body').animate({
+                    scrollTop: target.offset().top - 100
+                }, 1000);
+                return false;
+            }
+        });
+    });
+    // scroll animation
+    $('.close-alert').click(function() {
+        $('.alert').hide();
+    });
+    $('.consultation-butn').click(function() {
+
+        $('html,body').animate({
+            scrollTop: $('.success-message').offset().top -100
+        }, 500);
+        $("#consult-form").trigger('reset');
+        setTimeout(function() {
+            $('.alert').show();
+        }, 100);
+        return false;
+    });
+</script>
 </body>
 
 </html>
