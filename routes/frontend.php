@@ -13,10 +13,13 @@ use App\Http\Controllers\Frontend\Auth\ForgotPasswordController;
 use App\Http\Controllers\Frontend\Account\AddressBookController;
 use App\Http\Controllers\Frontend\Account\PaymentController;
 use App\Http\Controllers\Frontend\Account\OrderController;
+use App\Http\Controllers\Frontend\Cart\CheckoutController;
 
 Route::get('products/{categoryOrProductSlug?}', CategoryProductController::class)->name('product.index');
 
 Route::get('cart',CartController::class)->name('cart');
+Route::get('checkout',CheckoutController::class)->name('checkout');
+Route::get('confirm-order',CheckoutController::class)->name('confirm-order');
 
 /**
  * Authenticated Routes Only

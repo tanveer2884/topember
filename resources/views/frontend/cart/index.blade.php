@@ -20,20 +20,7 @@
                                 <!-- check-box -->
 
                                 <div class="my-cart-check-box">
-                                    <form>
-                                        <!-- <div class="form-group ch-box-1">
-                                                <input type="checkbox" id="html">
-                                                <label for="html">Do you need packing services?</label>
-                                            </div> -->
-                                        <div class="form-group ch-box-2">
-                                            <input type="checkbox" id="css">
-                                            <label for="css">Is this at Home?</label>
-                                        </div>
-                                        <div class="form-group ch-box-2">
-                                            <input type="checkbox" id="javascript">
-                                            <label for="javascript">Is this at Store?</label>
-                                        </div>
-                                    </form>
+                                    <livewire:frontend.cart.delivery-option />
                                 </div>
 
                             </div>
@@ -41,40 +28,10 @@
                         <div class="cart-scnd-container">
                             <div class="cart-scnd-wrapper div-float">
                                 <h2 class="order-summary-heading div-float">Order Summary</h2>
-                                <div class="order-summary-price div-float">
-                                    <p class="order-sum-price-1">Subtotal:</p>
-                                    <p class="order-sum-price-2">$89.98</p>
-                                    <p class="order-sum-price-1">Tax:</p>
-                                    <p class="order-sum-price-2">$4.99</p>
-                                    <p class="order-sum-price-1">Shipping:</p>
-                                    <p class="order-sum-price-2">$0</p>
-                                    <a href="javascript:void();" onclick="showDiscount()">Have a discount code?</a>
-                                    <div class="for-discount-wrap d-none div-float mb-3" id="oneTwo">
-                                        <form action="">
-                                            <!-- <div class="input-group mb-3">
-                                                    <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                                                    <div class="input-group-append sp-apply-btn">
-                                                        <button class="btn general-btn" type="button">Apply</button>
-                                                    </div>
-                                                </div> -->
-                                            <div class="input-group">
-                                                <input type="text" class="form-control" placeholder="Discount Code">
-                                                <div class="input-group-append">
-                                                    <button class="btn general-btn imp-btn-new" type="submit">Apply</button>
-                                                    <a href="javascript:void();" class="cross-up-discount" onclick="noDiscount()">x</a>
-                                                </div>
-                                            </div>
-                                            <div class="error d-none">Fill the required field</div>
-                                        </form>
-                                    </div>
-                                    <div class="hr hr-sp-class"></div>
-                                    <p class="order-sum-price-7">Total</p>
-                                    <p class="order-sum-price-8">$94.99</p>
-                                    <div class="hr hr-sp-class"></div>
-                                </div>
+                                <livewire:frontend.cart.order-summary />
                                 <div class="clearfix"></div>
                                 <div class="check-out-butn-wraper">
-                                    <a href="my-cart-billing.php" class="check-out-butn general-btn">CHECKOUT</a>
+                                    <a href="{{ route('checkout') }}" class="check-out-butn general-btn">CHECKOUT</a>
                                 </div>
                             </div>
                         </div>

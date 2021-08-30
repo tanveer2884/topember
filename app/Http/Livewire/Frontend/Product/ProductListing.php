@@ -116,7 +116,6 @@ class ProductListing extends Component
                 return $query->where('id', $this->category->id);
             });
         
-            // dd($this->filters);
         if ( count($this->filters) >0 ){
             foreach ($this->filters as $filter => $values) {
                 $query->whereHas('attributeValues',function($query) use($values){
@@ -132,7 +131,6 @@ class ProductListing extends Component
         if ( $this->priceMax > 0 ){
             $query->where('price','<=',$this->priceMax);
         }
-
 
         if ( $this->productsSortBy == 'best_selling' ){
             $query->addSelect(DB::raw('SUM(order_product.qty) as total_sales'))

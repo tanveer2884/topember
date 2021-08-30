@@ -200,10 +200,12 @@ class Product extends Model implements HasMedia, ContractsProduct
         return Product::whereHas('categories',function($query){
             return $query->whereIn('id',$this->categoryIds());
         })
+        ->where('id','<>',$this->id)
         ->active()
-        ->featured()
+        // ->featured()
         ->isAvailable()
         ->inStock()
+        ->limit(30)
         ->get();
     }
 

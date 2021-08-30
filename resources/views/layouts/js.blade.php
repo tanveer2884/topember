@@ -20,9 +20,9 @@
 <script src="https://cdn.tiny.cloud/1/tovotida9gox0op1hr84i592n0kd5bdpj2ze4lrlgg4x9vb1/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 
 <!-- Global Vendors -->
-<script src="{{ asset('js/manifest.js') }}"></script>
+{{-- <script src="{{ asset('js/manifest.js') }}"></script>
 <script src="{{ asset('js/vendor.js') }}"></script>
- <script src="{{ asset('js/app.js') }}"></script>
+ <script src="{{ asset('js/app.js') }}"></script> --}}
 <script>
     function confirmDelete() {
         return confirm("Are you Sure you want to delete?");
