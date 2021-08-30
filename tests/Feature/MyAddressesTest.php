@@ -2,18 +2,21 @@
 
 namespace Tests\Feature;
 
-use App\Http\Livewire\Frontend\Account\Address\CreateEditAddress;
-use App\Models\Address;
-use App\Models\User;
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
-use Illuminate\Support\Facades\Auth;
-use Livewire\Livewire;
-use Tests\Feature\Common\Login;
 use Tests\TestCase;
+use App\Models\User;
+use Livewire\Livewire;
+use App\Models\Address;
+use Tests\WithLoginUser;
+use Tests\Feature\Common\Login;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use App\Http\Livewire\Frontend\Account\Address\CreateEditAddress;
 
 class MyAddressesTest extends TestCase
 {
+    use WithLoginUser;
+    
     /**
      * A basic feature test example.
      *
@@ -49,17 +52,5 @@ class MyAddressesTest extends TestCase
             ->assertSee('email');
     }
 
-    private function login() {
-
-        $user = User::create([
-            'name' => 'John Smith',
-            'first_name' => 'John',
-            'last_name' => 'Smith',
-            'email' => 'jhon@test.com',
-            'password' => bcrypt('12345678')
-        ]);
-
-        $this->actingAs($user);
-
-    }
+   
 }

@@ -2,17 +2,20 @@
 
 namespace Tests\Feature;
 
-use App\Http\Livewire\Frontend\Order\OrderListing;
-use App\Models\User;
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
-use Illuminate\Support\Facades\Auth;
-use Livewire\Livewire;
 use Tests\TestCase;
+use App\Models\User;
+use Livewire\Livewire;
+use Tests\WithLoginUser;
 use Topdot\Order\Models\Order;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Foundation\Testing\WithFaker;
+use App\Http\Livewire\Frontend\Order\OrderListing;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class MyOrdersTest extends TestCase
 {
+    use WithLoginUser;
+    
     /**
      * A basic feature test example.
      *
@@ -53,27 +56,13 @@ class MyOrdersTest extends TestCase
         $order->payment_info_expiry = 1;
         $order->payment_info_card_type = 1;
         $order->payment_profile_id = 1;
-        $order->tracking_number = 1;
+        $order->tracking_number = 'test tracking number';
         $order->cart = '';
         $order->status = 1;
-       $order->save();
+        $order->save();
 
         Livewire::test(OrderListing::class)
             ->call('render')
-            ->assertSee('user_id');
-    }
-
-    private function login() {
-
-        $user = User::create([
-            'name' => 'John Smith',
-            'first_name' => 'John',
-            'last_name' => 'Smith',
-            'email' => 'jhon@test.com',
-            'password' => bcrypt('12345678')
-        ]);
-
-        $this->actingAs($user);
-
+            ->assertSee('test tracking number');
     }
 }
