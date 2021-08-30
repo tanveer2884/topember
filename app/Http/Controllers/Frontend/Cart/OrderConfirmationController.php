@@ -38,9 +38,8 @@ class OrderConfirmationController extends Controller
 
         self::$orderId = Order::getOrderId();
 
-        $response = collect();
+        /*$response = collect();
         $response->success = true;
-        /*here we sould place order with payment gateway*/
 
         if (!$response->success) {
             session()->flash('alert-danger', $response->message);
@@ -53,13 +52,13 @@ class OrderConfirmationController extends Controller
         unset($this->cartData['paymentProfile']);
         CartFacade::setExtraData($this->cartData);
         CouponCalculator::removeCoupon();
-        CartFacade::clear();
+        CartFacade::clear();*/
        // AbondendCart::clearCart();
 
        // Mail::send(new OrderCreated($order));
        // Mail::send(new OrderCreated($order,true));
 
-        return redirect()->route('thank-you', ['order_number' => $order->order_id]);
+        return redirect()->route('thank-you', ['order_number' => self::$orderId]);
     }
 
     public function updateStock()
