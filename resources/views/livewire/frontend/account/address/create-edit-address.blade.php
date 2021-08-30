@@ -87,7 +87,7 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <select wire:model.defer="state" id="" class="form-control">
-                        <option value="">Select Country</option>
+                        <option value="">Select State</option>
                         @foreach(states(['code','name']) as $state)
                             <option value="{{ $state->code }}"> {{ $state->name }} </option>
                         @endforeach
@@ -120,7 +120,7 @@
                 </div>
             </div>
             <div class="col-md-12">
-                <button type="submit" class="general-btn mt-2" wire:click="submit">
+                <button type="submit" class="general-btn mt-2 position-relative" wire:click="submit">
                     Submit
                     @include('layouts.livewire.button-loading')
                 </button>
