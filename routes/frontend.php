@@ -14,12 +14,16 @@ use App\Http\Controllers\Frontend\Account\AddressBookController;
 use App\Http\Controllers\Frontend\Account\PaymentController;
 use App\Http\Controllers\Frontend\Account\OrderController;
 use App\Http\Controllers\Frontend\Cart\CheckoutController;
+use App\Http\Controllers\Frontend\Cart\OrderConfirmationController;
 
 Route::get('products/{categoryOrProductSlug?}', CategoryProductController::class)->name('product.index');
 
 Route::get('cart',CartController::class)->name('cart');
-Route::get('checkout',CheckoutController::class)->name('checkout');
-Route::get('confirm-order',CheckoutController::class)->name('confirm-order');
+
+Route::get('checkout',[CheckoutController::class,'index'])->name('checkout');
+Route::post('checkout',[CheckoutController::class,'store'])->name('checkout.store');
+
+Route::get('confirm-order',[OrderConfirmationController::class,'index'])->name('confirm-order');
 
 /**
  * Authenticated Routes Only

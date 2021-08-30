@@ -4,21 +4,15 @@ namespace App\Http\Controllers\Frontend\Cart;
 
 use App\Http\Controllers\Controller;
 use Darryldecode\Cart\Facades\CartFacade;
-use Illuminate\Http\Request;
 
-class CheckoutController extends Controller
+class OrderConfirmationController extends Controller
 {
     public function index()
     {
         if (!CartFacade::isEmpty()) {
-            return view('frontend.cart.checkout');
+            return view('frontend.cart.confirm-order');
         }
 
         return redirect()->route('cart');
-    }
-
-    public function store(Request $request)
-    {
-
     }
 }

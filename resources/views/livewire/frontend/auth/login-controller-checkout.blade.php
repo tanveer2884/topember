@@ -20,7 +20,7 @@
             
                     <div class="col-sm-12">
                         <div class="form-group">
-                            <input type="password" class="form-control" wire:model.defer="password" id="exampleFormControlInput1" placeholder="Password">
+                            <input type="password" class="form-control" wire:model.defer="password" placeholder="Password">
                             @error('password')
                             <div class="error">
                                 {{ $message }}

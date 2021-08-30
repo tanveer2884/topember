@@ -914,34 +914,9 @@ class Cart
         );
     }
 
-    public function getBilling()
-    {
-        return optional($this->getExtraData())['billing'];
-    }
-
-    public function setBilling(array $billingInfo = [])
-    {
-        return $this->mergeExtraData([
-            'billing' => $billingInfo
-        ]);
-    }
-
-    public function setShipping()
-    {
-        return optional($this->getExtraData())['shipping'];
-    }
-
-    public function getShipping(array $billingInfo = [])
-    {
-        return $this->mergeExtraData([
-            'shipping' => $billingInfo
-        ]);
-    }
-
-
     public function getValue($key, $default = null)
     {
-        return optional($this->getExtraData())[$key]?:$default;
+        return optional($this->getExtraData())[$key] !== null ? optional($this->getExtraData())[$key] :$default;
     }
 
     public function setValue($key, $value)
