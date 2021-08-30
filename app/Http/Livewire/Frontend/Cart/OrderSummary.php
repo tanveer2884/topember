@@ -8,6 +8,7 @@ use Topdot\Coupon\Services\CouponCalculator;
 
 class OrderSummary extends Component
 {
+    public $hideCoupon;
     public $subTotal;
     public $tax;
     public $shipping;
@@ -20,8 +21,9 @@ class OrderSummary extends Component
         'update-order-summary' => 'render'
     ];
 
-    public function mount($sidebar=true)
+    public function mount($sidebar=true, $hideCoupon=false)
     {
+        $this->hideCoupon = $hideCoupon;
         $this->sidebar = $sidebar;
         $this->setVariables();
     }

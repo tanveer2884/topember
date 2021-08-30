@@ -15,6 +15,7 @@ use App\Http\Controllers\Frontend\Account\PaymentController;
 use App\Http\Controllers\Frontend\Account\OrderController;
 use App\Http\Controllers\Frontend\Cart\CheckoutController;
 use App\Http\Controllers\Frontend\Cart\OrderConfirmationController;
+use App\Http\Controllers\Frontend\Cart\ThankuController;
 
 Route::get('products/{categoryOrProductSlug?}', CategoryProductController::class)->name('product.index');
 
@@ -24,7 +25,8 @@ Route::get('checkout',[CheckoutController::class,'index'])->name('checkout');
 Route::post('checkout',[CheckoutController::class,'store'])->name('checkout.store');
 
 Route::get('confirm-order',[OrderConfirmationController::class,'index'])->name('confirm-order');
-
+Route::post('confirm-order',[OrderConfirmationController::class,'store'])->name('confirm-order.store');
+Route::get('thank-you',ThankuController::class)->name('thank-you');
 /**
  * Authenticated Routes Only
  */

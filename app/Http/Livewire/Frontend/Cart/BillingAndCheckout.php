@@ -51,7 +51,6 @@ class BillingAndCheckout extends Component
 
     public function saveBillingAndShipping()
     {
-        
         $this->validate($this->getBillingShippingRules('shipping'));
 
         if ( !$this->isShippingBillingSame ){
@@ -59,7 +58,6 @@ class BillingAndCheckout extends Component
         }
 
         $this->validate($this->getPaymentRules());
-
 
         CartFacade::setValue('is_shipping_billing_same',$this->isShippingBillingSame);
 
@@ -69,10 +67,10 @@ class BillingAndCheckout extends Component
         }
 
         $this->savePaymentInfo();
-        
-        $this->emit('alert-success','Cart Saved');
-        // return redirect()->route('confirm-order');
-        
+
+        $this->emit('alert-success','Cart Saved.');
+         return redirect()->route('confirm-order');
+
     }
 
     public function getAddresses()

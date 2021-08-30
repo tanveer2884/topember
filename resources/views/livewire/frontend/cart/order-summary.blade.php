@@ -15,12 +15,14 @@
         <p class="{{ !$sidebar?'order-pay-1':'order-sum-price-1' }}">Discount:</p>
         <p class="{{ !$sidebar?'order-pay-2':'order-sum-price-2' }} ">${{ number_format($discount,2) }}</p>
         @endif
-    
-        <a href="javascript:void(0);" class="{{ !$sidebar ? 'float-right' :'' }}" wire:click="$emit('toggleCoupon')">Have a discount code?</a>
-        <div class="for-discount-wrap {{ $isCouponApplied ? '' : 'd-none' }} div-float mb-4" wire:ignore id="oneTwo">
-            <livewire:frontend.cart.coupon-code />
-        </div>
-    
+
+        @if(!$hideCoupon)
+            <a href="javascript:void(0);" class="{{ !$sidebar ? 'float-right' :'' }}" wire:click="$emit('toggleCoupon')">Have a discount code?</a>
+            <div class="for-discount-wrap {{ $isCouponApplied ? '' : 'd-none' }} div-float mb-4" wire:ignore id="oneTwo">
+                <livewire:frontend.cart.coupon-code />
+            </div>
+        @endif
+
         <div class="{{ $sidebar ? 'hr hr-sp-class' : 'hr hr-sp-pay' }}"></div>
         <p class="{{ !$sidebar?'order-pay-7':'order-sum-price-7' }}">Total</p>
         <p class="{{ !$sidebar?'order-pay-8':'order-sum-price-8' }}">${{ number_format($total,2) }}</p>
