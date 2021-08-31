@@ -58,7 +58,7 @@
                 @if($order->cart)
                     @foreach($order->cart as $cartItem)
                         <div class="order-place div-float">
-                        <h3 class="order-place-head div-float">Your Order ({{$cartItem->count()}} Item(s))</h3>
+                        <h3 class="order-place-head div-float">Your Order ({{$order->cart->count()}} Items)</h3>
                         <div class="order-place-pic" style="background-image:url('{{ $cartItem->associatedModel->feature_image }}')"></div>
                         <div class="order-place-text">
                             <a href="#" class="order-place-anchor">{{ $cartItem->name }}</a>
