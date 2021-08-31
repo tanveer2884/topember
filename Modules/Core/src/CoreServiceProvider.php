@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Topdot\Core;
 
@@ -13,6 +13,7 @@ use Topdot\Core\Http\Livewire\ImagePreviewComponent;
 use Topdot\Core\Http\Livewire\StatusToggleComponent;
 use Topdot\Core\Http\Livewire\TempFileUploadComponent;
 use Topdot\Core\Http\Middleware\CheckUserPermission;
+use Topdot\Core\Http\Livewire\ManufactureTableComponent;
 
 class CoreServiceProvider extends ServiceProvider
 {
@@ -48,6 +49,7 @@ class CoreServiceProvider extends ServiceProvider
         Livewire::component('slug-generator',SlugGenerator::class);
         Livewire::component('temp-file-upload-component',TempFileUploadComponent::class);
         Livewire::component('image-preview-component',ImagePreviewComponent::class);
+        Livewire::component('manufacture-table-component',ManufactureTableComponent::class);
     }
 
     private function setUpRoutes()

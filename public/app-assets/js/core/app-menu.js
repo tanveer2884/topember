@@ -209,15 +209,15 @@
         });
       }
 
-      // Added data attribute brand-center for navbar-brand-center
+      // Added data attribute Manufacture-center for navbar-Manufacture-center
       // TODO:AJ: Shift this feature in JADE.
       if ($('.header-navbar').hasClass('navbar-brand-center')) {
-        $('.header-navbar').attr('data-nav', 'brand-center');
+        $('.header-navbar').attr('data-nav', 'Manufacture-center');
       }
       if (currentBreakpoint.name == 'sm' || currentBreakpoint.name == 'xs') {
-        $('.header-navbar[data-nav=brand-center]').removeClass('navbar-brand-center');
+        $('.header-navbar[data-nav=Manufacture-center]').removeClass('navbar-brand-center');
       } else {
-        $('.header-navbar[data-nav=brand-center]').addClass('navbar-brand-center');
+        $('.header-navbar[data-nav=Manufacture-center]').addClass('navbar-brand-center');
       }
       // On screen width change, current active menu in horizontal
       if (currentBreakpoint.name == 'xl' && menuType == 'horizontal-menu') {

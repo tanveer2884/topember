@@ -9,6 +9,7 @@ use Topdot\Core\Http\Controllers\UserRoleController;
 use Topdot\Core\Http\Controllers\UserCsvExportController;
 use Topdot\Core\Http\Controllers\RolePermissionController;
 use Topdot\Core\Http\Controllers\UserImportController;
+use Topdot\Core\Http\Controllers\ManufactureController;
 
 Route::resource('settings', SettingsController::class)->only('index','store');
 Route::resource('profile', ProfileController::class)->only('index', 'store');
@@ -21,3 +22,4 @@ Route::resource('users.roles', UserRoleController::class)->only('index', 'store'
 Route::get('users/export/csv', UserCsvExportController::class)->name('users.export.csv');
 Route::get('samplefile', [UserImportController::class,'download'])->name('samplefile');
 Route::get('errors-file', [UserImportController::class,'downloadErrors'])->name('errors-file');
+Route::resource('manufactures', ManufactureController::class);

@@ -16,7 +16,7 @@ class ProductRepository implements CanFilterRecords, ContractsProductRepository
 
     public function __construct(Product $product)
     {
-        $this->product = $product;    
+        $this->product = $product;
     }
 
     public function get(Request $request, $paginate = 50, $sortOrder = 'Asc', $orderBy = 'id')
@@ -55,6 +55,7 @@ class ProductRepository implements CanFilterRecords, ContractsProductRepository
             'short_description' => $request->short_description,
             'description' => $request->description,
             'price' => $request->price,
+            'manufacturer_id' => $request->manufacturer_id,
             'special_price' => $request->special_price ?? 0,
             'special_start_at' => $request->special_start_at,
             'special_end_at' => $request->special_end_at,
@@ -92,6 +93,7 @@ class ProductRepository implements CanFilterRecords, ContractsProductRepository
             'short_description' => $request->short_description,
             'description' => $request->description,
             'price' => $request->price,
+            'manufacturer_id' => $request->manufacturer_id,
             'special_price' => $request->special_price ?? 0,
             'special_start_at' => $request->special_start_at,
             'special_end_at' => $request->special_end_at,

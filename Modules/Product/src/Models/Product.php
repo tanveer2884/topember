@@ -16,6 +16,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Jorenvh\Share\Share;
 use Jorenvh\Share\ShareFacade;
 use Topdot\Category\Models\Category;
+use Topdot\Core\Models\Manufacturer;
 use Topdot\Product\Contracts\Product as ContractsProduct;
 
 class Product extends Model implements HasMedia, ContractsProduct
@@ -23,7 +24,7 @@ class Product extends Model implements HasMedia, ContractsProduct
     use HasFactory, InteractsWithMedia, HasSlug, JsonColumn;
 
     protected $guarded = [];
-     
+
     protected $casts = [
         'special_end_at' => 'datetime',
         'special_start_at' => 'datetime',
@@ -34,7 +35,7 @@ class Product extends Model implements HasMedia, ContractsProduct
     {
         return $builder->where('is_active',true);
     }
-    
+
     public function scopeFeatured(Builder $builder)
     {
         return $builder->where('is_featured',true);
@@ -49,7 +50,7 @@ class Product extends Model implements HasMedia, ContractsProduct
     {
         return $builder->where('products.qty','>',0);
     }
-    
+
     public function scopeHomepage(Builder $builder)
     {
         return $builder->where('is_show_on_homepage',true);
@@ -59,7 +60,11 @@ class Product extends Model implements HasMedia, ContractsProduct
     {
         return $this->belongsToMany(Category::class);
     }
-    
+
+    public function manufacture() {
+        return $this->belongsTo(Manufacturer::class, 'manufacturer_id');
+    }
+
     public function attributes()
     {
         return $this->belongsToMany(Attribute::class);

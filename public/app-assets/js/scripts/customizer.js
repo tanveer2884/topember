@@ -37,7 +37,7 @@
     "theme-warning": "#ff9f43",
     "theme-dark": "#adb5bd"
   }
-  // Brand Logo Poisitons
+  // Manufacture Logo Poisitons
   var LogoPosition = {
     "theme-primary": "-65px -54px",
     "theme-success": "-120px -10px",
@@ -58,7 +58,7 @@
     toggleIcon = $(".toggle-icon"),
     collapseSidebar = $("#collapse-sidebar-switch"),
     customizer = $(".customizer"),
-    brandLogo = $(".brand-logo");
+    brandLogo = $(".Manufacture-logo");
 
   // Customizer toggle & close button click events  [Remove customizer code from production]
   $('.customizer-toggle').on('click', function (e) {
@@ -130,7 +130,7 @@
       }
     }
     // Text with logo
-    $(".brand-text").css("color", selectedTextColor);
+    $(".Manufacture-text").css("color", selectedTextColor);
     // toggle icon
     toggleIcon.removeClass("primary").css("color", selectedTextColor);
     // Changes logo color

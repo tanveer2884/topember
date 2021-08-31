@@ -92,10 +92,29 @@
                                                 @endforeach
                                             </select>
                                             <div class="text-danger" v-if="errors.has('categories')" v-cloak>
-                                               
+
                                             </div>
                                         </div>
                                     </div>
+
+                                    <div class="row form-group">
+                                        <div class="col-md-2">
+                                            <label>Manufacturers</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <select name="manufacturer_id" id="" class="form-control selectpicker">
+                                                <option value="">Select Manufacturers</option>
+                                                @foreach(manufacturers() as $manufacturer)
+                                                    <option value="{{ $manufacturer->id }}">{{ $manufacturer->name }}</option>
+                                                @endforeach
+                                            </select>
+                                            <div class="text-danger" v-if="errors.has('categories')" v-cloak>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+
                                     <div class="row form-group">
                                         <div class="col-md-2">
                                             <label>Quantity <i class="text-danger">*</i></label>
@@ -179,7 +198,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    
+
                                     <div class="row form-group">
                                         <div class="col-md-2">
                                             <label>Show On Homepage</label>

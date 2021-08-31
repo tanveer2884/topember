@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-md-12">
                 <nav class="navbar navbar-expand-lg">
-                    <!-- Brand -->
+                    <!-- Manufacture -->
                     <a class="navbar-brand" href="/">
                         <img src="/images/box-store-logo.png" alt="The Box Store" />
                     </a>

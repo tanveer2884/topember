@@ -57,7 +57,7 @@
                             <h4 class="color-blue">${{ number_format($product->getPrice()) }}</h4>
                             <div class="manufacturer">
                                 <h6>Manufacturer:</h6>
-                                <img src="/images/product-detail.png" alt="Manufacturer">
+                                <img src="{{$product->manufacture->getImage()}}" alt="{{$product->manufacture->name}}">
                             </div>
                             <p>
                                 {!! $product->short_description !!}
@@ -152,7 +152,7 @@
             </div>
         </section>
     @endif
-    
+
 @endsection
 
 @push('page_css')
@@ -181,7 +181,7 @@
        focusOnSelect: true,
        arrows: false,
 
-       responsive: [ 
+       responsive: [
            {
            breakpoint: 1200,
                settings: {
@@ -226,10 +226,10 @@
        dots: false,
        autoplay: true,
        slidesToShow: 4,
-       slidesToScroll: 1,   
+       slidesToScroll: 1,
        adaptiveHeight: true,
 
-       responsive: [ 
+       responsive: [
            {
            breakpoint: 1200,
                settings: {
@@ -253,6 +253,6 @@
            }
        ]
 
-   }); 
+   });
 </script>
 @endpush
