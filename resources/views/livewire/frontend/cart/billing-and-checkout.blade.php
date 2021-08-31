@@ -8,7 +8,7 @@
             <div class="col-sm-12">
                 <div class="form-group">
                     <!-- <label for="exampleFormControlSelect1">select from save adress</label> -->
-                    <select wire:model.defer="shipping_address_id" class="form-control" id="exampleFormControlSelect1">
+                    <select wire:model.defer="shipping_address_id" wire:change="selectShipping" class="form-control" id="exampleFormControlSelect1">
                         <option>Select from saved addresses</option>
                         @foreach ($addresses as $address)
                             <option value="{{ $address->id }}"> {{ $address->nickname }} </option>
@@ -85,7 +85,7 @@
             @if (auth()->check() && $addresses->isNotEmpty())
                 <div class="col-sm-12">
                     <div class="form-group">
-                        <select wire:model.defer="billing_address_id" class="form-control" id="">
+                        <select wire:model.defer="billing_address_id" wire:change="selectBilling" class="form-control" id="">
                             <option>Select from saved addresses</option>
                             @foreach ($addresses as $address)
                                 <option value="{{ $address->id }}"> {{ $address->nickname }} </option>
@@ -162,7 +162,7 @@
                 </div>
             </div>
         @endif
-        
+
         <div class="col-sm-12">
             <div class="form-group">
                 <input type="text" wire:model.defer="card_number" class="card_number form-control" placeholder="Credit Card Number">

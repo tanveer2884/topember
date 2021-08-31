@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Frontend\Cart;
 
+use App\Models\Address;
 use Darryldecode\Cart\Facades\CartFacade;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
@@ -47,6 +48,32 @@ class BillingAndCheckout extends Component
             'addresses' => $this->getAddresses(),
             'payments' => collect()
         ]);
+    }
+
+    public function selectShipping() {
+
+        $address = Address::find($this->shipping_address_id);
+
+        $this->shipping_first_name = $address->first_name ?? '';
+        $this->shipping_last_name = $address->last_name ?? '';
+        $this->shipping_address = $address->address ?? '';
+        $this->shipping_state = $address->state ?? '';
+        $this->shipping_city = $address->city ?? '';
+        $this->shipping_zip_code = $address->zipCode ?? '';
+
+    }
+
+    public function selectBilling() {
+
+        $address = Address::find($this->billing_address_id);
+
+        $this->billing_first_name = $address->first_name ?? '';
+        $this->billing_last_name = $address->last_name ?? '';
+        $this->billing_address = $address->address ?? '';
+        $this->billing_state = $address->state ?? '';
+        $this->billing_city = $address->city ?? '';
+        $this->billing_zip_code = $address->zipCode ?? '';
+
     }
 
     public function saveBillingAndShipping()

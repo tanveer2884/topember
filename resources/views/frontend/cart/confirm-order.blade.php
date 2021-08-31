@@ -50,9 +50,9 @@
                                     <div class="payment-method-wrapper w-100">
                                         <div class="shipping-adress-details w-100">
                                             <h3 class="adress-details-head">Billing Address</h3>
-                                            <p class="adress-details-para">{{ optional($billingInfo)->first_name }} {{ optional($billingInfo)->last_name }}</p>
-                                            <p class="adress-details-para">{{ optional($billingInfo)->address }}, {{ optional($billingInfo)->state }}</p>
-                                            <p class="adress-details-para">{{ optional($billingInfo)->city }} {{ optional($billingInfo)->zip_code }}</p>
+                                            <p class="adress-details-para">{{ optional($billingInfo)->first_name ?? optional($shippingInfo)->first_name }} {{ optional($billingInfo)->last_name ?? optional($shippingInfo)->last_name }}</p>
+                                            <p class="adress-details-para">{{ optional($billingInfo)->address ?? optional($shippingInfo)->address }}, {{ optional($billingInfo)->state ?? optional($shippingInfo)->state }}</p>
+                                            <p class="adress-details-para">{{ optional($billingInfo)->city ?? optional($shippingInfo)->city }} {{ optional($billingInfo)->zip_code ?? optional($shippingInfo)->zip_code }}</p>
                                             <p class="adress-details-para">United States</p>
                                         </div>
                                         <!-- <div class="shipping-adress-butn">
@@ -90,23 +90,6 @@
                             <div class="order-confirm-wrapper order-place-summary div-float">
                                 <div class="shipping-form-inputs sp-wid-dev">
                                     <livewire:frontend.cart.order-summary :hideCoupon="true"/>
-                                   {{-- <div class="pay-oder-detail-wrap div-float">
-                                        <div class="pay-oder-detail-left">
-                                            <p class="order-pay-1 ord-plc-left">Subtotal:</p>
-                                            <p class="order-pay-2 ord-plc-right">$89.98</p>
-                                            <p class="order-pay-3 ord-plc-left">Tax:</p>
-                                            <p class="order-pay-4 ord-plc-right">$4.99</p>
-                                            <p class="order-pay-5 ord-plc-left">Shipping:</p>
-                                            <p class="order-pay-6 ord-plc-right">$0</p>
-                                            <p class="order-pay-5 ord-plc-left">Discount:</p>
-                                            <p class="order-pay-6 ord-plc-right">$0</p>
-                                            <div class="hr hr-sp-pay ord-plc-line"></div>
-                                            <p class="order-pay-7 ord-plc-left">Total</p>
-                                            <p class="order-pay-8 ord-plc-right">$94.99</p>
-                                            <div class="hr hr-sp-pay ord-plc-line"></div>
-                                        </div>
-                                    </div>--}}
-
                                     <!-- continue-button -->
                                     <div class="cart-pay-butn div-float">
                                         <form action="{{route('confirm-order.store')}}" method="post">

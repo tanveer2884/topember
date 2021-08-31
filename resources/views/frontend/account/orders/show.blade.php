@@ -45,7 +45,7 @@
                         <div class="shipping-adress-details">
                             <h3 class="adress-details-head">Billing Address</h3>
                             <p class="adress-details-para mb-3">
-                                {{ $order->billing_name ?? $order->shipping_name ?? ''}}<br/>
+                                {{ $order->billing_name ?? $order->shipping_name}}<br/>
                                 {{ $order->billing_address ?? $order->shipping_address ?? '' }} {{ $order->billing_address2 ?? $order->shipping_address2 ?? '' }}<br/>
                                 {{ $order->billing_city ?? $order->shipping_city ?? ''}}, {{ $order->billing_state ?? $order->shipping_state ?? '' }}, {{ $order->billing_zipCode ?? $order->shipping_zipCode ?? '' }}<br/>
                                 United States<br/>
@@ -79,12 +79,22 @@
 
                     <div class="pay-oder-detail-wrap div-float">
                         <div class="pay-oder-detail-left">
-                            <p class="order-pay-1 ord-plc-left">Subtotal:</p>
-                            <p class="order-pay-2 ord-plc-right">${{ number_format($order->subtotal,2) }}</p>
-                            <p class="order-pay-3 ord-plc-left">Tax:</p>
-                            <p class="order-pay-4 ord-plc-right">${{ number_format($order->tax,2) }}</p>
-                            <p class="order-pay-5 ord-plc-left">Shipping:</p>
-                            <p class="order-pay-6 ord-plc-right">${{ number_format($order->shipping,2) }}</p>
+                            @if($order->subtotal)
+                                <p class="order-pay-1 ord-plc-left">Subtotal:</p>
+                                <p class="order-pay-2 ord-plc-right">${{ number_format($order->subtotal,2) }}</p>
+                            @endif
+                            @if($order->tax)
+                                <p class="order-pay-3 ord-plc-left">Tax:</p>
+                                <p class="order-pay-4 ord-plc-right">${{ number_format($order->tax,2) }}</p>
+                            @endif
+                            @if($order->shipping)
+                                <p class="order-pay-5 ord-plc-left">Shipping:</p>
+                                <p class="order-pay-6 ord-plc-right">${{ number_format($order->shipping,2) }}</p>
+                            @endif
+                            @if($order->discount)
+                                <p class="order-pay-5 ord-plc-left">Discount:</p>
+                                <p class="order-pay-6 ord-plc-right">${{ number_format($order->discount,2) }}</p>
+                            @endif
                             <div class="hr hr-sp-pay ord-plc-line"></div>
                             <p class="order-pay-7 ord-plc-left">Total</p>
                             <p class="order-pay-8 ord-plc-right">${{ number_format($order->total,2) }}</p>
