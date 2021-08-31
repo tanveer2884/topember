@@ -9,7 +9,7 @@
         <div class="thanks-alert-wrapper">
             <h2 class="thanks-heading">Thank You</h2>
             <p class="thanks-para-bold">
-                We received your order AUK 12345678<br>
+                We received your order {{request('order_number', '')}}<br>
                 and it is in process.
             </p>
             <p class="thanks-para-light">

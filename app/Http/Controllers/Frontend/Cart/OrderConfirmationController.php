@@ -28,7 +28,6 @@ class OrderConfirmationController extends Controller
 
         $this->initializeCartData();
 
-       // dd($this->cartData);
         return view('frontend.cart.confirm-order')->with($this->cartData);
     }
 
@@ -38,8 +37,7 @@ class OrderConfirmationController extends Controller
 
         self::$orderId = Order::getOrderId();
 
-        /*$response = collect();
-        $response->success = true;
+        $response = $this->payOrder();
 
         if (!$response->success) {
             session()->flash('alert-danger', $response->message);
@@ -52,13 +50,13 @@ class OrderConfirmationController extends Controller
         unset($this->cartData['paymentProfile']);
         CartFacade::setExtraData($this->cartData);
         CouponCalculator::removeCoupon();
-        CartFacade::clear();*/
+        CartFacade::clear();
        // AbondendCart::clearCart();
 
        // Mail::send(new OrderCreated($order));
        // Mail::send(new OrderCreated($order,true));
 
-        return redirect()->route('thank-you', ['order_number' => self::$orderId]);
+        return redirect()->route('thank-you', ['order_number' => $order->order_id]);
     }
 
     public function updateStock()
@@ -82,14 +80,13 @@ class OrderConfirmationController extends Controller
             $couponId = $couponRecord->id;
         }
 
-        $billingInfo = (array) $this->getBillingDetailsFormatted();
-        $shippingInfo = (array) $this->getShippingDetailsFormatted();
-        $paymentProfile = $this->cartData['paymentMethod'] == 'pay-with-card' ? (array) $this->getPaymentProfileFormatted() : [];
+        $billingInfo = (array) CartFacade::getValue('billing', []);
+        $shippingInfo = (array) CartFacade::getValue('shipping', []);
+        $paymentProfile = CartFacade::getValue('payment', []);
         $isBillingAndShippingSame = $this->cartData['is_shipping_billing_same'];
 
         $order = Order::create([
             'user_id' => ( $this->cartData['created_by_user'] && $this->cartData['created_by_user'] != 'guest' ) ? $this->cartData['created_by_user'] : Auth::id() ,
-            'created_by' => Auth::check() ? Auth::id() : null,
             'order_id' => self::$orderId,
             'coupon_id' => $couponId,
             'subtotal' => CartFacade::getSubTotalWithoutConditions(),
@@ -102,21 +99,19 @@ class OrderConfirmationController extends Controller
             'shipping_address2' => optional($shippingInfo)['address2'],
             'shipping_city' => optional($shippingInfo)['city'],
             'shipping_state' => optional($shippingInfo)['state'],
-           // 'shipping_email' => $this->cartData['contactInfo'],
+            'shipping_email' => $this->cartData['contactInfo'],
             'shipping_phone' => optional($shippingInfo)['phone'],
             'shipping_zipCode' => optional($shippingInfo)['zip_code'],
-
             'billing_name' => optional($billingInfo)['name'],
             'billing_address' => optional($billingInfo)['address'],
             'billing_address2' => optional($billingInfo)['address2'],
             'billing_city' => optional($billingInfo)['city'],
             'billing_state' => optional($billingInfo)['state'],
-            //'billing_email' => $this->cartData['contactInfo'],
+            'billing_email' => $this->cartData['contactInfo'],
             'billing_phone' => optional($billingInfo)['phone'],
             'billing_zipCode' => optional($billingInfo)['zip_code'],
             'is_billing_same_as_shipping' => $isBillingAndShippingSame ? true :false,
 
-            'payment_method' => $this->cartData['paymentMethod'],
             'payment_info_name' => optional($paymentProfile)['name'],
             'payment_info_card_number' => optional($paymentProfile)['card_number'] ? substr(optional($paymentProfile)['card_number'], -4) : null,
             'payment_info_expiry' => optional($paymentProfile)['expiry'],
@@ -187,13 +182,35 @@ class OrderConfirmationController extends Controller
         ];
     }
 
+    private function payOrder()
+    {
+        /**
+         * Check if order is created by user
+         */
+        $paymentProfile = CartFacade::getValue('payment', []);
+        $billingInfo = (array) CartFacade::getValue('billing', []);
+        $shippingInfo = (array) CartFacade::getValue('shipping', []);
+        $isBillingAndShippingSame = $this->cartData['is_shipping_billing_same'];
+
+        return (object) [
+            'success' => true,
+            'message' => 'Order has been placed successfully.',
+        ];
+
+    }
+
     private function initializeCartData()
     {
+        $cartData = CartFacade::getExtraData();
         $this->cartData = [
             'products' => (object) CartFacade::getContent(),
+            'created_by_user' => optional($cartData)['created_by_user'],
             'paymentProfile' => (object) CartFacade::getValue('payment', []),
+            'paymentMethod' => optional($cartData)['paymentMethod'],
             'shippingInfo' => (object) CartFacade::getValue('shipping', []),
             'billingInfo' => (object) CartFacade::getValue('billing', []),
+           // 'contactInfo' => (object) CartFacade::getValue('contact_info', []),
+            'contactInfo' => optional(CartFacade::getExtraData())['contact_info'],
             'is_shipping_billing_same' => CartFacade::getValue('is_shipping_billing_same',true),
         ];
     }

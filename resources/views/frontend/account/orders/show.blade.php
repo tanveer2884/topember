@@ -45,12 +45,12 @@
                         <div class="shipping-adress-details">
                             <h3 class="adress-details-head">Billing Address</h3>
                             <p class="adress-details-para mb-3">
-                                {{ $order->billing_name ?? ''}}<br/>
-                                {{ $order->billing_address }} {{ $order->billing_address2 }}2<br/>
-                                {{ $order->billing_city }}, {{ $order->billing_state }}, {{ $order->billing_zipCode }}<br/>
+                                {{ $order->billing_name ?? $order->shipping_name ?? ''}}<br/>
+                                {{ $order->billing_address ?? $order->shipping_address ?? '' }} {{ $order->billing_address2 ?? $order->shipping_address2 ?? '' }}<br/>
+                                {{ $order->billing_city ?? $order->shipping_city ?? ''}}, {{ $order->billing_state ?? $order->shipping_state ?? '' }}, {{ $order->billing_zipCode ?? $order->shipping_zipCode ?? '' }}<br/>
                                 United States<br/>
-                                {{ $order->billing_phone }} <br/><br/>
-                                {{ $order->billing_email }}
+                                {{ $order->billing_phone ?? $order->shipping_phone ?? ''}} <br/><br/>
+                                {{ $order->billing_email ?? $order->shipping_email ?? '' }}
                             </p>
                         </div>
                     </div>
