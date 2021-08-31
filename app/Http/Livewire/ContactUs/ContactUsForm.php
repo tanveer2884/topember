@@ -33,6 +33,7 @@ class ContactUsForm extends Component
         ]);
 
         Mail::send(new ContactUs($data));
+
         $this->emit('alert-success', 'Your Form Submitted Successfully.');
         $this->initializeInputs();
 

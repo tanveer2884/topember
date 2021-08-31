@@ -43,7 +43,7 @@
             </div>
         </div>
         <div class="cart-ship-butn div-float">
-            <button type="button" class="contact-submit-butn general-btn" wire:click="submit">
+            <button type="button" class="contact-submit-butn general-btn position-relative" wire:click="submit">
                 Submit
                 @include('layouts.livewire.button-loading')
             </button>
