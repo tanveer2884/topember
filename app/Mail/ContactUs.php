@@ -31,7 +31,7 @@ class ContactUs extends Mailable
     public function build()
     {
         return $this->markdown('emails.ContactUs')
-            ->to( getGeneralSetting('contact_us_email',config('bt.emails.default.address')) )
-            ->subject('Contact Us Form');
+            ->to( getGeneralSetting('contact_us_email', getGeneralSetting('site_title')) )
+            ->subject('Contact Us Form.');
     }
 }

@@ -6,5 +6,5 @@
 @endforeach
 
 Thanks,<br>
-{{ config('app.name') }}
+{{ getGeneralSetting('site_title') }}
 @endcomponent
