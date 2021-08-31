@@ -24,13 +24,13 @@
                                     Services
                                 </a>
                                 <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="#">Shipping Services</a>
-                                    <a class="dropdown-item" href="#">Packing Services</a>
-                                    <a class="dropdown-item" href="#">Moving Consultations</a>
-                                    <a class="dropdown-item" href="#">Valet Storage</a>
-                                    <a class="dropdown-item" href="#">Mailbox Rentals</a>
-                                    <a class="dropdown-item" href="#">Amazon Package Pickup</a>
-                                    <a class="dropdown-item" href="#">Conference Room</a>
+                                    <a class="dropdown-item" href="{{url('shipping-services')}}">Shipping Services</a>
+                                    <a class="dropdown-item" href="{{url('packing-services')}}">Packing Services</a>
+                                    <a class="dropdown-item" href="{{url('moving-consultations')}}">Moving Consultations</a>
+                                    <a class="dropdown-item" href="{{url('valet-storage')}}">Valet Storage</a>
+                                    <a class="dropdown-item" href="{{url('mail-box')}}">Mailbox Rentals</a>
+                                    <a class="dropdown-item" href="{{url('amazon-package')}}">Amazon Package Pickup</a>
+                                    <a class="dropdown-item" href="{{url('mail-box')}}">Conference Room</a>
                                 </div>
                             </li>
                             <li class="nav-item">
