@@ -13,7 +13,7 @@ class CartItem extends Component
 
     public function mount($cartProduct)
     {
-        $this->cartProduct = $cartProduct; 
+        $this->cartProduct = $cartProduct;
     }
 
     public function render()
@@ -28,28 +28,53 @@ class CartItem extends Component
             $this->emit('alert-danger','Quantity limit exceeded');
             return;
         }
-        
+
         CartFacade::update($id,[
             'quantity' => '+1'
         ]);
+
+        $this->quantity = $this->quantity+1;
 
         $this->emit('alert-success','Quantity Updated');
         $this->emit('cart-updated');
         $this->emit('update-order-summary');
     }
-    
+
     public function decreaseQty()
     {
         $id = $this->cartProduct->id;
         if ( CartFacade::get($id)->quantity <=1 ){
-            $this->emit('alert-danger','Quantity cannot be zero');
+            $this->emit('alert-danger','Quantity cannot be zero.');
             return;
         }
-        
+
         CartFacade::update($id,[
             'quantity' => '-1'
         ]);
-        $this->emit('alert-success','Quantity Updated');
+
+        $this->quantity = $this->quantity-1;
+
+        $this->emit('alert-success','Quantity Updated.');
+        $this->emit('cart-updated');
+        $this->emit('update-order-summary');
+    }
+
+    public function updateQty($quantity=0) {
+
+        if ( $quantity < 1 ){
+            $this->emit('alert-danger','Quantity cannot be zero.');
+            return;
+        }
+
+
+        CartFacade::update($this->cartProduct->id,[
+            'quantity' => [
+                'value' => $quantity,
+                'relative' => false
+            ]
+        ]);
+
+        $this->emit('alert-success','Quantity Updated.');
         $this->emit('cart-updated');
         $this->emit('update-order-summary');
     }

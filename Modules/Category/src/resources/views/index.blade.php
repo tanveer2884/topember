@@ -56,9 +56,9 @@
                                                     </button>
                                                     <div class="dropdown-menu dropdown-menu-right dropright">
 
-                                                        <a href="{{ route(config('category.routeNamePrefix').'categories.show',$category) }}" title="View Category" class="dropdown-item w-100">
+                                                        {{--<a href="{{ route(config('category.routeNamePrefix').'categories.show',$category) }}" title="View Category" class="dropdown-item w-100">
                                                             <i class="fa fa-eye"></i> View
-                                                        </a>
+                                                        </a>--}}
 
                                                         <a href="{{ route(config('category.routeNamePrefix').'categories.edit',$category) }}" title="Edit Category" class="dropdown-item w-100">
                                                             <i class="fa fa-edit"></i> Edit

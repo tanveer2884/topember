@@ -14,7 +14,7 @@
 @push('page_js')
     <script>
         window.addEventListener('DOMContentLoaded',function(){
-            
+
             @this.on('increaseQty',function(){
                 let qtybox = '#productQtybox{{$product->id}}';
                 if ( $(qtybox).val() < {{$product->qty}} ){

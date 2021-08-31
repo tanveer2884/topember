@@ -11,7 +11,7 @@
     <td>
         <div class="quantity-input-cont">
             <span class="input-number-decrement" wire:click="decreaseQty">–</span>
-            <input class="input-number" type="text" value="{{ $cartProduct->quantity }}" min="1" max="100">
+            <input class="input-number" type="text" value="{{ $cartProduct->quantity }}" wire:keyup.debounce.300ms="updateQty($event.target.value)" min="1" max="100">
             <span class="input-number-increment" wire:click="increaseQty">+</span>
         </div>
     </td>
