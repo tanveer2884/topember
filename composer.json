@@ -24,7 +24,8 @@
         "topdot/core": "dev-master",
         "topdot/coupon": "dev-master",
         "topdot/order": "dev-master",
-        "topdot/product": "dev-master"
+        "topdot/product": "dev-master",
+        "treestoneit/laravel-converge-api": "^2.0"
     },
     "require-dev": {
         "facade/ignition": "^2.5",

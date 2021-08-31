@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Frontend\Account;
 
+use App\Utils\Elavon\Payment;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
@@ -24,6 +25,12 @@ class PaymentController extends Controller
     public function create()
     {
         return view('frontend.account.payments.create');
+    }
+
+    public function payment() {
+        $payment = new Payment();
+        $pay = $payment->pay();
+        dd($pay);
     }
 
 }

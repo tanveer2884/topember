@@ -1,5 +1,5 @@
 <section>
-    <div class="insta-feed" style="background-image: url('/images/insta-feed.png');">
+    <div class="insta-feed" style="background-image: url('images/insta-feed.png');">
         <div class="insta-feed"></div>
         <div class="container">
             <div class="row">
