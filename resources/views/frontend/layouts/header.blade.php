@@ -30,7 +30,7 @@
                                     <a class="dropdown-item" href="{{url('valet-storage')}}">Valet Storage</a>
                                     <a class="dropdown-item" href="{{url('mail-box')}}">Mailbox Rentals</a>
                                     <a class="dropdown-item" href="{{url('amazon-package')}}">Amazon Package Pickup</a>
-                                    <a class="dropdown-item" href="{{url('mail-box')}}">Conference Room</a>
+                                    <a class="dropdown-item" href="javascript:void(0);">Conference Room</a>
                                 </div>
                             </li>
                             <li class="nav-item">
