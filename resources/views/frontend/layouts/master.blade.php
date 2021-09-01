@@ -22,6 +22,7 @@
     @include('frontend.layouts.css')
     @stack('page_css')
     @livewireStyles
+    
 </head>
 
 <body>
