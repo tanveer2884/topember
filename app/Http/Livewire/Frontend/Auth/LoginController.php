@@ -39,7 +39,8 @@ class LoginController extends Component
 
         if ( Auth::attempt([
             'email' => $this->username,
-            'password' => $this->password
+            'password' => $this->password,
+            'is_active' => true
         ]) ){
             return redirect()->intended($this->redirect ?? route('user.my-account'));
         }
