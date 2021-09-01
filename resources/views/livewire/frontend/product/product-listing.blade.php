@@ -13,7 +13,7 @@
                         {!! $product->short_description !!}
                     </p>
                     <div class="prdt-price d-flex">
-                        <h4>${{ number_format($product->getPrice()) }}</h4>
+                        <h4>${{ number_format($product->getPrice(),2) }}</h4>
                         {{-- <h4>${{ number_format($product->price) }}</h4> --}}
                         <span #>Add to Cart →</span>
                     </div>

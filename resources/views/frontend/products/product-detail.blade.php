@@ -54,7 +54,7 @@
                             <h3>{{ optional($category)->name }}</h3>
                             <h1>{{ $product->name }}</h1>
                             <h5>Item Number: {{ $product->model_number }}</h5>
-                            <h4 class="color-blue">${{ number_format($product->getPrice()) }}</h4>
+                            <h4 class="color-blue">${{ number_format($product->getPrice(),2) }}</h4>
                             @if ($product->manufacture)
                             <div class="manufacturer">
                                 <h6>Manufacturer:</h6>
@@ -139,7 +139,7 @@
                                                 <h3><a href="{{ route('product.index',"{$category->slug}/{$product->slug}") }}">{{ $relatedProduct->name }}</a></h3>
                                                 {!! $relatedProduct->short_description !!}
                                                 <div class="prdt-price d-flex">
-                                                    <h4>${{ number_format($relatedProduct->getPrice()) }}</h4>
+                                                    <h4>${{ number_format($relatedProduct->getPrice(),2) }}</h4>
                                                     <livewire:frontend.cart.add-to-cart-button :product="$relatedProduct" :show-qty="false" />
                                                 </div>
                                             </div>

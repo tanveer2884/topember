@@ -61,7 +61,7 @@
                                         <h3><a href="{{ route('product.index',implode('/',[$category->slug,$product->slug])) }}">{{ $product->name }}</a></h3>
                                         <p>{!! $product->short_description !!}</p>
                                         <div class="prdt-price d-flex">
-                                            <h4>${{ number_format($product->getPrice()) }}</h4>
+                                            <h4>${{ number_format($product->getPrice(),2) }}</h4>
                                             <livewire:frontend.cart.add-to-cart-button :product="$product" :show-qty="false" />
                                         </div>
                                     </div>
