@@ -8,6 +8,7 @@ use Illuminate\Routing\Controller;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\File;
+use Topdot\Core\Services\Excel\Export\User\UserCsvSampleFileExportService;
 use Topdot\Core\Services\Excel\Export\User\UserErroredCsvExportService;
 use Topdot\Core\Services\Excel\Import\UserImportService;
 
@@ -47,7 +48,8 @@ class UserImportController extends Controller
 
     public function download()
     {
-        return response()->download(core_root('Storage/sample-user-import.csv'));
+        $tempFileService = new UserCsvSampleFileExportService();
+        return $tempFileService->handle();
     }
 
     public function downloadErrors()
