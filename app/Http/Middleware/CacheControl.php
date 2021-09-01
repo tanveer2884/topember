@@ -17,9 +17,8 @@ class CacheControl
     public function handle(Request $request, Closure $next)
     {
         $response = $next($request);
-        return $response->withHeaders([
-            "Pragma" => "no-cache",
-            "Cache-Control" => "must-revalidate, no-store, private",
-        ]);
+        $response->headers->set("Pragma", "no-cache");
+        $response->headers->set("Cache-Control", "must-revalidate, no-store, private");
+        return $response;
     }
 }
