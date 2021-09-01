@@ -40,8 +40,8 @@ class OrderCreated extends Mailable implements ShouldQueue
 
         if ($this->toAdmin) {
             return $email->to(
-                getGeneralSetting('store_contact_email',config('bt.emails.default.address')),
-                config('bt.emails.default.name')
+                getGeneralSetting('store_contact_email',config('mail.emails.default.address')),
+                config('mail.emails.default.name')
             )
             ->subject("New Order #{$this->order->order_id}");
         }
