@@ -15,7 +15,8 @@ class TestimonialRepository implements CanFilterRecords
 
         if ( $request->search ){
             $query->where('name','LIKE',"%{$request->search}%");
-            $query->where('description','LIKE',"%{$request->search}%");
+            $query->orWhere('title','LIKE',"%{$request->search}%");
+            $query->orWhere('description','LIKE',"%{$request->search}%");
         }
 
         $query->orderBy($orderBy, $sortOrder);
