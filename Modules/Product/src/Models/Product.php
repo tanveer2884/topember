@@ -167,11 +167,11 @@ class Product extends Model implements HasMedia, ContractsProduct
             return false;
         }
 
-        if ( $this->special_start_at instanceof Carbon && $this->special_start_at->gte(Carbon::now()) ){
+        if ( $this->special_start_at instanceof Carbon && $this->special_start_at->startOfDay()->gte(Carbon::now()) ){
             return false;
         }
 
-        if ( $this->special_end_at instanceof Carbon && $this->special_end_at->lte(Carbon::now()) ){
+        if ( $this->special_end_at instanceof Carbon && $this->special_end_at->endOfDay()->lt(Carbon::now()) ){
             return false;
         }
 
@@ -209,8 +209,6 @@ class Product extends Model implements HasMedia, ContractsProduct
         ->where('id','<>',$this->id)
         ->active()
         // ->featured()
-        ->isAvailable()
-        ->inStock()
         ->limit(30)
         ->get();
     }

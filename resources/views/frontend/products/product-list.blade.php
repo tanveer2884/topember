@@ -57,7 +57,7 @@
                                         <img src="{{ $product->feature_image }}" alt="" class="img-fluid" />
                                     </a>
                                     <div class="product-body">
-                                        <h6>category Title</h6>
+                                        <h6>{{ $category->name }}</h6>
                                         <h3><a href="{{ route('product.index',implode('/',[$category->slug,$product->slug])) }}">{{ $product->name }}</a></h3>
                                         <p>{!! $product->short_description !!}</p>
                                         <div class="prdt-price d-flex">

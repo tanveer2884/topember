@@ -110,8 +110,6 @@ class ProductListing extends Component
         $query = Product::query()
             ->select('products.*')
             ->active()
-            ->inStock()
-            ->isAvailable()
             ->whereHas('categories', function ($query) {
                 return $query->where('id', $this->category->id);
             });

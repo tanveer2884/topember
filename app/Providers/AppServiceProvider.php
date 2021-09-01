@@ -50,9 +50,9 @@ class AppServiceProvider extends ServiceProvider
                 return;
             }
 
-            if ( isCategory($lastSlug)){
-                $route->setParameter('categories',$slugsArray);
-            }
+            $route->setParameter('categories',$slugsArray);
+            // if ( isCategory($lastSlug)){
+            // }
 
             return null;
         });

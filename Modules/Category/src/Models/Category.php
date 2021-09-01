@@ -60,7 +60,7 @@ class Category extends Model implements HasMedia
 
     public function getTopProduct($qty = 4, $featured = false)
     {
-        return $this->products()->active()->isAvailable()->inStock()->limit($qty)->get();
+        return $this->products()->active()->limit($qty)->get();
     }
 
     /**

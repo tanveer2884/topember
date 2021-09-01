@@ -14,20 +14,24 @@ class CategoryProductController
      */
     public function __invoke(array $categories = [], $product = null)
     {
-        if (! count($categories) <= 0 && !$product) {
+        /**
+         * if route does not contain any categories or product
+         * show list of all products
+         */
+        if ( count($categories) <= 0 && !$product) {
             $categories = Category::query()->whereHas('products',function($query){
                 $query->featured()
-                    ->active()
-                    ->inStock()
-                    ->isAvailable();
+                    ->active();
             })->get();
 
             return view('frontend.products.product-list',compact('categories'));
         }
 
+        /**
+         * Check if route has valid categories
+         */
         $category = verifyUriPathAgainstCategories($categories);
-
-        if ((count($categories) <= 0 && !$product) && !$category) {
+        if (!$product && !$category) {
             abort(404);
         }
 
@@ -48,7 +52,7 @@ class CategoryProductController
         // }
 
         $filters = $this->getProductFilters($category);
-        $maxPrice = $category->products()->max('price');
+        $maxPrice = $category->products()->active()->max('price');
         return view('frontend.products.index', compact('category','categories', 'maxPrice', 'filters', 'baseUrl'));
     }
 
@@ -59,7 +63,8 @@ class CategoryProductController
         $query->whereHas('products',function($query) use($category){
             return $query->whereHas('categories',function($query) use($category){
                 return $query->where('id',$category->id);
-            });
+            })
+            ->active();
         });
 
         $query->with(['values' => function($query){

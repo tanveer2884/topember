@@ -132,11 +132,11 @@
 
                                     @foreach ($relatedProducts as $relatedProduct)
                                         <div class="product-card">
-                                            <a href="{{ route('product.index',"{$category->slug}/{$relatedProduct->slug}") }}" class="product-header div-flex">
+                                            <a href="{{ route('product.index',"{$relatedProduct->slug}") }}" class="product-header div-flex">
                                                 <img src="{{ $relatedProduct->feature_image }}" alt="" class="img-fluid" />
                                             </a>
                                             <div class="product-body">
-                                                <h3><a href="{{ route('product.index',"{$category->slug}/{$product->slug}") }}">{{ $relatedProduct->name }}</a></h3>
+                                                <h3><a href="{{ route('product.index',"{$relatedProduct->slug}") }}">{{ $relatedProduct->name }}</a></h3>
                                                 {!! $relatedProduct->short_description !!}
                                                 <div class="prdt-price d-flex">
                                                     <h4>${{ number_format($relatedProduct->getPrice(),2) }}</h4>

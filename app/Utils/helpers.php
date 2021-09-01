@@ -29,12 +29,13 @@ function isCategory($slug)
 
 function isProduct($slug,$secondLastSlug = null)
 {
-    $query = app(Product::class)->query()->inStock()->isAvailable()->where('slug',$slug);
+    $query = app(Product::class)->query()->active()->where('slug',$slug);
     if ( $secondLastSlug ){
         $query->whereHas('categories',function($query) use($secondLastSlug){
             return $query->where('slug',$secondLastSlug);
         });
     }
+
     return $query->first();
 }
 
@@ -86,7 +87,7 @@ function getFeaturedCategories(){
 
 
 function getFeaturedProducts(){
-    return Product::featured()->active()->inStock()->isAvailable()->get();
+    return Product::featured()->active()->get();
 }
 
 
