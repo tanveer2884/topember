@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Frontend\Auth;
 
+use App\Rules\PasswordValidator;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Illuminate\Support\Facades\Password;
@@ -29,7 +30,11 @@ class ResetPasswordController extends Component
         $this->validate([
             'token' => 'required',
             'email' => 'required|email|exists:users,email',
-            'password' => 'required|min:8',
+            'password' => [
+                'required',
+                'min:8',
+                new PasswordValidator()
+            ],
             'confirm_password' => 'required|same:password',
         ], [
             'email.exists' => 'No account found with given email'
