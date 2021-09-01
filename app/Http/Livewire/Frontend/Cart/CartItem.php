@@ -33,8 +33,6 @@ class CartItem extends Component
             'quantity' => '+1'
         ]);
 
-        $this->quantity = $this->quantity+1;
-
         $this->emit('alert-success','Quantity Updated');
         $this->emit('cart-updated');
         $this->emit('update-order-summary');
@@ -51,8 +49,6 @@ class CartItem extends Component
         CartFacade::update($id,[
             'quantity' => '-1'
         ]);
-
-        $this->quantity = $this->quantity-1;
 
         $this->emit('alert-success','Quantity Updated.');
         $this->emit('cart-updated');
