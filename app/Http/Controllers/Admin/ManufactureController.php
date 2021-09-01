@@ -1,13 +1,12 @@
 <?php
-
-namespace Topdot\Core\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Exception;
-use Topdot\Core\Http\Requests\Manufacture\CreateManufactureRequest;
-use Topdot\Core\Http\Requests\Manufacture\UpdateManufactureRequest;
-use Topdot\Core\Models\Manufacturer;
-use Topdot\Core\Repositories\ManufactureRepository;
+use App\Http\Requests\Manufacture\CreateManufactureRequest;
+use App\Http\Requests\Manufacture\UpdateManufactureRequest;
+use App\Models\Manufacturer;
+use App\Repositories\ManufactureRepository;
 
 class ManufactureController extends Controller
 {
@@ -18,7 +17,7 @@ class ManufactureController extends Controller
      */
     public function index()
     {
-        return view('core::manufacture.index');
+        return view('admin.manufacture.index');
     }
 
     /**
@@ -28,7 +27,7 @@ class ManufactureController extends Controller
      */
     public function create()
     {
-        return view('core::manufacture.create');
+        return view('admin.manufacture.create');
     }
 
     /**
@@ -42,8 +41,8 @@ class ManufactureController extends Controller
         try{
 
             $manufactureRepository->store($request);
-            session()->flash('alert-success','Manufacture Created Successfully.');
-            return redirect()->route('admin.manufactures.index');
+            session()->flash('alert-success','Manufacturer Created Successfully.');
+            return redirect()->route('admin.manufacturers.index');
         }catch(Exception $ex){
             session()->flash('alert-danger','Error: '.$ex->getMessage());
             return back()->withInput();
@@ -56,9 +55,9 @@ class ManufactureController extends Controller
      * @param  Manufacturer $manufactures
      * @return \Illuminate\Http\Response
      */
-    public function edit(Manufacturer $manufacture)
+    public function edit(Manufacturer $manufacturer)
     {
-        return view('core::manufacture.edit',compact('manufacture'));
+        return view('admin.manufacture.edit',compact('manufacturer'));
     }
 
     /**
@@ -68,12 +67,12 @@ class ManufactureController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateManufactureRequest $request, Manufacturer $manufacture, ManufactureRepository $manufactureRepository)
+    public function update(UpdateManufactureRequest $request, Manufacturer $manufacturer, ManufactureRepository $manufactureRepository)
     {
         try{
-            $manufactureRepository->update($request, $manufacture);
-            session()->flash('alert-success','Manufacture Updated Successfully.');
-            return redirect()->route('admin.manufactures.index');
+            $manufactureRepository->update($request, $manufacturer);
+            session()->flash('alert-success','Manufacturer Updated Successfully.');
+            return redirect()->route('admin.manufacturers.index');
         }catch(Exception $ex){
             session()->flash('alert-danger','Error: '.$ex->getMessage());
             return back()->withInput();

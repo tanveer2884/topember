@@ -58,11 +58,11 @@
                         </li>
                     @endif
 
-                        @if (hasRoute(config('app.adminRouteNamePrefix') . 'manufactures.index'))
-                            <li class="nav-item {{ $isActive(config('app.adminRouteNamePrefix') . 'manufactures.index') }}">
-                                <a href="{{ route(config('app.adminRouteNamePrefix') . 'manufactures.index') }}">
+                        @if (hasRoute(config('app.adminRouteNamePrefix') . 'manufacturers.index'))
+                            <li class="nav-item {{ $isActive(config('app.adminRouteNamePrefix') . 'manufacturers.index') }}">
+                                <a href="{{ route(config('app.adminRouteNamePrefix') . 'manufacturers.index') }}">
                                     <i class="feather icon-package"></i>
-                                    <span class="menu-title">Manufactures</span>
+                                    <span class="menu-title">Manufacturers</span>
                                 </a>
                             </li>
                         @endif

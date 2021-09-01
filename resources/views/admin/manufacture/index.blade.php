@@ -9,10 +9,10 @@
                         <h4 class="mb-0">
                             Manage Manufacture
                         </h4>
-                        <a href="{{ route('admin.manufactures.create')  }}" class="btn btn-primary">Create Manufacture</a>
+                        <a href="{{ route('admin.manufacturers.create')  }}" class="btn btn-primary">Create Manufacture</a>
                     </div>
                     <div class="card-content">
-                        <livewire:manufacture-table-component/>
+                        <livewire:admin.manufacturer.manufacture-table-component/>
                     </div>
                 </div>
             </div>

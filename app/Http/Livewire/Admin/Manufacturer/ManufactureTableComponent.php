@@ -1,15 +1,14 @@
 <?php
-
-namespace Topdot\Core\Http\Livewire;
+namespace App\Http\Livewire\Admin\Manufacturer;
 
 use Livewire\Component;
+use App\Models\Manufacturer;
 use Livewire\WithPagination;
-use Topdot\Core\Models\Manufacturer;
-use Topdot\Core\Repositories\ManufactureRepository;
 use Topdot\Core\Traits\HasSorting;
-use Topdot\Core\Traits\InteractsWithRequests;
-use Topdot\Core\Traits\ResetsPagination;
 use Topdot\Core\Traits\WithUniqueId;
+use Topdot\Core\Traits\ResetsPagination;
+use App\Repositories\ManufactureRepository;
+use Topdot\Core\Traits\InteractsWithRequests;
 
 class ManufactureTableComponent extends Component
 {
@@ -32,7 +31,7 @@ class ManufactureTableComponent extends Component
 
     public function render()
     {
-        return view('core::livewire.manufacture-table-component',[
+        return view('livewire.admin.manufacturer.manufacture-table-component',[
             'manufactures' => $this->getManufactures()
         ]);
     }

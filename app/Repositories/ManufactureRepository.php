@@ -1,8 +1,8 @@
 <?php
 
-namespace Topdot\Core\Repositories;
+namespace App\Repositories;
 
-use Topdot\Core\Models\Manufacturer;
+use App\Models\Manufacturer;
 use Illuminate\Http\Request;
 use Topdot\Core\Contracts\Repositories\CanFilterRecords;
 use Topdot\Core\Models\TempMedia;

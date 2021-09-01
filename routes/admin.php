@@ -9,6 +9,7 @@ use Topdot\Product\Facades\ProductRoutes;
 use Topdot\Category\Facades\CategoryRoutes;
 use App\Http\Controllers\Admin\FaqController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\ManufactureController;
 use App\Http\Controllers\Admin\TestimonialController;
 
 Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard.index')->middleware('auth');
@@ -24,5 +25,5 @@ Route::middleware(['permission.check'])->group(function(){
 
     Route::resource('faqs',FaqController::class)->except('show','destroy');
     Route::resource('testimonials',TestimonialController::class)->except('show','destroy');
-
+    Route::resource('manufacturers', ManufactureController::class);
 });

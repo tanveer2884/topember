@@ -1,6 +1,6 @@
 <?php
 
-namespace Topdot\Core\Models;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\HasMedia;

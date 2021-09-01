@@ -52,7 +52,7 @@
                             </button>
                             <div class="dropdown-menu dropdown-menu-right dropright">
 
-                                <a href="{{ route('admin.manufactures.edit',$manufacture) }}" title="Edit Page" class="dropdown-item w-100">
+                                <a href="{{ route('admin.manufacturers.edit',$manufacture) }}" title="Edit Page" class="dropdown-item w-100">
                                     <i class="fa fa-edit"></i> Edit
                                 </a>
 

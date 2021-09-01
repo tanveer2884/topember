@@ -6,19 +6,19 @@
             <div class="card">
                 <div class="card-header">
                     <h4 class="mb-0">Edit Tag</h4>
-                    <a href="{{ route(config('cms.routeNamePrefix').'manufactures.index') }}" class="btn btn-primary">Back to List</a>
+                    <a href="{{ route(config('cms.routeNamePrefix').'manufacturers.index') }}" class="btn btn-primary">Back to List</a>
                 </div>
 
                 <div class="card-content">
                     <div class="card-body">
-                        <form action="{{ route(config('cms.routeNamePrefix').'manufactures.update',$manufacture) }}" method="post" enctype="multipart/form-data">
+                        <form action="{{ route(config('cms.routeNamePrefix').'manufacturers.update',$manufacturer) }}" method="post" enctype="multipart/form-data">
                             @csrf
                             @method('put')
 
                             <div class="controls row mb-1 align-items-center">
                                 <label class="col-md-2 text-md-right">Name</label>
                                 <div class="col-md-8">
-                                    <input type="text" class="form-control" name="name" value="{{ old('name', $manufacture->name) }}" placeholder="Brand Name" />
+                                    <input type="text" class="form-control" name="name" value="{{ old('name', $manufacturer->name) }}" placeholder="Brand Name" />
                                     @error('name')
                                     <div class="help-block text-danger"> {{ $message }} </div>
                                     @enderror
@@ -32,7 +32,7 @@
                                     @error('image')
                                     <div class="help-block text-danger"> {{ $message }} </div>
                                     @enderror
-                                    <livewire:image-preview-component :model="$manufacture" collection="image" />
+                                    <livewire:image-preview-component :model="$manufacturer" collection="image" />
                                 </div>
                             </div>
 

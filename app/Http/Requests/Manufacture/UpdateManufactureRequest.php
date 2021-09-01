@@ -1,10 +1,10 @@
 <?php
 
-namespace Topdot\Core\Http\Requests\Manufacture;
+namespace App\Http\Requests\Manufacture;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreateManufactureRequest extends FormRequest
+class UpdateManufactureRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,8 +24,8 @@ class CreateManufactureRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|max:191|unique:manufacturers,name',
-            'image' => 'required|array|min:1'
+            'name' => 'required|max:191|unique:manufacturers,name,'.$this->manufacturer->id,
+            'image' => 'nullable|array|min:1'
         ];
     }
 }

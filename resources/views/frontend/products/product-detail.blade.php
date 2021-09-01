@@ -55,10 +55,12 @@
                             <h1>{{ $product->name }}</h1>
                             <h5>Item Number: {{ $product->model_number }}</h5>
                             <h4 class="color-blue">${{ number_format($product->getPrice()) }}</h4>
+                            @if ($product->manufacture)
                             <div class="manufacturer">
                                 <h6>Manufacturer:</h6>
                                 <img src="{{$product->manufacture->getImage()}}" alt="{{$product->manufacture->name}}">
                             </div>
+                            @endif
                             <p>
                                 {!! $product->short_description !!}
                             </p>

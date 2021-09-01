@@ -6,11 +6,11 @@
             <div class="card">
                 <div class="card-header">
                     <h4 class="mb-0">Create Tag</h4>
-                    <a href="{{ route(config('core.routeNamePrefix').'manufactures.index') }}" class="btn btn-primary">Back to List</a>
+                    <a href="{{ route(config('core.routeNamePrefix').'manufacturers.index') }}" class="btn btn-primary">Back to List</a>
                 </div>
                 <div class="card-content">
                     <div class="card-body">
-                        <form action="{{ route(config('core.routeNamePrefix').'manufactures.store') }}" method="post" enctype="multipart/form-data">
+                        <form action="{{ route(config('core.routeNamePrefix').'manufacturers.store') }}" method="post" enctype="multipart/form-data">
                             @csrf
 
                             <div class="controls row mb-1 align-items-center">

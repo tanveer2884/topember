@@ -105,7 +105,7 @@
                                             <select name="manufacturer_id" id="" class="form-control selectpicker">
                                                 <option value="">Select Manufacturers</option>
                                                 @foreach(manufacturers() as $manufacturer)
-                                                    <option value="{{ $manufacturer->id }}">{{ $manufacturer->name }}</option>
+                                                    <option value="{{ $manufacturer->id }}" {{ old('manufacturer_id') == $manufacturer->id }}>{{ $manufacturer->name }}</option>
                                                 @endforeach
                                             </select>
                                             <div class="text-danger" v-if="errors.has('categories')" v-cloak>

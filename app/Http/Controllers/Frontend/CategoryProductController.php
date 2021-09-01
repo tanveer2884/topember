@@ -14,7 +14,7 @@ class CategoryProductController
      */
     public function __invoke(array $categories = [], $product = null)
     {
-        if (!$categories && !$product) {
+        if (! count($categories) <= 0 && !$product) {
             $categories = Category::query()->whereHas('products',function($query){
                 $query->featured()
                     ->active()

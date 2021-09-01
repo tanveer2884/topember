@@ -3,20 +3,21 @@
 namespace Topdot\Product\Models;
 
 use Carbon\Carbon;
-use Database\Factories\ProductFactory;
+use Jorenvh\Share\Share;
+use App\Models\Manufacturer;
 use Spatie\Sluggable\HasSlug;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\Sluggable\SlugOptions;
+use Topdot\Category\Models\Category;
+use Topdot\Product\Models\Attribute;
+use Database\Factories\ProductFactory;
 use Illuminate\Database\Eloquent\Model;
 use LaravelJsonColumn\Traits\JsonColumn;
 use Illuminate\Database\Eloquent\Builder;
+use Topdot\Product\Models\AttributeValue;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Jorenvh\Share\Share;
-use Jorenvh\Share\ShareFacade;
-use Topdot\Category\Models\Category;
-use Topdot\Core\Models\Manufacturer;
 use Topdot\Product\Contracts\Product as ContractsProduct;
 
 class Product extends Model implements HasMedia, ContractsProduct
@@ -61,7 +62,7 @@ class Product extends Model implements HasMedia, ContractsProduct
         return $this->belongsToMany(Category::class);
     }
 
-    public function manufacture() {
+    public function manufacturer() {
         return $this->belongsTo(Manufacturer::class, 'manufacturer_id');
     }
 

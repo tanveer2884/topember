@@ -5,6 +5,7 @@ use App\Models\User;
 
 use App\Models\State;
 use App\Models\Testimonial;
+use App\Models\Manufacturer;
 use Topdot\Product\Models\Product;
 use Topdot\Category\Models\Category;
 use Darryldecode\Cart\Facades\CartFacade;
@@ -135,4 +136,9 @@ function getHomepageTestimonials()
 function cart()
 {
     return app('cart');
+}
+
+function manufacturers($columns = ['id','name'])
+{
+    return Manufacturer::query()->select($columns)->get();
 }
