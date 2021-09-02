@@ -85,8 +85,7 @@
                                             <label>Categories</label>
                                         </div>
                                         <div class="col-md-6">
-                                            <select name="categories[]" multiple id="" class="form-control selectpicker">
-                                                <option value="">Select Categories</option>
+                                            <select name="categories[]" data-placeholder="Select Categories" multiple class="form-control selectpicker"> 
                                                 @foreach(categories() as $category)
                                                 <option value="{{ $category->id }}">{{ $category->name }}</option>
                                                 @endforeach
