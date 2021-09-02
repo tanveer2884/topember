@@ -19,7 +19,7 @@
     <script>
         document.addEventListener('DOMContentLoaded',function(){
             window.Livewire.on('removeItem',function(id){
-                @this.emit('alert-warning','Deleting Item')
+                // @this.emit('alert-warning','Deleting Item')
                 @this.emit('delete-item',id)
             });
 
