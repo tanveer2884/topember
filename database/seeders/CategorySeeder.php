@@ -14,8 +14,13 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
-        Category::truncate();
+        $this->command->info('Deleting Categories');
 
+        foreach (Category::all() as $category) {
+            $category->delete();
+        }
+
+        $this->command->info('Creating categories');
         Category::factory()
             ->times(10)
             // ->has(

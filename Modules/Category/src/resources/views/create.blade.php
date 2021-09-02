@@ -26,8 +26,8 @@
                                 <div class="controls row mb-1 align-items-center">
                                     <label class="col-md-3 text-md-right">Image <span class="text-danger">*</span></label>
                                     <div class="col-md-6">
-                                        <livewire:temp-file-upload-component name="default" max-files="1" />
-                                        @error('default')
+                                        <livewire:temp-file-upload-component name="image" max-files="1" />
+                                        @error('image')
                                         <div class="help-block text-danger"> {{ $message }} </div>
                                         @enderror
                                     </div>

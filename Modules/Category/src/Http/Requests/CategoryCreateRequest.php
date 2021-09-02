@@ -27,7 +27,7 @@ class CategoryCreateRequest extends FormRequest
         return [
             'name' => 'required|max:191|unique:categories,name',
             'status' => 'required|in:1,0',
-            'default' => 'required|array|min:1'
+            'image' => 'required|array|min:1'
         ];
     }
 }
