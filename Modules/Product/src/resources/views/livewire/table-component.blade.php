@@ -58,7 +58,7 @@
                     {{ $product->sku }}
                 </td>
                 <td>
-                    {{ number_format($product->getPrice(),2) }}
+                    ${{ number_format($product->getPrice(),2) }}
                 </td>
                 <td>
                     {{ $product->qty }}
