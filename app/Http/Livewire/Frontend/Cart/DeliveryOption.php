@@ -8,13 +8,11 @@ use Livewire\Component;
 class DeliveryOption extends Component
 {
     public $isAtHome;
-    public $isAtStore;
 
     public function mount()
     {
 
         $this->isAtHome = CartFacade::getValue('is_delivery_at_home',false);
-        $this->isAtStore = CartFacade::getValue('is_delivery_at_store',false);
     }
 
     public function render()
@@ -25,10 +23,5 @@ class DeliveryOption extends Component
     public function updatedIsAtHome()
     {
         CartFacade::setValue('is_delivery_at_home',$this->isAtHome);
-    }
-
-    public function updatedIsAtStore()
-    {
-        CartFacade::setValue('is_delivery_at_store',$this->isAtStore);
     }
 }
