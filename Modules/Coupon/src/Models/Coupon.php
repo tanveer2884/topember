@@ -128,7 +128,7 @@ class Coupon extends Model
 
     public function isExpiredOrNotAvailable()
     {
-        if ( $this->start_at instanceof Carbon && $this->start_at->gte(Carbon::now()) ){
+        if ( $this->start_at instanceof Carbon && $this->start_at->startOfDay()->gte(Carbon::now()) ){
             return true;
         }
 

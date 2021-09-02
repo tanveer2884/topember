@@ -20,7 +20,7 @@ class UpdateCouponRequest extends FormRequest
             "discount_is_percent" => 'nullable',
             "is_free_shipping" => 'nullable',
             "start_at" => 'required|date_format:Y-m-d',
-            "end_at" => 'required|date_format:Y-m-d|after:start_at',
+            "end_at" => 'required|date_format:Y-m-d|gte:start_at',
             "is_active" => 'nullable',
             "is_site_wide" => 'nullable',
 
