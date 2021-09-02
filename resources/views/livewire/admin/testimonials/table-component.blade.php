@@ -1,13 +1,11 @@
 <div class="pt-1 position-relative">
+    <div class="row p-2">
+        <div class="col-md-4">
+            <input class="form-control" placeholder="Search..." type="search" wire:model.debounce.500ms="search">
+        </div>
+    </div>
     <table class="table table-responsive-md mb-0">
         <thead>
-        <tr>
-            <th>
-                <input class="form-control" placeholder="Search..." type="search" wire:model.debounce.500ms="search">
-            </th>
-            <th></th>
-            <th></th>
-        </tr>
         <tr>
             {{-- <th>
                 Image
@@ -97,7 +95,7 @@
             </tr>
         @empty
             <tr>
-                <td colspan="4">No record found</td>
+                <td colspan="5" class="text-center">No record found</td>
             </tr>
         @endforelse
         </tbody>
