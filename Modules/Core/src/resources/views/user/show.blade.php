@@ -15,7 +15,7 @@
                     </div>
                     <div class="card-content">
                         <div class="card-body">
-                            @foreach ( collect($user->toArray())->except(['extra_data','deleteable']) as $key => $name)
+                            @foreach ( collect($user->toArray())->only(config('core.displayFields.users')) as $key => $name)
                                 <div class="row my-1">
                                     <div class="col-md-4">
                                         <strong>{{ Str::of($key)->replace('_',' ')->title() }}</strong>
