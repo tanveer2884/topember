@@ -37,16 +37,16 @@
             <div class="form-group">
                 <input type="email" wire:model.defer="shipping_email" class="form-control" placeholder="Email">
                 @error('shipping_email')
-                <div class="error">{{ $message }}</div>
-            @enderror
+                    <div class="error">{{ $message }}</div>
+                @enderror
             </div>
         </div>
         <div class="col-sm-6">
             <div class="form-group">
                 <input type="text" wire:model.defer="shipping_phone" class="form-control phone_number" placeholder="Phone">
                 @error('shipping_phone')
-                <div class="error">{{ $message }}</div>
-            @enderror
+                    <div class="error">{{ $message }}</div>
+                @enderror
             </div>
         </div>
         <div class="col-sm-12">
@@ -67,7 +67,11 @@
         </div>
         <div class="col-sm-4">
             <div class="form-group">
-                <input type="text" wire:model.defer="shipping_state" class="form-control" placeholder="State">
+                <select wire:model.defer="shipping_state" class="form-control">
+                    @foreach (states() as $state)
+                    <option value="{{ $state->code }}"> {{ $state->code }} </option>
+                    @endforeach
+                </select>
                 @error('shipping_state')
                     <div class="error">{{ $message }}</div>
                 @enderror
@@ -75,7 +79,7 @@
         </div>
         <div class="col-sm-4">
             <div class="form-group">
-                <input type="text" wire:model.defer="shipping_zip_code" class="form-control" placeholder="Zip Code">
+                <input type="text" wire:model.defer="shipping_zip_code" class="form-control" maxlength="5" placeholder="Zip Code">
                 @error('shipping_zip_code')
                     <div class="error">{{ $message }}</div>
                 @enderror
@@ -85,12 +89,12 @@
     <!-- check-box -->
     <div class="my-cart-check-box pt-3 pl-3 mb-3 div-float">
         <div class="form-group ch-box-1">
-            <input type="checkbox" {{ $isShippingBillingSame ? 'checked' :'' }} wire:click="$emit('toggleBilling',$event.target)" id="html">
+            <input type="checkbox" {{ $isShippingBillingSame ? 'checked' : '' }} wire:click="$emit('toggleBilling',$event.target)" id="html">
             <label for="html">Same as Shipping</label>
         </div>
     </div>
 
-    <div class="billing-form-main {{ $isShippingBillingSame ? 'd-none' :'' }}" id="billing-form">
+    <div class="billing-form-main {{ $isShippingBillingSame ? 'd-none' : '' }}" id="billing-form">
         <!-- billing-information -->
         <div class="billing-main-heading pt-3 div-float">
             <h2 class="shipping-main-head-style div-float">Billing Information</h2>
@@ -114,64 +118,68 @@
                 <div class="form-group">
                     <input type="text" wire:model.defer="billing_first_name" class="form-control" placeholder="First Name">
                     @error('billing_first_name')
-                    <div class="error">{{ $message }}</div>
-                @enderror
+                        <div class="error">{{ $message }}</div>
+                    @enderror
                 </div>
             </div>
             <div class="col-sm-6">
                 <div class="form-group">
                     <input type="text" wire:model.defer="billing_last_name" class="form-control" placeholder="Last Name">
                     @error('billing_last_name')
-                    <div class="error">{{ $message }}</div>
-                @enderror
+                        <div class="error">{{ $message }}</div>
+                    @enderror
                 </div>
             </div>
             <div class="col-sm-6">
                 <div class="form-group">
                     <input type="email" wire:model.defer="billing_email" class="form-control" placeholder="Email">
                     @error('billing_email')
-                    <div class="error">{{ $message }}</div>
-                @enderror
+                        <div class="error">{{ $message }}</div>
+                    @enderror
                 </div>
             </div>
             <div class="col-sm-6">
                 <div class="form-group">
                     <input type="text" wire:model.defer="billing_phone" class="form-control phone_number" placeholder="Phone">
                     @error('billing_phone')
-                    <div class="error">{{ $message }}</div>
-                @enderror
+                        <div class="error">{{ $message }}</div>
+                    @enderror
                 </div>
             </div>
             <div class="col-sm-12">
                 <div class="form-group">
                     <input type="text" wire:model.defer="billing_address" class="form-control" placeholder="Address">
                     @error('billing_address')
-                    <div class="error">{{ $message }}</div>
-                @enderror
+                        <div class="error">{{ $message }}</div>
+                    @enderror
                 </div>
             </div>
             <div class="col-sm-4">
                 <div class="form-group">
                     <input type="text" wire:model.defer="billing_city" class="form-control" placeholder="City">
                     @error('billing_city')
-                    <div class="error">{{ $message }}</div>
-                @enderror
+                        <div class="error">{{ $message }}</div>
+                    @enderror
                 </div>
             </div>
             <div class="col-sm-4">
                 <div class="form-group">
-                    <input type="text" wire:model.defer="billing_state" class="form-control" placeholder="State">
+                    <select wire:model.defer="billing_state" class="form-control">
+                        @foreach (states() as $state)
+                        <option value="{{ $state->code }}"> {{ $state->code }} </option>
+                        @endforeach
+                    </select>
                     @error('billing_state')
-                    <div class="error">{{ $message }}</div>
-                @enderror
+                        <div class="error">{{ $message }}</div>
+                    @enderror
                 </div>
             </div>
             <div class="col-sm-4">
                 <div class="form-group">
-                    <input type="text" wire:model.defer="billing_zip_code" class="form-control" placeholder="Zip Code">
+                    <input type="text" wire:model.defer="billing_zip_code" maxlength="5" class="form-control" placeholder="Zip Code">
                     @error('billing_zip_code')
-                    <div class="error">{{ $message }}</div>
-                @enderror
+                        <div class="error">{{ $message }}</div>
+                    @enderror
                 </div>
             </div>
         </div>
@@ -182,7 +190,7 @@
     </div>
     <!-- billing-form -->
     <div class="row div-float">
-        @if ( auth()->check() && $payments->isNotEmpty() )
+        @if (auth()->check() && $payments->isNotEmpty())
             <div class="col-sm-12">
                 <div class="form-group">
                     <select wire:model.defer="payment.payment_id" class="form-control">
@@ -221,7 +229,7 @@
         </div>
         <div class="col-sm-4">
             <div class="form-group">
-                <input type="text" wire:model.defer="cvc" class="form-control" placeholder="CVC">
+                <input type="text" wire:model.defer="cvc" class="form-control" maxlength="4" placeholder="CVC">
                 @error('cvc')
                     <div class="error">{{ $message }}</div>
                 @enderror
@@ -235,18 +243,17 @@
 
 @push('page_js')
     <script>
-        window.addEventListener('DOMContentLoaded',function(){
-            window.livewire.on('toggleBilling',function(input){
+        window.addEventListener('DOMContentLoaded', function() {
+            window.livewire.on('toggleBilling', function(input) {
                 console.log('called')
-                if ( $(input).prop('checked') ){
-                    @this.set('isShippingBillingSame',true,true)
+                if ($(input).prop('checked')) {
+                    @this.set('isShippingBillingSame', true, true)
                     $('#billing-form').addClass('d-none');
-                }else{
-                    @this.set('isShippingBillingSame',false,true)
+                } else {
+                    @this.set('isShippingBillingSame', false, true)
                     $('#billing-form').removeClass('d-none');
                 }
             })
         })
-
     </script>
 @endpush
