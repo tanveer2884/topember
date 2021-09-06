@@ -4,8 +4,8 @@ return [
 
     'emails' => [
         'default' => [
-            'name' => '',
-            'address' => 'info@test.com',
+            'name' => env('DEFAULT_FROM_NAME'),
+            'address' => env('DEFAULT_FROM_EMAIL'),
         ]
     ],
 
