@@ -60,4 +60,12 @@
         $('.card_number').trigger('input');
 
     });
+
+
+    $('#search').on('click',function(){
+        $('#search-show').removeClass('d-none');
+    })
+    $('#hide-search').on('click',function(){
+        $('#search-show').addClass('d-none');
+    })
 </script>

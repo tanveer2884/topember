@@ -37,7 +37,7 @@
                         </ul>
                         <ul class="navbar-nav navbar-right ml-auto">
                             <li class="nav-item">
-                                <a class="nav-link" onclick="showSearch()" href="#">
+                                <a class="nav-link" id="search" href="#">
                                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="23" height="23" viewBox="0 0 23 23">
                                         <image width="23" height="23" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAXCAYAAADgKtSgAAABqUlEQVRIia2VMUhVYRTH/5q4CJaLIWK4RCUOgvPDQR2iIdqba4kSCYL3GtLhLS4ubSItRaDRWNLs4GK9IHhDRAQV2RA9GhKEn1z57uV4+O6971088IfDd87/9717v/ud1wcoJxYk3ZA0K2lS0jlJPyR9kPRW0qs8YxYJ3KkG7FIebeB2xJ/JLyzlIDvAn5zaZjfw+870HWgAs8AwMARcAe4C+673ZRF8xjW/CLDcRwaeOM+9PPgn07RdArV64Da44OE1U/zdAzjVjvE/9vCnpvioAty+0vcevmeK1yrAE30L/sNw+Cfr/ZIuhW++I+lL6cWIx8ewOihpIu1I4AMhPwqqEtY3YOE/Qz4iaawi/LLJU94JvBXyPknzFcDjkqZC/lnSQVYBbpoDbVc4zA3jX49dol+mYbUH8KK7RJMx+C3XtNQF+LrzPCwaXM9c82tgLgKddhcvjUYRPNHziOkr8A5442ZQLJpF8ETLwL8SiP21DbfWLIInugjUwz/SX2P8D7SANWDK9DdjG3TzRZwHrgbYaEGf32ClypAq0qkNsjlwRlEPc+aOpK1jJeo2xRDmj8QAAAAASUVORK5CYII=" />
                                     </svg>
@@ -63,64 +63,11 @@
             </div>
         </div>
     </div>
+
     <!-- search -->
-    <div class="search-main-wrapper d-none" id="search-show">
-        <input type="search" class="form-control" id="exampleFormControlInput1" placeholder="Item Title">
-        <div class="serach-over-flow-wrap">
-            <div class="search-container">
-                <div class="srch-pic-holder" style="background-image:url('/images/search-One.png');"></div>
-                <div class="search-data-cont">
-                    <h3>Item Title</h3>
-                    <p>
-                        Lorem ipsum dolor sit amet, consec tet adipiscing elit,
-                        sed diam nibh euismod tincidunt ut laoreet dolore magna cuim.
-                    </p>
-                    <a href="my-cart">Add to Cart &#8594;</a>
-                </div>
-                <div class="search-data-price">
-                    <h4>$15.99</h4>
-                </div>
-            </div>
-            <div class="search-arrow-set"></div>
-            <div class="hr search-sp-hr"></div>
-            <div class="search-container">
-                <div class="srch-pic-holder" style="background-image:url('/images/search-Two.png');"></div>
-                <div class="search-data-cont">
-                    <h3>Item Title</h3>
-                    <p>
-                        Lorem ipsum dolor sit amet, consec tet adipiscing elit,
-                        sed diam nibh euismod tincidunt ut laoreet dolore magna cuim.
-                    </p>
-                    <a href="my-cart">Add to Cart &#8594;</a>
-                </div>
-                <div class="search-data-price">
-                    <h4>$15.99</h4>
-                </div>
-            </div>
-            <div class="hr search-sp-hr"></div>
-            <div class="search-container">
-                <div class="srch-pic-holder" style="background-image:url('/images/search-Three.png');"></div>
-                <div class="search-data-cont">
-                    <h3>Item Title</h3>
-                    <p>
-                        Lorem ipsum dolor sit amet, consec tet adipiscing elit,
-                        sed diam nibh euismod tincidunt ut laoreet dolore magna cuim.
-                    </p>
-                    <a href="my-cart">Add to Cart &#8594;</a>
-                </div>
-                <div class="search-data-price">
-                    <h4>$15.99</h4>
-                </div>
-            </div>
-        </div>
-
+    <div id="search-show" class="d-none">
+        <livewire:frontend.header.search-bar />
+        <div id="hide-search" class="position-fixed w-100 h-100 d-block bg-grey" style="top: 0;left:0;background-color: #5f5b5b9e;"></div>
     </div>
+    
 </header>
-
-
-<script>
-    function showSearch() {
-        let showSearch = document.getElementById('search-show');
-        showSearch.classList.toggle('d-block');
-    }
-</script>

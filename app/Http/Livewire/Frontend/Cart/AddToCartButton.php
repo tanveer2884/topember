@@ -11,12 +11,14 @@ class AddToCartButton extends Component
     public $product;
     public $qty;
     public $showQty;
+    public $inSearchBar;
 
-    public function mount(Product $product, $showQty = true)
+    public function mount(Product $product, $showQty = true, $inSearchBar=false)
     {
         $this->product = $product;
         $this->qty = 1;
         $this->showQty = $showQty;
+        $this->inSearchBar = $inSearchBar;
     }
 
     public function render()
