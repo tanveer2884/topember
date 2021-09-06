@@ -24,7 +24,7 @@
                                 <div class="order-detail div-float">
                                     <div class="payment-method-wrapper">
                                         <div class="shipping-adress-details">
-                                            <h3 class="adress-details-head">Shipping Address</h3>
+                                            <h3 class="adress-details-head">Shipping{{ $is_shipping_billing_same ? '/Billing' :'' }} Address</h3>
                                             <p class="adress-details-para">{{ optional($shipping)['first_name'] }} {{ optional($shipping)['last_name'] }}</p>
                                             <p class="adress-details-para">{{ optional($shipping)['address'] }}, {{ optional($shipping)['state'] }}</p>
                                             <p class="adress-details-para">{{ optional($shipping)['city'] }} {{ optional($shipping)['zip_code'] }}</p>
