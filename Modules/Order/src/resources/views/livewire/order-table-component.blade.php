@@ -35,7 +35,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach($orders as $order)
+            @forelse($orders as $order)
             <tr>
                 <td>
                     {{ $order->shipping_name }}
@@ -74,7 +74,13 @@
                     </div>
                 </td>
             </tr>
-            @endforeach
+            @empty
+                <tr>
+                    <td colspan="6" class="text-center">
+                        No result found
+                    </td>
+                </tr>
+            @endforelse
         </tbody>
     </table>
 
