@@ -59,9 +59,11 @@
                     @foreach($order->cart as $cartItem)
                         <div class="order-place div-float">
                         <h3 class="order-place-head div-float">Your Order ({{$order->cart->count()}} Items)</h3>
-                        <div class="order-place-pic" style="background-image:url('{{ $cartItem->associatedModel->feature_image }}')"></div>
+                        @if ($cartItem->associatedModel)
+                            <div class="order-place-pic" style="background-image:url('{{ $cartItem->associatedModel->feature_image }}')"></div>
+                        @endif
                         <div class="order-place-text">
-                            <a href="#" class="order-place-anchor">{{ $cartItem->name }}</a>
+                            <a href="{{ route('product.index',optional($cartItem->associatedModel)->slug) }}" class="order-place-anchor">{{ $cartItem->name }}</a>
                             <p class="order-place-para">Quantity: {{ $cartItem->quantity }}</p>
                         </div>
                         <div class="order-place-price">

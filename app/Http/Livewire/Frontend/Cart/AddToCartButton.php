@@ -31,7 +31,12 @@ class AddToCartButton extends Component
             return;
         }
         
-        if ( !$this->product->isInStock()  || $this->product->qty <=0 || ( ($item = CartFacade::get($this->product->id)) && ( $item->quantity + $this->qty ) > $this->product->qty ) ){
+        if (!$this->product->isInStock() || $this->product->qty <=0) {
+            $this->emit('alert-danger', 'Product is out of stock');
+            return;
+        }
+
+        if ( ($item = CartFacade::get($this->product->id)) && ( $item->quantity + $this->qty ) > $this->product->qty ){
             $this->emit('alert-danger', 'Quantity limit exceeded');
             return;
         }

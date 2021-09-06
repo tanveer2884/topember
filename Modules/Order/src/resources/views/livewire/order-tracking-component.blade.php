@@ -1,6 +1,6 @@
 <div class="editOnFocus position-relative">
     <div class="d-flex">
-        <p title="Click to Add tracking number" class="w-100">
+        <p title="Click to Add tracking number" class="w-100 m-0">
             @if($tracking)
             {{$tracking}}
             @else
