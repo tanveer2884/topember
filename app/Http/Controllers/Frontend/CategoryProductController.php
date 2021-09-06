@@ -22,7 +22,17 @@ class CategoryProductController
             $categories = Category::query()->whereHas('products',function($query){
                 $query->featured()
                     ->active();
-            })->get();
+            });
+
+            if ( request('category-sort','a-z') == 'a-z' ){
+                $categories->orderBy('name','ASC');
+            }
+
+            if ( request('category-sort') == 'z-a' ){
+                $categories->orderBy('name','DESC');
+            }
+
+            $categories = $categories->get();
 
             return view('frontend.products.product-list',compact('categories'));
         }

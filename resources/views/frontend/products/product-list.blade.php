@@ -23,12 +23,12 @@
                             </svg>
                             SORT BY:
                         </span>
-                        <select name="" id="" class="form-control">
-                            <option value="">Category</option>
-                            <option value="">Newest</option>
-                            <option value="">Low to High price</option>
-                            <option value="">High to Low price</option>
-                        </select>
+                        <form action="" method="GET">
+                            <select name="category-sort" id="category-sorting" class="form-control">
+                                <option value="a-z" {{ request('category-sort','a-z') == 'a-z' ? 'selected' :'' }}>Category A-Z</option>
+                                <option value="z-a" {{ request('category-sort') == 'z-a' ? 'selected' :'' }}>Category Z-A</option>
+                            </select>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -119,5 +119,9 @@
             }
         }]
     });
+
+    $('#category-sorting').on('change',function(){
+        $('#category-sorting').closest('form').submit();
+    })
 </script>
 @endpush
