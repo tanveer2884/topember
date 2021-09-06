@@ -28,8 +28,17 @@
             @if (hasRoute(config('app.adminRouteNamePrefix') . 'pages.index'))
                 <li class="nav-item {{ $isActive(config('app.adminRouteNamePrefix') . 'pages.index') }}">
                     <a href="{{ route(config('app.adminRouteNamePrefix') . 'pages.index') }}">
-                        <i class="feather icon-list"></i>
+                        <i class="feather icon-file"></i>
                         <span class="menu-title">Pages</span>
+                    </a>
+                </li>
+            @endif
+
+            @if (hasRoute(config('app.adminRouteNamePrefix') . 'menus.index'))
+                <li class="nav-item {{ $isActive(config('app.adminRouteNamePrefix') . 'menus.index') }}">
+                    <a href="{{ route(config('app.adminRouteNamePrefix') . 'menus.index') }}">
+                        <i class="feather icon-list"></i>
+                        <span class="menu-title">Menus</span>
                     </a>
                 </li>
             @endif
