@@ -40,7 +40,7 @@
     </script>
 @endpush
 @elseif($inSearchBar)
-<a href="javascript:void(0);" class="position-relative" wire:click="addToCart">Add to Cart &#8594;</a>
+<a href="javascript:void(0);" id="product-{{$product->id}}" class="position-relative" wire:click="addToCart">Add to Cart &#8594;</a>
 @else
 <span class="position-relative" wire:click="addToCart">
     Add to Cart →

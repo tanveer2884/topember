@@ -5,21 +5,27 @@
         <div wire:loading.remove>
             @if ($isSearched)
                 @forelse ($products as $product)
-                    @if ($loop->index != 0)
-                        <div class="hr search-sp-hr"></div>
-                    @endif
-                    <div class="search-container">
-                        <div class="srch-pic-holder" style="background-image:url('{{ $product->feature_image }}');"></div>
-                        <div class="search-data-cont">
-                            <h3>{{ $product->name }}</h3>
-                            <p>
-                                {!! $product->short_description !!}
-                            </p>
-                            
-                            <livewire:frontend.cart.add-to-cart-button :inSearchBar="true" :product="$product" :showQty="false"/>
-                        </div>
-                        <div class="search-data-price">
-                            <h4>${{ number_format($product->getPrice(), 2) }}</h4>
+                    <div>
+                        @if ($loop->index != 0)
+                            <div class="hr search-sp-hr"></div>
+                        @endif
+                        <div class="search-container">
+                            <div class="srch-pic-holder" style="background-image:url('{{ $product->feature_image }}');"></div>
+                            <div class="search-data-cont">
+                                <h3>
+                                    <a href="{{ route('product.index',$product->slug) }}">
+                                        {{ $product->name }}
+                                    </a>
+                                </h3>
+                                <p>
+                                    {!! $product->short_description !!}
+                                </p>
+
+                                <livewire:frontend.cart.add-to-cart-button :key="$product->id" :inSearchBar="true" :product="$product" :showQty="false" />
+                            </div>
+                            <div class="search-data-price">
+                                <h4>${{ number_format($product->getPrice(), 2) }}</h4>
+                            </div>
                         </div>
                     </div>
                 @empty
