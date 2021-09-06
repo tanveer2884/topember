@@ -61,7 +61,7 @@
                     Completed
                     @endif
                 </td>
-                <td>
+                <td class="text-center">
                     {{ $order->created_at->diffForHumans() }}
                 </td>
                 <td>
