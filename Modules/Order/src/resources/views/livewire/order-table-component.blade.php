@@ -12,6 +12,9 @@
             </tr>
             <tr>
                 <th>
+                    Order No.
+                </th>
+                <th>
                     Name
                 </th>
                 <th>
@@ -37,6 +40,9 @@
         <tbody>
             @forelse($orders as $order)
             <tr>
+                <td style="white-space: nowrap;">
+                    {{ $order->order_id }}
+                </td>
                 <td>
                     {{ $order->shipping_name }}
                 </td>
