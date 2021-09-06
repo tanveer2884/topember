@@ -5,7 +5,7 @@
                 <nav class="navbar navbar-expand-lg">
                     <!-- Manufacture -->
                     <a class="navbar-brand" href="/">
-                        <img src="/images/box-store-logo.png" alt="The Box Store" />
+                        <img src="{{ getGeneralSetting('site_logo','/images/box-store-logo.png') }}" alt="{{ getGeneralSetting('site_title','The Box Store') }}" />
                     </a>
 
                     <!-- Toggler/collapsibe Button -->
