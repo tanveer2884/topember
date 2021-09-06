@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Utils\CardDetector;
 use Illuminate\Http\Request;
 use Topdot\Order\Models\Order;
 use Topdot\Coupon\Models\Coupon;
@@ -118,7 +119,8 @@ class OrderService
 
             'payment_info_card_number' => optional($this->payment)['card_number'] ? substr(optional($this->payment)['card_number'], -4) : null,
             'payment_info_expiry' => optional($this->payment)['expiry_year'].'-'.optional($this->payment)['expiry_month'],
-            'payment_info_card_type' => '',
+            'payment_info_card_type' => optional($this->payment)['card_number'] ? (new CardDetector)->detect(cleanString(optional($this->payment)['card_number'])) : 'Other Payment Method',
+            'payment_info_name' => optional($this->payment)['name_on_card'],
             'payment_profile_id' => optional($this->payment)['payment_id'],
             'cart' => CartFacade::getContent()
         ]);

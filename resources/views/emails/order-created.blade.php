@@ -55,11 +55,9 @@ Someone’s submitted an order.
 @if($order->paymentProfile)
 <p>Card Number **********{{ $order->paymentProfile->card_last }}</p>
 <p>Expiry Date : {{ $order->paymentProfile->expiry }}</p>
-@elseif($order->payment_method == 'pay-with-card')
+@else
 <p>Card Number **********{{ $order->payment_info_card_number }}</p>
 <p>Expiry Date : {{ $order->payment_info_expiry }}</p>
-@else
-<p>Other Payment Method</p>
 @endif
 </div>
 

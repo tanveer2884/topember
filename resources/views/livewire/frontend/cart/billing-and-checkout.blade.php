@@ -205,6 +205,15 @@
 
         <div class="col-sm-12">
             <div class="form-group">
+                <input type="text" wire:model.defer="name_on_card" class="form-control" placeholder="Name on Card">
+                @error('name_on_card')
+                    <div class="error">{{ $message }}</div>
+                @enderror
+            </div>
+        </div>
+
+        <div class="col-sm-12">
+            <div class="form-group">
                 <input type="text" wire:model.defer="card_number" class="card_number form-control" placeholder="Credit Card Number">
                 @error('card_number')
                     <div class="error">{{ $message }}</div>

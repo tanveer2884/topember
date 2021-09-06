@@ -34,6 +34,7 @@ class BillingAndCheckout extends Component
     public $billing_zip_code;
 
     public $payment_id;
+    public $name_on_card;
     public $card_number;
     public $expiry_month;
     public $expiry_year;
@@ -144,6 +145,7 @@ class BillingAndCheckout extends Component
         $this->billing_zip_code = optional($billingAddress)['zip_code'];
 
         $this->payment_id = optional($payment)['address_id'];
+        $this->name_on_card = optional($payment)['name_on_card'];
         $this->card_number = optional($payment)['card_number'];
         $this->expiry_month = optional($payment)['expiry_month'];
         $this->expiry_year = optional($payment)['expiry_year'];
@@ -168,6 +170,7 @@ class BillingAndCheckout extends Component
     {
         return [
             'card_number' => 'required',
+            'name_on_card' => 'required|max:191',
             'expiry_month' => 'required|integer|min:1|max:12',
             'expiry_year' => 'required|integer|integer',
             'cvc' => 'required|integer|min:001|max:9999',
@@ -208,6 +211,7 @@ class BillingAndCheckout extends Component
     {
         CartFacade::setValue('payment', [
             'payment_id' => $this->payment_id,
+            'name_on_card' => $this->name_on_card,
             'card_number' => $this->card_number,
             'expiry_month' => $this->expiry_month,
             'expiry_year' => $this->expiry_year,
