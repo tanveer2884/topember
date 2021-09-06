@@ -9,6 +9,7 @@ use App\Models\Manufacturer;
 use Topdot\Product\Models\Product;
 use Topdot\Category\Models\Category;
 use Darryldecode\Cart\Facades\CartFacade;
+use Topdot\Menu\Models\Menu;
 
 function cleanString($string)
 {
@@ -142,4 +143,13 @@ function cart()
 function manufacturers($columns = ['id','name'])
 {
     return Manufacturer::query()->select($columns)->get();
+}
+
+function getMenu($name)
+{
+    if ( !class_exists(Menu::class) ){
+        return collect();
+    }
+    
+    return Menu::getMenuByName($name);
 }

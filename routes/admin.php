@@ -2,6 +2,7 @@
 
 use Topdot\Cms\Facades\CmsRoutes;
 use Topdot\Core\Facades\CoreRoutes;
+use Topdot\Menu\Facades\MenuRoutes;
 use Illuminate\Support\Facades\Route;
 use Topdot\Order\Facades\OrderRoutes;
 use Topdot\Coupon\Facades\CouponRoutes;
@@ -22,6 +23,7 @@ Route::middleware(['permission.check'])->group(function(){
     CategoryRoutes::register();
     ProductRoutes::register();
     OrderRoutes::register();
+    MenuRoutes::register();
 
     Route::resource('faqs',FaqController::class)->except('show','destroy');
     Route::resource('testimonials',TestimonialController::class)->except('show','destroy');

@@ -23,6 +23,7 @@
         "topdot/cms": "dev-master",
         "topdot/core": "dev-master",
         "topdot/coupon": "dev-master",
+        "topdot/menu": "^1.0",
         "topdot/order": "dev-master",
         "topdot/product": "dev-master",
         "treestoneit/laravel-converge-api": "^2.0"
@@ -101,6 +102,10 @@
         {
             "type": "path",
             "url": "Modules/Coupon"
+        },
+        {
+            "type": "path",
+            "url": "Modules/Menu"
         }
     ]
 }

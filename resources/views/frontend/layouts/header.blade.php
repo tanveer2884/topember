@@ -16,35 +16,24 @@
                     <!-- Navbar links -->
                     <div class="collapse navbar-collapse" id="collapsibleNavbar">
                         <ul class="navbar-nav navbar-left ml-auto mr-auto">
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('product.index') }}">Shop Boxes & Supplies</a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                                    Services
-                                </a>
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="{{url('shipping-services')}}">Shipping Services</a>
-                                    <a class="dropdown-item" href="{{url('packing-services')}}">Packing Services</a>
-                                    <a class="dropdown-item" href="{{url('moving-consultations')}}">Moving Consultations</a>
-                                    <a class="dropdown-item" href="{{url('valet-storage')}}">Valet Storage</a>
-                                    <a class="dropdown-item" href="{{url('mail-box')}}">Mailbox Rentals</a>
-                                    <a class="dropdown-item" href="{{url('amazon-package')}}">Amazon Package Pickup</a>
-                                    <a class="dropdown-item" href="javascript:void(0);">Conference Room</a>
-                                </div>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="track-package">Track a Package</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="blog-listing">Resources</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="about-us">About Us</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="contact-us">Contact</a>
-                            </li>
+                            @foreach (getMenu('header') as $item)
+                                <li class="nav-item {{ $item->children->isNotEmpty() ? 'dropdown' : '' }}">
+                                    @if ( $item->children->isEmpty() )
+                                        <a class="nav-link" href="{{ url($item->link) }}">{{$item->title}}</a>
+                                    @else
+                                        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                                            {{$item->title}}
+                                        </a>
+                                        <div class="dropdown-menu">
+                                            @foreach ($item->children as $subMenu)
+                                                <a class="dropdown-item" href="{{ url($subMenu->link) }}">{{ $subMenu->title }}</a>
+                                            @endforeach
+                                        </div>
+                                    @endif
+                                   
+                                </li>
+                                
+                            @endforeach
                         </ul>
                         <ul class="navbar-nav navbar-right ml-auto">
                             <li class="nav-item">
