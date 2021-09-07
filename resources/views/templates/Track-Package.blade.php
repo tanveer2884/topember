@@ -1,4 +1,4 @@
-<div class="track-main-wrapper" style="background-image:url('images/error-banner.png');">
+<div class="track-main-wrapper" style="background-image:url('/images/error-banner.png');">
     <div class="track-pakg-wrap">
         <h2>
             Track a Package
