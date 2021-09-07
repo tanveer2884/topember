@@ -13,9 +13,15 @@
                         {!! $product->short_description !!}
                     </p>
                     <div class="prdt-price d-flex">
-                        <h4>${{ number_format($product->getPrice(),2) }}</h4>
-                        {{-- <h4>${{ number_format($product->price) }}</h4> --}}
-                        <span #>Add to Cart →</span>
+                        @if ( $product->hasSpecialPrice() )
+                            <div>
+                                <h4 class="mb-0">${{ number_format($product->getPrice(),2) }}</h4>
+                                <small style="font-size: 13px;"><strike>${{ number_format($product->price,2) }}</strike></small>
+                            </div>
+                        @else
+                            <h4>${{ number_format($product->getPrice(),2) }}</h4>
+                        @endif
+                        <livewire:frontend.cart.add-to-cart-button :product="$product" :showQty="false" :inSearchBar="false" />
                     </div>
                 </div>
             </div>
