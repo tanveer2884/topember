@@ -8,6 +8,7 @@ use Livewire\Livewire;
 use Topdot\Order\Http\Livewire\OrderStatusComponent;
 use Topdot\Order\Http\Livewire\OrderTableComponent;
 use Topdot\Order\Http\Livewire\OrderTrackingComponent;
+use Topdot\Order\Http\Livewire\StatusEmailButton;
 use Topdot\Order\OrderRoutes;
 
 class OrderServiceProvider extends ServiceProvider
@@ -29,6 +30,7 @@ class OrderServiceProvider extends ServiceProvider
         Livewire::component('order::order-table-component',OrderTableComponent::class);
         Livewire::component('order::order-status-component',OrderStatusComponent::class);
         Livewire::component('order::order-tracking-component',OrderTrackingComponent::class);
+        Livewire::component('order::status-email-button',StatusEmailButton::class);
 
     }
 
