@@ -26,7 +26,7 @@
         </tr>
     @empty
         <tr>
-            <td class="6" class="text-center">
+            <td colspan="6" class="text-center">
                 No result found.
             </td>
         </tr>
