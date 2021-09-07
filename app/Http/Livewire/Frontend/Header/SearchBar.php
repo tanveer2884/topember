@@ -19,7 +19,7 @@ class SearchBar extends Component
 
     public function getProducts()
     {
-        if ( !strlen(trim($this->search)) ){
+        if ( strlen(trim($this->search)) <=1 ){
             return collect();
         }
 
