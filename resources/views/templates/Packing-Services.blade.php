@@ -1,5 +1,5 @@
 <div class="about-2nd-wrapper">
-    <div class="about-2nd-back-pic" style="background-image:url('images/services-ship.png');"></div>
+    <div class="about-2nd-back-pic" style="background-image:url('/images/services-ship.png');"></div>
     <div class="services-sp-wrap">
         <h3>Shipping Services</h3>
         <p>
@@ -14,7 +14,7 @@
 </div>
 
 <div class="about-2nd-wrapper about-row-revrs">
-    <div class="about-2nd-back-pic" style="background-image:url('images/service-cotton.png');"></div>
+    <div class="about-2nd-back-pic" style="background-image:url('/images/service-cotton.png');"></div>
     <div class="services-sp-wrap">
         <h3>Buy shipping boxes</h3>
         <p>
@@ -29,7 +29,7 @@
 </div>
 
 <div class="about-2nd-wrapper">
-    <div class="about-2nd-back-pic" style="background-image:url('images/packing-staff.png');"></div>
+    <div class="about-2nd-back-pic" style="background-image:url('/images/packing-staff.png');"></div>
     <div class="services-sp-wrap">
         <h3>packing supplies</h3>
         <p>

@@ -1,0 +1,381 @@
+// Banner 
+.home-banner{
+    width: 100%;
+    height: 708px;
+    @extend %bg-img; 
+    position: relative;
+    z-index: 9;
+    align-items: center;
+    margin-bottom: 30px;
+
+    .home-banner-overlay{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background-color: #363636;
+        opacity: 0.4;
+        z-index: -1;
+    }
+
+    .call-us{
+        position: absolute;
+        right: 90px;
+        top: 7px;
+        height: 32px;
+    }
+
+    .banner-text{
+        max-width: 1170px;
+        width: 100%;
+        margin: 0 auto;
+        padding: 40px 0;
+        position: relative;
+        h1{
+            @include font-applying(97px, $font-text, 300);
+            color: #fff;
+            text-transform: uppercase;
+        }
+ 
+    }
+}
+// Banner 
+
+// cards
+.home-card{
+    display: block;
+    width: 100%;
+    height: 457px;
+    position: relative;
+    padding: 50px 10px;
+    text-align: center;
+    @extend %bg-img;
+    @include font-applying(16px, $font-text, 400);
+    color: #fff;
+    z-index: 9;
+    margin-bottom: 30px;
+
+    &:hover{
+        color: #fff;
+        text-decoration:none;
+
+        span{
+            svg{
+                transform: translateX(5px);
+            }
+        }
+    }
+
+    .card-ovarley{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        background-image: url('../images/top-gradient-shadow.png');
+        background-repeat-y: no-repeat; 
+        z-index: -1
+
+    }
+
+    h3{
+        @include font-applying(34px, $font-text, 400);
+        color: #fff;
+        text-transform: uppercase;
+    }
+    span{
+        @include font-applying(15px, $font-text, 400);
+        color: $secondary-color;
+        text-transform: uppercase;
+
+        svg{
+            @include transition(all 0.3s ease 0s);
+            margin: 0 0 7px 5px;
+        }
+    }
+}
+// cards
+
+// Featured PRODUCT
+.featured-prdt-main{
+    background-color: #f9f9f9;
+    padding: 110px 0 120px;
+} 
+.featured-products{
+    justify-content: space-between;
+}
+.featured-prdt{
+    width: 23.761%;  //278px;
+    height: 400px;
+    background-color: #fff;
+    border: 1px solid transparent;
+    padding: 20px 20px; 
+    @include transition(all 0.3s ease 0s); 
+    margin: 0 7.5px ;
+
+    .featured-prdt-img{
+        width: 100%;
+        height: 200px;
+        align-items: center;
+        justify-content: center;
+    }
+    .featured-prdt-text{
+        text-align: center;
+        width: 100%;
+        padding: 20px 0 0 0;
+
+        h6{
+            @include font-applying(14px, $font-text, 500);
+            color: #000;
+            text-transform: uppercase;
+        }
+        h4{
+            @include font-applying(18px, $font-text, 600);
+            color: #000;
+            margin-bottom: 25px;
+        }
+        h3{
+            @include font-applying(20px, $font-text, 500);
+            color: #1a73e8; 
+            margin-bottom: 0;
+        }
+    }
+
+    &:hover{
+        border: 1px solid #CE4939;
+        text-decoration: none;
+    }
+}
+// Featured PRODUCT
+//  left right image 
+.image-section{
+    @extend %bg-img;
+    width: 100%;
+    height: 335px;
+    padding: 35px;
+    margin: 120px 0;
+    align-items: center;
+    position: relative;
+    z-index: 9;
+
+    .image-section-overlay{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: #363636;
+        opacity: 0.4;
+        z-index: -1;
+    }
+
+    .image-section-text{
+        width: 190px;
+
+        h3{
+            @include font-applying(40px, $font-text, 300);
+            color: #fff;
+            text-transform: uppercase;
+        }
+        a{
+            @include font-applying(15px, $font-text, 400);
+            text-transform: uppercase;
+            color: $secondary-color;
+
+            svg{
+                @include transition(all 0.3s ease 0s);
+                margin: 0 0 4px 5px;
+            }
+
+            &:hover{
+                text-decoration: none;
+                svg{
+                    transform: translateX(5px);
+                }
+            }
+        }
+    }
+}
+//  left right image 
+
+// FAQS 
+.home-faq{
+    margin: 110px 0 110px;
+}
+.faq-head{
+    @include font-applying(20px, $font-text, 400);
+    margin-bottom: 50px;
+}
+.faqs-main{
+    .card{
+        border: none;
+        margin-bottom: 10px;
+
+        .card-header{
+            border-bottom: none;
+            background-color: #f9f9f9;
+            position: relative;
+            @include font-applying(18px, $font-text, 500);
+            color: $text-color;
+            padding-right: 35px;
+
+
+            &:after{
+                content: "";
+                position: absolute;
+                top: 50%;
+                right: 18px;
+                transform: translateY(-50%);
+                background-image: url(../images/carret-down.png);
+                background-repeat: no-repeat;
+                background-position: center center;
+                width: 12px;
+                height: 7px;
+            }
+
+            &[aria-expanded="true"]:after{
+                background-image: url(../images/caret-up.png); 
+            }
+        }
+
+        .card-body{
+            padding: 0 0; 
+
+            .faq-text{
+                padding: 20px 20px;
+            }
+        }
+    }
+}
+// FAQS 
+// Insta Feed
+.insta-feed{
+    position: relative;
+    width: 100%;
+    height: 610px;
+    @extend %bg-img;
+    z-index: 9;
+
+    .insta-feed{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #363636;
+        opacity: 0.1;
+        z-index: -1;
+    }
+
+    .insta-feed-text-main{
+        position: relative;
+        height: 610px;
+        align-items: center;
+    }
+    .insta-feed-text{
+        width: 535px;
+        height: auto;
+        padding: 35px 20px;
+        background-color: #fff;
+
+        h3{
+            @include font-applying(40px, $font-text, 300);
+            color: #000;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        a{
+            // @include font-applying(40px, $font-text, 300);
+            color: $primary-color;
+
+            &:hover{
+                text-decoration: none;
+            }
+        }
+    }
+}
+// Insta Feed
+
+// About / Customer Testimonials
+.customer-testimonial-main{
+    background-color: #f9f9f9;
+    padding: 60px 0;
+}
+.about-company{
+    margin: 60px 0;
+    align-items: center;
+
+    &.customer-testimonial{
+        margin-top: 120px;
+
+        .about-company-img{ 
+            text-align: left;
+        }
+    }
+
+    .about-company-text{
+        width: 50%;
+        padding-right: 60px;
+        @include font-applying(22px, $font-text, 400);
+
+        .customer-testimonial-text{
+            padding-bottom: 40px;
+        }
+
+        h2{
+            text-align: left;
+        }
+
+        a, span{
+            color: $primary-color;
+            @include font-applying(19px, $font-text, 400);
+            text-transform: uppercase;
+
+            svg{
+                @include transition(all 0.3s ease 0s);
+                margin: 0 0 7px 5px;
+                fill: $secondary-color !important;
+            }
+
+            &:hover{
+                text-decoration: none;
+
+                svg{
+                    transform: translateX(5px);
+                }
+            }
+        }
+    }
+    .about-company-img{
+        width: 50%;
+        text-align: right;
+    }
+}
+
+.testimonial-slider{
+    .slick-arrow{
+        top: unset;
+        bottom: 0;
+        width: 31px;
+        height: 8px;
+
+        &:before{
+            display: none;
+        }
+
+        &.slick-prev{
+            background-image: url('../images/slider-prev.svg'); 
+            left: 0;
+            z-index: 1;
+        }
+        &.slick-next{
+            background-image: url('../images/slider-next.svg'); 
+            right: 60px;
+        }
+    }
+}
+// About / Customer Testimonials
+
+

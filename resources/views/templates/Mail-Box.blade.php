@@ -1,4 +1,4 @@
-<div class="thank-you-wrapper about-us-wrapper" style="background-image:url('images/about-banner.png');">
+<div class="thank-you-wrapper about-us-wrapper" style="background-image:url('/images/about-banner.png');">
     <div class="container">
         <div class="row">
             <div class="col">
@@ -18,7 +18,7 @@
 </div>
 
 <div class="about-2nd-wrapper">
-    <div class="about-2nd-back-pic" style="background-image:url('images/mailbox-two.jpg');"></div>
+    <div class="about-2nd-back-pic" style="background-image:url('/images/mailbox-two.jpg');"></div>
     <div class="services-sp-wrap">
         <h3>mailbox</h3>
         <p>
@@ -33,7 +33,7 @@
 </div>
 
 <div class="about-2nd-wrapper about-row-revrs">
-    <div class="about-2nd-back-pic" style="background-image:url('images/mailbox-one.jpg');"></div>
+    <div class="about-2nd-back-pic" style="background-image:url('/images/mailbox-one.jpg');"></div>
     <div class="services-sp-wrap">
         <h3>mailbox with forwarding</h3>
         <p>

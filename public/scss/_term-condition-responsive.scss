@@ -1,0 +1,28 @@
+// privacy-policy & term and condition
+@include xs {
+}
+
+// @include md
+@include lg {
+}
+@include md {
+    .privacy-container {
+        padding: 50px 0px 35px 0px;
+    }
+}
+@include sm {
+    .privacy-container {
+        padding: 50px 0px 35px 0px;
+    }
+    .privacy-data h1, .privacy-data h2, .privacy-data h3{
+        font-size: 40px;
+    }
+}
+@include xs {
+    .privacy-container {
+        padding: 30px 0px 33px 0px;
+    }
+    .privacy-data h1, .privacy-data h2, .privacy-data h3{
+        font-size: 35px;
+    }
+}

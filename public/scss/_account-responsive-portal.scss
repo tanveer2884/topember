@@ -1,0 +1,228 @@
+@include xs {}
+
+// @include md
+@include lg {
+    .address-book-main {
+        .address-book {
+            width: 48%;
+        }
+        .address-book:nth-child(2) {
+            margin-left: 10px;
+        }
+    }
+    .sort-orders select {
+        width: 33%;
+    }
+    .sort-orders input {
+        width: 38.5%;
+    }
+    .my-orders-main {
+        .order-table {
+            .table {
+                width: 770px;
+            }
+        }
+    }
+}
+
+@include md {
+    .account-main {
+        margin: 60px 0;
+        .account-list {
+            padding: 20px 10px 22px;
+            margin-right: 0px;
+        }
+    }
+    .profile-description {
+        .account-form {
+            width: 100%;
+        }
+    }
+    .address-book-main {
+        .address-book {
+            width: 100%;
+        }
+    }
+    .my-order-head {
+        .sort-orders {
+            width: 100%;
+        }
+    }
+    .sort-orders select {
+        width: 33%;
+    }
+    .sort-orders input {
+        width: 38.5%;
+    }
+    .order-detail-wrapper {
+        .order-detail:nth-child(2) {
+            .payment-method-wrapper {
+                width: 100%;
+            }
+        }
+    }
+    .my-orders-main {
+        .order-table {
+            .table {
+                width: 770px;
+            }
+        }
+    }
+}
+
+@include sm {
+    .account-main {
+        margin: 60px 0;
+        .profile-main {
+            padding-top: 30px;
+        }
+        .account-list {
+            padding: 20px 10px 22px;
+            margin-right: 0px;
+        }
+    }
+    .profile-description {
+        .account-form {
+            width: 100%;
+        }
+    }
+    .address-book-main {
+        .address-book {
+            width: 100%;
+        }
+    }
+    .my-order-head {
+        .sort-orders {
+            width: 100%;
+        }
+    }
+    .my-orders-main {
+        .my-order-head {
+            padding-top: 20px;
+        }
+    }
+    .shipping-main-head-style {
+        padding-top: 20px;
+    }
+    .order-detail-wrapper {
+        .order-detail:nth-child(2) {
+            .payment-method-wrapper {
+                width: 100%;
+                .shipping-adress-details {
+                    width: 100%;
+                }
+            }
+        }
+    }
+    .order-detail-wrapper {
+        .order-place:nth-child(3) {
+            padding: 15px 0;
+        }
+        .order-place:nth-child(4) {
+            padding: 15px 0;
+        }
+    }
+    .my-orders-main {
+        .order-table {
+            .table {
+                width: 710px;
+            }
+        }
+    }
+}
+
+@include xs {
+    .account-main {
+        margin: 40px 0 25px;
+        .profile-main {
+            padding-top: 30px;
+        }
+        .account-list {
+            padding: 20px 20px 22px;
+            margin-right: 0px;
+        }
+    }
+    .profile-description {
+        .account-form {
+            width: 100%;
+        }
+    }
+    .address-book-main {
+        .address-book {
+            width: 100%;
+        }
+    }
+    .my-order-head {
+        .sort-orders {
+            width: 100%;
+            justify-content: space-between;
+            select {
+                width: 100%;
+                margin-top: 10px;
+                margin-bottom: 10px;
+                height: 35px;
+                margin-right: 0px;
+            }
+            input {
+                width: 68%;
+                height: 35px;
+            }
+            .general-btn {
+                min-width: 30%;
+                height: 35px;
+            }
+        }
+    }
+    .shipping-main-head-style {
+        padding-top: 20px;
+    }
+    .my-orders-main {
+        .my-order-head {
+            padding-top: 20px;
+        }
+    }
+    .order-detail-wrapper {
+        .order-detail:nth-child(1) {
+            .payment-method-wrapper {
+                width: 100%;
+            }
+        }
+        .order-detail:nth-child(2) {
+            .payment-method-wrapper {
+                width: 100%;
+                .shipping-adress-details {
+                    width: 100%;
+                }
+            }
+        }
+    }
+    .order-detail-wrapper {
+        .order-place:nth-child(3) {
+            padding: 15px 0;
+        }
+        .order-place:nth-child(4) {
+            padding: 15px 0;
+        }
+    }
+    .order-detail-wrapper {
+        .order-place {
+            .order-place-pic {
+                height: 60px;
+            }
+        }
+    }
+    .my-orders-main {
+        .order-table {
+            .table {
+                width: 710px;
+            }
+        }
+    }
+    .scanned-sp-grab-table {
+        .order-table {
+            .table {
+                width: 480px;
+            }
+        }
+    }
+}

@@ -1,6 +1,6 @@
 <!-- banner  -->
 <section>
-    <div class="home-banner div-flex" style="background-image: url(images/home-banner.png)" >
+    <div class="home-banner div-flex" style="background-image: url(/images/home-banner.png)" >
         <div class="home-banner-overlay"></div>
         <div class="banner-text">
             <h1>Sample <br/> Text Here</h1>
@@ -43,7 +43,7 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-6 col-lg-4">
-                <a href="shipping-services.php" class="home-card" style="background-image: url('images/hc1.png');" >
+                <a href="shipping-services.php" class="home-card" style="background-image: url('/images/hc1.png');" >
                     <h3>Shipping Services</h3>
                     <p>Lorem ipsum dolor amet consetur.</p>
                     <span>
@@ -64,7 +64,7 @@
                 </a>
             </div>
             <div class="col-sm-6 col-lg-4">
-                <a href="packing-services.php" class="home-card" style="background-image: url('images/hc2.png');" >
+                <a href="packing-services.php" class="home-card" style="background-image: url('/images/hc2.png');" >
                     <h3>Packing Services</h3>
                     <p>Lorem ipsum dolor amet consetur.</p>
                     <span>
@@ -85,7 +85,7 @@
                 </a>
             </div>
             <div class="col-sm-6 col-lg-4">
-                <a href="amazon-package.php" class="home-card" style="background-image: url('images/hc3.png');" >
+                <a href="amazon-package.php" class="home-card" style="background-image: url('/images/hc3.png');" >
                     <h3>Amazon Pickup</h3>
                     <p>Lorem ipsum dolor amet consetur.</p>
                     <span>
@@ -106,7 +106,7 @@
                 </a>
             </div>
             <div class="col-sm-6 col-lg-4">
-                <a href="moving-consultation.php" class="home-card" style="background-image: url('images/hc4.png');" >
+                <a href="moving-consultation.php" class="home-card" style="background-image: url('/images/hc4.png');" >
                     <h3>Moving Consultations</h3>
                     <p>Lorem ipsum dolor amet consetur.</p>
                     <span>
@@ -127,7 +127,7 @@
                 </a>
             </div>
             <div class="col-sm-6 col-lg-4">
-                <a href="mail-box.php" class="home-card" style="background-image: url('images/hc5.png');" >
+                <a href="mail-box.php" class="home-card" style="background-image: url('/images/hc5.png');" >
                     <h3>Mailbox Rental</h3>
                     <p>Lorem ipsum dolor amet consetur.</p>
                     <span>
@@ -148,7 +148,7 @@
                 </a>
             </div>
             <div class="col-sm-6 col-lg-4">
-                <a href="#" class="home-card" style="background-image: url('images/hc6.png');" >
+                <a href="#" class="home-card" style="background-image: url('/images/hc6.png');" >
                     <h3>Conference Rooms</h3>
                     <p>Lorem ipsum dolor amet consetur.</p>
                     <span>
@@ -199,7 +199,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6">
-                <div class="image-section div-flex justify-content-end" style="background-image: url('images/is1.png');">
+                <div class="image-section div-flex justify-content-end" style="background-image: url('/images/is1.png');">
                     <div class="image-section-overlay"></div>
                     <div class="image-section-text">
                         <h3>Sample Text Here Sample</h3>
@@ -221,7 +221,7 @@
                 </div>
             </div>
             <div class="col-md-6">
-                <div class="image-section div-flex" style="background-image: url('images/is2.png');">
+                <div class="image-section div-flex" style="background-image: url('/images/is2.png');">
                     <div class="image-section-overlay"></div>
                     <div class="image-section-text">
                         <h3>Sample Text Here Sample</h3>
@@ -275,13 +275,13 @@
                             </a>
                         </div>
                         <div class="about-company-img">
-                            <img src="images/about-company.png" alt="" class="img-fluid" />
+                            <img src="/images/about-company.png" alt="" class="img-fluid" />
                         </div>
                     </div>
 
                     <div class="about-company customer-testimonial div-flex">
                         <div class="about-company-img">
-                            <img src="images/customer-testimonial.png" alt="" class="img-fluid" />
+                            <img src="/images/customer-testimonial.png" alt="" class="img-fluid" />
                         </div>
                         <div class="about-company-text testimonial-slider">
                             [[Homepage-Testimonials-Placeholder]]

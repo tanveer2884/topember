@@ -1,0 +1,45 @@
+// empty cart page
+.empty-cart-main-wrapper {
+    width: 100%;
+    height: 813px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+}
+.empty-cart-wrapper {
+    width: 596px;
+    min-height: 378px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column wrap;
+    img {
+        width: 170px;
+        height: 176px;
+    }
+    h2 {
+        padding: 40px 0 5px 0;
+        text-align: center;
+        word-wrap: break-word;
+        @include font-applying(48px, $font-text, 300);
+        color: #262f2c;
+    }
+    a {
+        text-align: center;
+        @include font-applying(22px, $font-text, 400);
+        color: #262f2c;
+        text-decoration: underline;
+        &:hover {
+            text-decoration: underline;
+            color: #1975e8;
+        }
+    }
+    p {
+        text-align: center;
+        word-wrap: break-word;
+        @include font-applying(22px, $font-text, 400);
+        color: #262f2c;
+    }
+}

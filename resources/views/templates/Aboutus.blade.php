@@ -1,4 +1,4 @@
-<div class="thank-you-wrapper about-us-wrapper" style="background-image:url('images/about-banner.png');">
+<div class="thank-you-wrapper about-us-wrapper" style="background-image:url('/images/about-banner.png');">
     <div class="container">
         <div class="row">
             <div class="col">
@@ -16,7 +16,7 @@
 </div>
 
 <div class="about-2nd-wrapper">
-    <div class="about-2nd-back-pic" style="background-image:url('images/about-2nd-back-pic.png');"></div>
+    <div class="about-2nd-back-pic" style="background-image:url('/images/about-2nd-back-pic.png');"></div>
     <div class="about-2nd-back-para">
         <h3>What We Do</h3>
         <p>
@@ -29,7 +29,7 @@
     </div>
 </div>
 <div class="about-2nd-wrapper about-row-revrs">
-    <div class="about-2nd-back-pic" style="background-image:url('images/about-3rd-back-pic.png');"></div>
+    <div class="about-2nd-back-pic" style="background-image:url('/images/about-3rd-back-pic.png');"></div>
     <div class="about-2nd-back-para">
         <h3>Our History</h3>
         <p>
@@ -46,7 +46,7 @@
     <h4>We guarantee</h4>
     <div class="about-3rd-wrap">
         <div class="about-3rd-wrap-div">
-            <div class="about-us-1" style="background-image:url('images/desktop-icon.png');"></div>
+            <div class="about-us-1" style="background-image:url('/images/desktop-icon.png');"></div>
             <h4>Customer Support</h4>
             <h6>priority support</h6>
             <p>
@@ -54,7 +54,7 @@
             </p>
         </div>
         <div class="about-3rd-wrap-div">
-            <div class="about-us-2" style="background-image:url('images/globe -icon.png');"></div>
+            <div class="about-us-2" style="background-image:url('/images/globe -icon.png');"></div>
             <h4>Worldwide shipping</h4>
             <h6>wherever you are</h6>
             <p>
@@ -62,7 +62,7 @@
             </p>
         </div>
         <div class="about-3rd-wrap-div">
-            <div class="about-us-3" style="background-image:url('images/warranty-icon.png');"></div>
+            <div class="about-us-3" style="background-image:url('/images/warranty-icon.png');"></div>
             <h4>3 Year Warranty</h4>
             <h6>guaranteed</h6>
             <p>

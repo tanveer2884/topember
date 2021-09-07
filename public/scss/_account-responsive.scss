@@ -1,0 +1,87 @@
+// sign in & forgot passowrd & register & error-404
+@include xs {
+    .thank-you-wrapper {
+        height: 580px;
+    }
+    .sign-in-wrapper {
+        width: 90%;
+        margin-left: 5%;
+        margin-right: 5%;
+        h2 {
+            font-size: 35px;
+        }
+        form {
+            display: flex;
+            flex-flow: column wrap;
+            justify-content: center;
+            align-items: center;
+        }
+        .form-group {
+            padding: 0 10px;
+        }
+        .forgot-pass {
+            padding: 0 0 15px;
+        }
+        .forgot-sp-wide {
+            width: 270px;
+        }
+    }
+    .empty-cart-wrapper {
+        h2 {
+            font-size: 25px;
+        }
+    }
+    .thanks-para-bold {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .empty-cart-main-wrapper {
+        height: 500px;
+    }
+    .error-main-wrapper {
+        height: 565px;
+    }
+    .error-sp-wrap {
+        width: 95%;
+        min-height: 384px;
+        .error-top-wrap {
+            h1 {
+                font-size: 110px;
+            }
+            img {
+                width: 90px;
+                height: 90px;
+            }
+        }
+        h4 {
+            font-size: 35px;
+        }
+        p {
+            font-size: 15px;
+        }
+    }
+    .error-sp-wrap-2 {
+        width: 85%;
+        min-height: 35px;
+    }
+    .error-sp-wrap-3 {
+        width: 75%;
+        min-height: 35px;
+    }
+}
+
+@include sm {
+    .empty-cart-wrapper {
+        h2 {
+            font-size: 35px;
+        }
+    }
+    .error-main-wrapper {
+        height: 700px;
+    }
+    .error-sp-wrap {
+        width: 95%;
+    }
+}
+// @include md
+// @include lg
