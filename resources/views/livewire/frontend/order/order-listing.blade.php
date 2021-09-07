@@ -11,7 +11,7 @@
     </tr>
     </thead>
     <tbody>
-    @foreach($orders as $order)
+    @forelse($orders as $order)
         <tr>
             <td>{{ $order->created_at->format('d/m/Y') }}</td>
             <td>{{ $order->order_id }}</td>
@@ -24,7 +24,13 @@
                 </a>
             </td>
         </tr>
-    @endforeach
+    @empty
+        <tr>
+            <td class="6" class="text-center">
+                No result found.
+            </td>
+        </tr>
+    @endforelse
     </tbody>
 </table>
     @include('layouts.livewire.loading')
