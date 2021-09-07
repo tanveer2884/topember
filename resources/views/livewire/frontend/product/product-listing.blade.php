@@ -21,7 +21,7 @@
                         @else
                             <h4>${{ number_format($product->getPrice(),2) }}</h4>
                         @endif
-                        <livewire:frontend.cart.add-to-cart-button :product="$product" :showQty="false" :inSearchBar="false" />
+                        <livewire:frontend.cart.add-to-cart-button :key="$product->id" :product="$product" :showQty="false" :inSearchBar="false" />
                     </div>
                 </div>
             </div>
