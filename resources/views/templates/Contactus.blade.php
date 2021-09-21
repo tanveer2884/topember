@@ -19,10 +19,10 @@
                 <h3>Contact</h3>
                 <p>
                     Feel free to give us a call at:
-                    (347) 699-2467
+                    (123) 456-789
                 </p>
                 <p>
-                    or email us at <a href="mailto:info@thestorebox.com">info@thestorebox.com</a>
+                    or email us at <a href="mailto:hello@dotlogics.com">hello@dotlogics.com</a>
                 </p>
                 <p>
                     Office Hours:<br>
