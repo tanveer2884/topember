@@ -23,7 +23,7 @@ class ProductFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->name,
+            'name' => $this->faker->text(100),
             // 'slug' => $this->slug,
             'sku' => $this->faker->text(8),
             'model_number' => $this->faker->text(10),
@@ -31,6 +31,7 @@ class ProductFactory extends Factory
             'weight' => $this->faker->numberBetween(1,500),
             'is_active' => $this->faker->boolean(),
             'is_inStock' => $this->faker->boolean(),
+            'view_count' => $this->faker->numberBetween(0,100),
             'is_featured' => $this->faker->boolean(),
             'is_recommended' => $this->faker->boolean(),
             'short_description' => $this->faker->text(200),

@@ -3,9 +3,10 @@
 namespace Topdot\Order\Models;
 
 use App\Models\User;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Topdot\Product\Models\Product;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Order extends Model
 {
@@ -25,6 +26,16 @@ class Order extends Model
     public function products()
     {
         return $this->belongsToMany(Product::class);
+    }
+
+    public function scopeCompleted(Builder $builder)
+    {
+        return $builder->where('status',self::STATUS_COMPLETED);
+    }
+
+    public function createdBy()
+    {
+        return $this->belongsTo(User::class);
     }
 
     public function setCartAttribute($value)

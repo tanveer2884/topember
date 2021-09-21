@@ -3,7 +3,7 @@
         <ul class="nav navbar-nav flex-row">
             <li class="nav-item mr-auto d-flex align-items-center">
                 <a class="navbar-brand" href="/">
-                    <img src="{{ asset('images/admin/logo.png') }}" class="ml-2" style="height: 50px;width: 141px;" alt="">
+                    <img src="{{ asset('images/admin/full-size-png.png') }}" class="ml-2" style="height: 50px;width: 141px;" alt="">
                 </a>
             </li>
             <li class="nav-item nav-toggle d-flex align-items-center">

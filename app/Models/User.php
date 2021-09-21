@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Topdot\Core\Models\User as ModelsUser;
 use Illuminate\Auth\Notifications\ResetPassword as ResetPasswordNotification;
+use Topdot\Order\Models\Order;
 
 class User extends ModelsUser
 {
@@ -48,6 +49,11 @@ class User extends ModelsUser
     public function addresses()
     {
         return $this->hasMany(Address::class);
+    }
+
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
     }
 
     public function sendPasswordResetNotification($token)

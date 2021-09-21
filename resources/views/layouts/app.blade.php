@@ -22,7 +22,7 @@
         <main class="container-fluid h-100">
             <div class="row h-100">
                 <div class="col-md-8 right m-0 p-0">
-                    <img src="{{ asset('images/admin/logo.png') }}" class="big-size-img" alt="">
+                    <img src="{{ asset('images/admin/logo.jpeg') }}" class="big-size-img" alt="">
                 </div>
                 <div class="col-md-4 h-100 m-0 p-0">
                     @yield('content')

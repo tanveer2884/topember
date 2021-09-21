@@ -12,8 +12,14 @@ class DashboardController extends Controller
     *
     * @return \Illuminate\Http\Response
     */
-    public function index()
+    public function index(ReportsRepository $reportsRepository)
     {
-        return view('admin.dashboard.index');
+        $topFiveCustoemrs = $reportsRepository->getTopFiveCustomers();
+        $lastFiveOrders = $reportsRepository->getLastFiveOrders();
+        $mostSoldProducts = $reportsRepository->getMostSoldProducts();
+        $mostViewedProducts = $reportsRepository->getMostViewedProducts();
+        $totalSales = $reportsRepository->getTotalRevenue();
+
+        return view('admin.dashboard.index',compact('topFiveCustoemrs','lastFiveOrders','mostSoldProducts','mostViewedProducts','totalSales'));
     }
 }

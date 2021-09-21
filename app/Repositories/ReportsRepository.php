@@ -2,10 +2,10 @@
 
 namespace App\Repositories;
 
-use App\Models\Order;
-use App\Models\Product;
 use App\Models\User;
+use Topdot\Order\Models\Order;
 use Illuminate\Support\Facades\DB;
+use Topdot\Product\Models\Product;
 
 class ReportsRepository
 {
