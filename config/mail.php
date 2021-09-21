@@ -2,6 +2,13 @@
 
 return [
 
+    'emails' => [
+        'default' => [
+            'name' => env('DEFAULT_FROM_NAME'),
+            'address' => env('DEFAULT_FROM_EMAIL'),
+        ]
+    ],
+
     /*
     |--------------------------------------------------------------------------
     | Default Mailer

@@ -7,25 +7,31 @@
     "require": {
         "php": "^7.3|^8.0",
         "beyondcode/laravel-server-timing": "dev-master",
+        "doctrine/dbal": "^3.1",
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
+        "jorenvanhocht/laravel-share": "^4.1",
         "laravel/framework": "^8.40",
         "laravel/helpers": "^1.4",
+        "laravel/sail": "^1.10",
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.3",
+        "rap2hpoutre/laravel-log-viewer": "^1.7",
         "spatie/laravel-db-snapshots": "^2.0",
         "topdot/cart": "dev-master",
         "topdot/cms": "dev-master",
         "topdot/core": "dev-master",
         "topdot/coupon": "dev-master",
+        "topdot/menu": "^1.0",
         "topdot/order": "dev-master",
-        "topdot/product": "dev-master"
+        "topdot/product": "dev-master",
+        "treestoneit/laravel-converge-api": "^2.0"
     },
     "require-dev": {
+        "barryvdh/laravel-debugbar": "^3.6",
         "facade/ignition": "^2.5",
         "fakerphp/faker": "^1.9.1",
-        "laravel/sail": "^1.0.1",
         "mockery/mockery": "^1.4.2",
         "nunomaduro/collision": "^5.0",
         "phpunit/phpunit": "^9.3.3"
@@ -35,7 +41,10 @@
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/"
-        }
+        },
+        "files": [
+            "app/Utils/helpers.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {
@@ -94,6 +103,10 @@
         {
             "type": "path",
             "url": "Modules/Coupon"
+        },
+        {
+            "type": "path",
+            "url": "Modules/Menu"
         }
     ]
 }

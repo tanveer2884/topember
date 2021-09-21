@@ -2,6 +2,7 @@
 
 namespace Topdot\Category\Models;
 
+use Database\Factories\CategoryFactory;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 use Topdot\Product\Models\Product;
@@ -57,6 +58,11 @@ class Category extends Model implements HasMedia
         return $this->hasMedia('default') ? route( 'api.medias.show',$this->getFirstMedia('default')) : $default;
     }
 
+    public function getTopProduct($qty = 4, $featured = false)
+    {
+        return $this->products()->active()->limit($qty)->get();
+    }
+
     /**
      * @return boolean
      */
@@ -81,10 +87,6 @@ class Category extends Model implements HasMedia
      */
     protected static function newFactory()
     {
-        if ( config('category.factoryClass') ){
-            return new (config('category.factoryClass'));
-        }
-
-        return null;
+        return new CategoryFactory();
     }
 }

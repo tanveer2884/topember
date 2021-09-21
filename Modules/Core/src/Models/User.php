@@ -115,4 +115,12 @@ class User extends Authenticatable implements HasMedia, HasStatus
         return $this;
     }
 
+    public function toArray()
+    {
+        return array_merge(parent::toArray(),[
+            'created_at' => $this->created_at->format('m-d-Y g:i:s a'),
+            'updated_at' => $this->created_at->format('m-d-Y g:i:s a'),
+        ]);
+    }
+
 }

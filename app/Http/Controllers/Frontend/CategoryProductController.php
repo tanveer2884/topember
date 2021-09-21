@@ -1,0 +1,90 @@
+<?php
+
+namespace App\Http\Controllers\Frontend;
+
+use Topdot\Category\Models\Category;
+use Topdot\Product\Models\Attribute;
+
+class CategoryProductController
+{
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function __invoke(array $categories = [], $product = null)
+    {
+        /**
+         * if route does not contain any categories or product
+         * show list of all products
+         */
+        if ( count($categories) <= 0 && !$product) {
+            $categories = Category::query()->whereHas('products',function($query){
+                $query->featured()
+                    ->active();
+            });
+
+            if ( request('category-sort','a-z') == 'a-z' ){
+                $categories->orderBy('name','ASC');
+            }
+
+            if ( request('category-sort') == 'z-a' ){
+                $categories->orderBy('name','DESC');
+            }
+
+            $categories = $categories->get();
+
+            return view('frontend.products.product-list',compact('categories'));
+        }
+
+        /**
+         * Check if route has valid categories
+         */
+        $category = verifyUriPathAgainstCategories($categories);
+        if (!$product && !$category) {
+            abort(404);
+        }
+
+        $categories = categoriesBySlugs($categories);
+        $baseUrl = $categories->pluck('slug')->join('/');
+
+        if ($product) {
+            $category = optional($category);
+            // RecentlyViewed::add($product);
+            // $product->addViewCount();
+            return view('frontend.products.product-detail', compact('category', 'categories', 'baseUrl', 'product'));
+        }
+
+        // if ( $category && $category->subCategories()->exists() ) {
+
+        //     $categoriesList = $category->subCategories;
+        //     return view('frontend.products.categories',compact('category','categories','baseUrl','categoriesList'));
+        // }
+
+        $filters = $this->getProductFilters($category);
+        $maxPrice = $category->products()->active()->max('price');
+        return view('frontend.products.index', compact('category','categories', 'maxPrice', 'filters', 'baseUrl'));
+    }
+
+    private function getProductFilters($category)
+    {
+        $query = Attribute::query();
+
+        $query->whereHas('products',function($query) use($category){
+            return $query->whereHas('categories',function($query) use($category){
+                return $query->where('id',$category->id);
+            })
+            ->active();
+        });
+
+        $query->with(['values' => function($query){
+            return $query->has('products');
+        }]);
+
+        $query->whereHas('values',function($query){
+            return $query->has('products');
+        });
+
+        return $query->get();
+    }
+}

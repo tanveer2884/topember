@@ -3,16 +3,21 @@
 namespace Topdot\Product\Models;
 
 use Carbon\Carbon;
+use Jorenvh\Share\Share;
+use App\Models\Manufacturer;
 use Spatie\Sluggable\HasSlug;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\Sluggable\SlugOptions;
+use Topdot\Category\Models\Category;
+use Topdot\Product\Models\Attribute;
+use Database\Factories\ProductFactory;
 use Illuminate\Database\Eloquent\Model;
 use LaravelJsonColumn\Traits\JsonColumn;
 use Illuminate\Database\Eloquent\Builder;
+use Topdot\Product\Models\AttributeValue;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Topdot\Category\Models\Category;
 use Topdot\Product\Contracts\Product as ContractsProduct;
 
 class Product extends Model implements HasMedia, ContractsProduct
@@ -20,7 +25,7 @@ class Product extends Model implements HasMedia, ContractsProduct
     use HasFactory, InteractsWithMedia, HasSlug, JsonColumn;
 
     protected $guarded = [];
-     
+
     protected $casts = [
         'special_end_at' => 'datetime',
         'special_start_at' => 'datetime',
@@ -32,11 +37,35 @@ class Product extends Model implements HasMedia, ContractsProduct
         return $builder->where('is_active',true);
     }
 
+    public function scopeFeatured(Builder $builder)
+    {
+        return $builder->where('is_featured',true);
+    }
+
+    public function scopeInStock(Builder $builder)
+    {
+        return $builder->where('is_inStock',true);
+    }
+
+    public function scopeIsAvailable(Builder $builder)
+    {
+        return $builder->where('products.qty','>',0);
+    }
+
+    public function scopeHomepage(Builder $builder)
+    {
+        return $builder->where('is_show_on_homepage',true);
+    }
+
     public function categories(): BelongsToMany
     {
         return $this->belongsToMany(Category::class);
     }
-    
+
+    public function manufacturer() {
+        return $this->belongsTo(Manufacturer::class, 'manufacturer_id');
+    }
+
     public function attributes()
     {
         return $this->belongsToMany(Attribute::class);
@@ -73,6 +102,11 @@ class Product extends Model implements HasMedia, ContractsProduct
     public function getImage($collection='additional_images', $default=null)
     {
         return $this->hasMedia($collection) ? route('api.medias.show',$this->getFirstMedia($collection)) : null;
+    }
+
+    public function getImages($collection = 'additional_images', $default = [])
+    {
+        return $this->hasMedia($collection) ? $this->getMedia($collection) : $default;
     }
 
     public function getSlugOptions(): SlugOptions
@@ -133,11 +167,11 @@ class Product extends Model implements HasMedia, ContractsProduct
             return false;
         }
 
-        if ( $this->special_start_at instanceof Carbon && $this->special_start_at->gte(Carbon::now()) ){
+        if ( $this->special_start_at instanceof Carbon && $this->special_start_at->startOfDay()->gte(Carbon::now()) ){
             return false;
         }
 
-        if ( $this->special_end_at instanceof Carbon && $this->special_end_at->lte(Carbon::now()) ){
+        if ( $this->special_end_at instanceof Carbon && $this->special_end_at->endOfDay()->lt(Carbon::now()) ){
             return false;
         }
 
@@ -166,17 +200,30 @@ class Product extends Model implements HasMedia, ContractsProduct
         return $this->hasSpecialPrice() ? $this->getSpecialPrice() : $this->price;
     }
 
-    /**
-     * Create a new factory instance for the model.
-     *
-     * @return \Illuminate\Database\Eloquent\Factories\Factory
-     */
-    protected static function newFactory()
+
+    public function getRelatedProducts()
     {
-        if ( config('product.factoryClass') ){
-            return new (config('product.factoryClass'));
+        return Product::whereHas('categories',function($query){
+            return $query->whereIn('id',$this->categoryIds());
+        })
+        ->where('id','<>',$this->id)
+        ->active()
+        // ->featured()
+        ->limit(30)
+        ->get();
+    }
+
+    public function share($channel)
+    {
+        if ( !method_exists(Share::class,$channel) ){
+            return '';
         }
 
-        return null;
+        return (new Share)->page( route('product.index',$this->slug), $this->name )->$channel()->getRawLinks();
+    }
+
+    protected static function newFactory()
+    {
+        return new ProductFactory();
     }
 }

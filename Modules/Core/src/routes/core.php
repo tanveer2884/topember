@@ -9,6 +9,7 @@ use Topdot\Core\Http\Controllers\UserRoleController;
 use Topdot\Core\Http\Controllers\UserCsvExportController;
 use Topdot\Core\Http\Controllers\RolePermissionController;
 use Topdot\Core\Http\Controllers\UserImportController;
+use Topdot\Core\Http\Controllers\ManufactureController;
 
 Route::resource('settings', SettingsController::class)->only('index','store');
 Route::resource('profile', ProfileController::class)->only('index', 'store');

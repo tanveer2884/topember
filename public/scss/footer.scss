@@ -1,0 +1,120 @@
+footer{
+    background-color: #000;
+
+    .footer-links{
+        padding: 48px 0 40px;
+
+        ul{
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 0;
+            column-count: 2;
+
+            li{
+                margin-bottom: 10px;
+                a{
+                    color: #fff;
+                    @include font-applying(14px, $font-text, 400);
+
+                    &:hover{
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+    }
+    .footer-head{
+        @include font-applying(16px, $font-text, 700);
+        color: #fff;
+        text-transform: uppercase;
+        margin-bottom: 25px;
+    }
+    .footer-social-main{
+        width: 50%;
+        float: left;
+    }
+    .footer-social{ 
+        ul{
+            column-count: 1;
+            li{
+                margin-bottom: 15px;
+
+                &:last-child{
+                    margin-bottom: 0;
+                }
+                a{
+                    position: relative;
+                    padding-left: 40px;
+                    
+                    svg{
+                        position: absolute;
+                        left: 0;
+                    }
+                }
+            }
+        }
+    }
+    .newsletter{
+        width: 50%;
+        float: left;
+        color: #fff;
+
+        .input-group{
+            height: 46px;
+
+            input{
+                height: 46px;
+                @include border-radius(0, 0, 0, 0);
+                border: 1px solid #e4e4e4;
+                @include font-applying(14px, $font-text, 400);
+            }
+
+            .input-group-append{
+                margin-left: 0;
+                .btn{
+                    background-color: $primary-color;
+                    @include font-applying(14px, $font-text, 500);
+                    padding: 0 25px;
+                    color: #fff;
+                    text-transform: uppercase;
+                    border-radius: 0;
+                }
+            }
+        }
+    }
+
+    .all-rights-main{
+        justify-content: space-between;
+        align-items: center;
+        height: 110px;
+        border-top: 1px solid #404040;
+        color: #fff;
+
+        p{
+            font-weight: 300;
+            margin-bottom: 0;
+            span{
+                font-weight: 600;
+            }
+        }
+
+        ul{
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 0;
+
+            li{
+                @include font-applying(14px, $font-text, 300);
+                color: #fff;
+                display: inline-block;
+                &.pipe{
+                    margin: 0 10px;
+                }
+                a{
+                    @include font-applying(14px, $font-text, 300);
+                    color: #fff;
+                }
+            }
+        }
+    }
+}

@@ -1,18 +1,44 @@
 <div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="row justify-content-end">
+                <div class="col-md-6">
+                    <label for="">From</label>
+                    <input type="date" placeholder="From" class="form-control" wire:model.debounce.500ms="from">
+                </div>
+                <div class="col-md-6">
+                    <label for="">To</label>
+                    <input type="date" placeholder="To" class="form-control" wire:model.debounce.500ms="to">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="row justify-content-end align-items-end">
+                <div class="col-md-8">
+                    <label for="">Search</label>
+                    <input type="search" placeholder="Search Order By Name/Code" class="form-control" wire:model.debounce.500ms="search">
+                </div>
+                <div class="col-md-4">
+                    <button class="btn btn-primary" wire:click="clear">
+                        <i class="fa fa-times"></i>
+                        Clear
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
     <table class="table table-hover table-responsive-md">
         <thead>
             <tr>
-                <th colspan="7">
-                    <div class="row justify-content-end">
-                        <div class="col-md-4 text-right">
-                            <input type="search" placeholder="Search Order By Name/Code" class="form-control" wire:model.debounce.500ms="search">
-                        </div>
-                    </div>
-                </th>
-            </tr>
-            <tr>
                 <th>
-                    Name
+                    Order No.
+                </th>
+                <th>
+                    <div class="cursor-pointer" wire:click="sort('shipping_name')">
+                        Name
+                        {!! $this->sortingInfo('shipping_name') !!}
+                    </div>
                 </th>
                 <th>
                     Tracking #
@@ -24,10 +50,10 @@
                     Status
                 </th>
                 <th>
-                    <a href="javascript:void(0);" class="btn py-0" wire:click="sort('created_at')">
+                    <div class="cursor-pointer" wire:click="sort('created_at')">
                         Created At
                         {!! $this->sortingInfo('created_at') !!}
-                    </a>
+                    </div>
                 </th>
                 <th>
                     Action
@@ -35,8 +61,11 @@
             </tr>
         </thead>
         <tbody>
-            @foreach($orders as $order)
+            @forelse($orders as $order)
             <tr>
+                <td style="white-space: nowrap;">
+                    {{ $order->order_id }}
+                </td>
                 <td>
                     {{ $order->shipping_name }}
                 </td>
@@ -55,7 +84,7 @@
                     Completed
                     @endif
                 </td>
-                <td>
+                <td class="text-center">
                     {{ $order->created_at->diffForHumans() }}
                 </td>
                 <td>
@@ -74,7 +103,13 @@
                     </div>
                 </td>
             </tr>
-            @endforeach
+            @empty
+                <tr>
+                    <td colspan="7" class="text-center">
+                        No result found
+                    </td>
+                </tr>
+            @endforelse
         </tbody>
     </table>
 

@@ -1,0 +1,59 @@
+// privacy-policy-page & term and condition
+.policy-wrapper {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+.privacy-container {
+    width: 100%;
+    padding: 70px 85px 35px 85px;
+}
+.privacy-data {
+    h1,
+    h2,
+    h3 {
+        @include font-applying(48px, $font-text, 300);
+        color: #262f2c;
+        text-align: center;
+        word-wrap: break-word;
+        text-transform: uppercase;
+        margin-bottom: 35px;
+    }
+    h4,
+    h5,
+    h6 {
+        @include font-applying(16px, $font-text, 500);
+        color: #262f2c;
+        text-align: start;
+        word-wrap: break-word;
+        text-transform: capitalize;
+        margin-bottom: 20px;
+    }
+    p {
+        @include font-applying(16px, $font-text, 300);
+        color: #262f2c;
+        text-align: start;
+        word-wrap: break-word;
+        margin-bottom: 20px;
+    }
+    ul,
+    ol {
+        padding-left: 20px;
+        @include font-applying(16px, $font-text, 300);
+        color: #262f2c;
+        li {
+            padding-left: 5px;
+        }
+    }
+    a {
+        @include font-applying(16px, $font-text, 300);
+        color: #3687d3;
+        text-decoration: none;
+        &:hover {
+            color: #262f2c;
+            text-decoration: none;
+        }
+    }
+}

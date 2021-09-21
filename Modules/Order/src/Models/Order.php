@@ -5,6 +5,7 @@ namespace Topdot\Order\Models;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Topdot\Product\Models\Product;
 
 class Order extends Model
 {
@@ -19,6 +20,11 @@ class Order extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function products()
+    {
+        return $this->belongsToMany(Product::class);
     }
 
     public function setCartAttribute($value)

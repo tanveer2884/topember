@@ -26,7 +26,7 @@ class CategoryUpdateRequest extends FormRequest
         return [
             'name' => 'required|max:191|unique:categories,name,'.$this->category->id,
             'status' => 'required|in:1,0',
-            'default' => 'nullable|array'
+            'image' => 'nullable|array'
         ];
     }
 }

@@ -64,7 +64,7 @@ class CategoryRepository implements CanFilterRecords
             'is_featured' => $request->is_featured,
         ]);
 
-        foreach (TempMedia::find($request->get('default', [])) as $tempThumbnail) {
+        foreach (TempMedia::find($request->get('image', [])) as $tempThumbnail) {
             $tempThumbnail->getImage()->move($category, 'default');
         }
 
@@ -86,11 +86,11 @@ class CategoryRepository implements CanFilterRecords
             'is_featured' => $request->is_featured,
         ]);
 
-        if ( $request->has('default') && TempMedia::find($request->get('default', []))){
+        if ( $request->has('image') && TempMedia::find($request->get('image', []))){
             $category->clearMediaCollection('default');
         }
         
-        foreach (TempMedia::find($request->get('default', [])) as $tempThumbnail) {
+        foreach (TempMedia::find($request->get('image', [])) as $tempThumbnail) {
             $tempThumbnail->getImage()->move($category, 'default');
         }
 

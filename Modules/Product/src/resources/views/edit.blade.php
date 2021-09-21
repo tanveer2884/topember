@@ -55,7 +55,7 @@
                                             @enderror
                                         </div>
                                     </div>
-                                    <div class="row form-group">
+                                    {{-- <div class="row form-group">
                                         <div class="col-md-2">
                                             <label>Slug <i class="text-danger">*</i></label>
                                         </div>
@@ -67,7 +67,7 @@
                                             </div>
                                             @enderror
                                         </div>
-                                    </div>
+                                    </div> --}}
                                     <div class="row form-group">
                                         <div class="col-md-2">
                                             <label>SKU <i class="text-danger">*</i></label>
@@ -86,17 +86,35 @@
                                             <label>Categories</label>
                                         </div>
                                         <div class="col-md-6">
-                                            <select name="categories[]" multiple id="" class="form-control selectpicker">
-                                                <option value="">Select Categories</option>
+                                            <select name="categories[]" data-placeholder="Select Categories" multiple id="" class="form-control selectpicker">
                                                 @foreach(categories() as $category)
                                                 <option value="{{ $category->id }}" {{ in_array($category->id, old('categories',$product->categoryIds()) ) ? 'selected' :'' }}>{{ $category->name }}</option>
                                                 @endforeach
                                             </select>
                                             <div class="text-danger" v-if="errors.has('categories')" v-cloak>
-                                                
+
                                             </div>
                                         </div>
                                     </div>
+
+                                    <div class="row form-group">
+                                        <div class="col-md-2">
+                                            <label>Manufacturers</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <select name="manufacturer_id" id="" class="form-control selectpicker">
+                                                <option value="">Select Manufacturers</option>
+                                                @foreach(manufacturers() as $manufacturer)
+                                                    <option value="{{ $manufacturer->id }}" {{ old('manufacturer_id',$product->manufacturer_id) == $manufacturer->id ? 'selected' :'' }}>{{ $manufacturer->name }}</option>
+                                                @endforeach
+                                            </select>
+                                            <div class="text-danger" v-if="errors.has('categories')" v-cloak>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+
                                     <div class="row form-group">
                                         <div class="col-md-2">
                                             <label>Quantity <i class="text-danger">*</i></label>
@@ -177,6 +195,18 @@
                                             <div class="custom-control custom-control-inline custom-switch">
                                                 <input type="checkbox" value="1" name="is_recommended" {{ $product->is_recommended ?'checked':'' }} class="custom-control-input" id="recommended">
                                                 <label class="custom-control-label" for="recommended"></label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row form-group">
+                                        <div class="col-md-2">
+                                            <label>Show On Homepage</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="custom-control custom-control-inline custom-switch">
+                                                <input type="checkbox" value="1" name="is_show_on_homepage" {{ $product->is_show_on_homepage ?'checked':'' }} class="custom-control-input" id="is_show_on_homepage">
+                                                <label class="custom-control-label" for="is_show_on_homepage"></label>
                                             </div>
                                         </div>
                                     </div>

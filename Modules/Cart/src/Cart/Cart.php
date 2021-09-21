@@ -74,7 +74,7 @@ class Cart
 
     /**
      * This holds the currently added item id in cart for association
-     * 
+     *
      * @var
      */
     protected $currentItemId;
@@ -892,7 +892,7 @@ class Cart
 
     public function setExtraData($data)
     {
-        $this->session->put($this->sessionKeyExtraData,$data);
+        $this->session->put($this->sessionKeyExtraData, $data);
 
         return $this;
     }
@@ -901,6 +901,28 @@ class Cart
     {
         return  $this->session->get(
             $this->sessionKeyExtraData
+        ,[]);
+    }
+
+    public function mergeExtraData(array $data)
+    {
+        return $this->setExtraData(
+            array_merge(
+                $this->getExtraData(),
+                $data
+            )
         );
+    }
+
+    public function getValue($key, $default = null)
+    {
+        return optional($this->getExtraData())[$key] !== null ? optional($this->getExtraData())[$key] :$default;
+    }
+
+    public function setValue($key, $value)
+    {
+        return $this->mergeExtraData([
+            $key => $value
+        ]);
     }
 }

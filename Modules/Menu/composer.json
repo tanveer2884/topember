@@ -1,0 +1,29 @@
+{
+    "name": "topdot/menu",
+    "version": "1.0",
+    "description": "A menu builder package for admin panel",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Muhammad Saqib Ali",
+            "email": "saqib.topdot@gmail.com"
+        }
+    ],
+    "require": {
+        "livewire/livewire" : ">2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Topdot\\Menu\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Topdot\\Menu\\MenuServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev"
+}
