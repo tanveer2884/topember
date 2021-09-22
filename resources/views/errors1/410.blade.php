@@ -1,4 +1,4 @@
-@extends('frontend.layouts.master')
+@extends('layouts.app')
 
 @section('title','410 Link Expired')
 @section('description','Sorry the link is expired')

@@ -1,4 +1,4 @@
-@extends('frontend.layouts.master')
+@extends('layouts.app')
 
 @section('title','404 Page not Found')
 @section('description','Sorry The page you are looking cannot be found on this server')
