@@ -76,23 +76,25 @@ return [
 
     'canvas' => [
         'styles' => [
+            //'vendor/laravel-grapesjs/assets/editor.css',
             '/frontend/css/style.css',
-            'vendor/laravel-grapesjs/assets/editor.css',
-            '/frontend/css/bootstrap_5.min.css',
+            '/frontend/css/bootstrap5.min.css',
             '/frontend/css/webfonts/all.css',
             '/frontend/css/webfonts/fontsheet.css',
             '/frontend/css/style.css',
-            '/frontend/css/slick-theme.css',
-            '/frontend/css/slick.css',
-            'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'
+            'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css',
+            'frontend/css/slick.css',
+            'frontend/css/slick-theme.css',
+            'frontend/css/jarallax.css',
         ],
         'scripts' => [
-            'vendor/laravel-grapesjs/assets/editor.js',
+            //'vendor/laravel-grapesjs/assets/editor.js',
             '/frontend/js/jquery-3.6.0.js',
-            '/frontend/js/bootstrap_5.min.js',
+            '/frontend/js/bootstrap5.min.js',
             '/frontend/js/popper.min.js',
+            'frontend/js/jarallax.js',
+            'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js',
             '/frontend/js/main.js',
-            '/frontend/js/slick.min.js',
         ],
     ],
 

@@ -1,111 +1,164 @@
-jQuery(function($) {
-  $('body').on('keyup input paste', '.phone_number, .mask_us_phone', function() {
-      $(this).mask('+1 (999) 999-9999')
-  });
-  $('.mask_us_phone').trigger('input');
+$(document).ready(function () {
+    $('.card').hover(function () {
+        $(this).find('.inactive-overlay').css('opacity', 0);
+        $(this).find('.active-overlay').css('opacity', 1);
+    }, function () {
+        $(this).find('.inactive-overlay').animate({ opacity: 1 }, 300);
+        $(this).find('.active-overlay').animate({ opacity: 0 }, 300);
+    });
 
-  $('.video-play').click(function(){
-    $('.video-wrap').show();
-    $('.bl-video').show();
-
-    $('.blv-video').trigger('play');
-
-    $('.bl-video').click();
-    $('.bl-video')[0].contentWindow.postMessage('{"event":"command","func":"' + 'playVideo' + '","args":""}', '*');
-    return false;
-
-    
-  });
-  
-  
-  // For Zoom 
-  $('.zoom-images').each(function() {
-      $(this).imageZoom();
-  });
-  // For Zoom 
-
-   // check video 
-   $(document).on('init', '.product-plugin-upper', function(){
-    var firstVideo = $(this).find('[data-slick-index="0"] video').get(0);
-    if (firstVideo == undefined) {
-        console.log("not a video");
+    if ($(':has(.card-slider)').length > 0) {
+        $(".card-slider").slick({
+            dots: false,
+            arrows: false,
+            slidesToShow: 2,
+            slidesToScroll: 1,
+            prevArrow:
+                '<button class="slick-prev" aria-label="Previous" type="button">Previous</button>',
+            nextArrow:
+                '<button class="slick-next" aria-label="Next" type="button">Next</button>',
+            responsive: [
+                {
+                    breakpoint: 992,
+                    settings: {
+                        slidesToShow: 1,
+                    },
+                },
+            ],
+        });
     }
-    else{
-        $(this).find('[data-slick-index="0"] video').get(0).play();
-        console.log("video");
+
+    if ($(':has(.history-slick)').length > 0) {
+        $('.history-slick').slick({
+            dots: false,
+            arrows: true,
+            slidesToShow: 2,
+            slidesToScroll: 1,
+            infinite: true,
+            responsive: [{
+                breakpoint: 1200,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                }
+            },
+            {
+                breakpoint: 992,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                }
+            },
+            {
+                breakpoint: 576,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                }
+            },
+            ]
+        });
+    }
+
+    if ($(':has(.award-slick)').length > 0) {
+        $('.award-slick').slick({
+            dots: false,
+            arrows: false,
+            autoplay: true,
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            infinite: true,
+            responsive: [{
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 1,
+                }
+            },
+            {
+                breakpoint: 576,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                }
+            },
+            ]
+        });
+    }
+
+    checkScrolldownIdExist = $('#scrolldown');
+    if (checkScrolldownIdExist.length > 0) {
+        document
+            .getElementById("scrolldown")
+            .addEventListener("click", function (event) {
+                event.preventDefault();
+
+                const scrollAmount = 1200;
+
+                const currentScrollPosition = window.scrollY;
+                const newScrollPosition = currentScrollPosition + scrollAmount;
+
+                window.scrollTo({
+                    top: newScrollPosition,
+                    behavior: "smooth",
+                });
+            });
     }
 });
-// check video end
 
-  $('.product-plugin-upper').slick({
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      arrows: false,
-      fade: true,
-      adaptiveHeight:true,
-      asNavFor: '.product-plugin-lower'
-  });
+// Scroll down
+document.addEventListener("DOMContentLoaded", function () {
+    checkIdExist = $('#myCircularText');
 
-  $('.product-plugin-lower').slick({
-      slidesToShow: 3,
-      slidesToScroll: 1,
-      asNavFor: '.product-plugin-upper',
-      dots: false,
-      arrows: true,
-      centerMode: true,
-      focusOnSelect: true,
-      responsive: [ 
-          {
-          breakpoint: 390,
-              settings: {
-                  slidesToShow: 2,
-                  slidesToScroll: 1
-              }
-          },
-      ]
-  }); 
+    if (checkIdExist.length > 0) {
+        var circularText = document.getElementById("myCircularText");
 
+        circularText.addEventListener("click", function () {
+            // Scroll the page down by 200px
+            window.scrollBy(0, 400);
+        });
+    }
 });
 
-// play video product details page 
+// dropdown open when hover over caret
+$(document).ready(function () {
 
-$(document).on('beforeChange', '.product-plugin-upper', function(event, slick, currentSlide, nextSlide){
-  let currentVideo = $(slick.$slides[currentSlide]).find('video').get(0);
-  let nextVideo = $(slick.$slides[nextSlide]).find('video').get(0);
-  if (currentVideo) {
-      currentVideo.pause();
-  }
-  if(nextVideo){
-      nextVideo.play();
-  }
-  setTimeout(() => {
-      currentVideo.currentTime = 0;
-  }, 2000);
+    if (window.innerWidth > 992) {
+
+        $('header .nav-link').hover(function () {
+            $(this).closest('.nav-link').siblings('ul').css('display', 'block');
+        });
+
+    }
+    else {
+
+        $('.main-caret').click(function () {
+            var $ul = $(this).closest('.nav-link').siblings('ul');
+
+            if ($ul.css('display') === 'block') {
+                $ul.css('display', 'none');
+            } else {
+                $ul.css('display', 'block');
+            }
+        });
+
+        $('.fa-caret-down:not(.main-caret)').click(function () {
+            var $ul = $(this).closest('span').siblings('ul');
+            if (!$ul.data('toggled')) {
+                $ul.css('display', 'block');
+                $ul.data('toggled', true);
+            } else {
+                $ul.toggle(); // Toggle the visibility of the ul element
+            }
+        });
+
+    }
+
+    $('.nav-item').mouseleave(function () {
+        $(this).children('ul').first().css('display', 'none');
+    });
+
+    $('.main-caret').click(function (event) {
+        event.preventDefault();
+    });
 });
-// play video product details page end
-
-const hamburger = document.querySelector(".hamburger");
-const navMenu = document.querySelector(".nav-menu");
-const navMain = document.querySelector(".mob-nav");
-
-hamburger.addEventListener("click", () => {
-  hamburger.classList.toggle("active");
-  navMenu.classList.toggle("active");
-  navMain.classList.toggle("active");
-  if (navMain.classList.contains('active')) {
-    navMain.classList.add("d-flex");
-    
-  }else{
-    setTimeout(() => {
-      navMain.classList.remove("d-flex");
-    }, 200);
-    
-  }
-});
-
-document.querySelectorAll(".nav-link").forEach((link) =>
-  link.addEventListener("click", () => {
-    hamburger.classList.remove("active");
-    navMenu.classList.remove("active");
-  })
-);
