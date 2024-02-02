@@ -1,10 +1,8 @@
 import './bootstrap';
 
-import './sortable';
+// Complete SortableJS (with all plugins)
+import Sortable from 'sortablejs/modular/sortable.complete.esm.js';
 
 import jQuery from 'jquery';
-
-import { Livewire, Alpine } from '../../vendor/livewire/livewire/dist/livewire.esm';
-Livewire.start()
 
 window.jQuery = jQuery;

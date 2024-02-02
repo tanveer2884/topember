@@ -23,7 +23,6 @@
 
     @include('frontend.layouts.css')
     @stack('page_css')
-    @livewireStyles
 
 </head>
 
@@ -51,7 +50,6 @@
         @include('frontend.layouts.footer')
     </div>
     @include('frontend.layouts.js')
-    @livewireScripts
     @include('frontend.layouts.livewirejs')
     @include('frontend.layouts.toastr-events')
     @stack('page_js')

@@ -5,5 +5,4 @@
 <link href="{{ asset('assets/css/filepond-plugin-image-preview.css') }}" rel="stylesheet">
 <link href="{{ asset('assets/css/quill.snow.css') }}" rel="stylesheet">
 <link href="{{ asset('assets/css/menu.css') }}" rel="stylesheet" />
-@livewireStyles
 @vite(['resources/css/app.css'], 'tallAdmin')
