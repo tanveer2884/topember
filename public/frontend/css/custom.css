@@ -1,0 +1,145 @@
+.cursor-pointer{
+    cursor: pointer !important;
+}
+
+.banner-main .banner-text,
+.banner-main .banner-text * {
+    color: #321f35 !important;
+}
+
+header.header-white~.inner-section .banner-main .banner-text,
+header.header-white~.inner-section .banner-main .banner-text * {
+    color: #fff !important;
+}
+
+@media screen and (max-width: 575px) {
+    .banner-main {
+        margin-top: 0px !important;
+    }
+
+    header.header-white {
+        background: #39233d;
+    }
+}
+
+.custom-spinner {
+    width: 120px;
+    height: 120px;
+    margin: 0;
+    background: transparent;
+    border-top: 7px solid #fff;
+    border-right: 7px solid transparent;
+    border-radius: 50%;
+    -webkit-animation: 1s spin linear infinite;
+    animation: 1s spin linear infinite;
+}
+
+@media screen and (min-width: 0px) and (max-width: 767px) {
+
+    header.header-white~.inner-section .banner-main .banner-text,
+    header.header-white~.inner-section .banner-main .banner-text p {
+        color: #321f35 !important;
+    }
+
+    header.header-white~.inner-section .banner-main .banner-text,
+    header.header-white~.inner-section .banner-main .banner-text h1 {
+        color: #321f35 !important;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1200px) {
+    .about-us-banner.banner-main .container {
+        background-color: #f8f9f9 !important;
+        position: relative !important;
+        transform: translateY(0) !important;
+        left: 0 !important;
+        top: 0 !important;
+    }
+
+    .about-us-banner.banner-main .banner-text {
+        max-width: 800px !important;
+        margin: 0 auto !important;
+        padding: 40px 0 30px !important;
+        text-align: center !important;
+        color: #000 !important;
+    }
+
+    .about-us-banner.banner-main .banner-text p {
+        width: 100% !important;
+        color: #000 !important;
+    }
+}
+
+body.no-scroll {
+    overflow: hidden;
+}
+
+@-webkit-keyframes spin {
+    from {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+
+    to {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    from {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+
+    to {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+.journal-gallery-wrap {
+    margin: 90px 0px;
+}
+
+.journal-gallery .journal-item {
+    height: 380px;
+    margin: 12px 0px;
+}
+
+.journal-gallery .journal-item img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.lightgallery {
+    height: 100%;
+}
+
+.load-more-btn {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    margin-top: 50px;
+}
+
+.load-more-btn a {
+    color: #3a233d;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 600;
+    border-bottom: 1px solid #3a233d;
+}
+.journal-desc{
+    font-size: 16px;
+  }
+
+.journal-page-title{
+    font-size: 61px;
+    font-family: "NanumMyeongjo";
+}
+
+.latest-news-slider{
+    margin-bottom: 0 !important;
+}
