@@ -7,7 +7,7 @@
                         @if ($logo_full_svg = config('custom.logo_full_svg'))
                             {!! $logo_full_svg !!}
                         @else
-                            <img src="/frontend/images/topdot-logo.jpeg" height="36px" class="img img-responsive w-48"
+                            <img src="/frontend/images/logo.png" height="36px" class="w-48 img img-responsive"
                                 alt="logo">
                         @endif
                     </a>

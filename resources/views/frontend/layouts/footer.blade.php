@@ -12,7 +12,7 @@
                                 <div class="col-md-4 col-12">
                                     <div class="footer-logo-wrap">
                                         <a href="{{ route('homepage') }}">
-                                            <img src="/frontend/images/topdot-logo.jpeg" class="img img-fluid" alt="logo">
+                                            <img src="/frontend/images/logo.png" class="img img-fluid" alt="logo">
                                         </a>
                                         <div class="footer-social div-flex">
                                             @if (config('custom.facebook_url'))
@@ -47,7 +47,7 @@
                                                 </ul>
                                             </div>
                                         </div>
-                                        <div class="col-sm-4 col-7 mt-5 mt-sm-0">
+                                        <div class="mt-5 col-sm-4 col-7 mt-sm-0">
                                             <div class="footer-list-wrap">
                                                 <h4>{{ __('support') }}</h4>
                                                 <p>{{ config('custom.address') }}</p>
@@ -64,7 +64,7 @@
                             </div>
                         </div>
                         <div class="copy-right-wrap">
-                            <div class="copy-right text-center">
+                            <div class="text-center copy-right">
                                 <p>
                                     © {{ date('Y') }}
                                     <strong class="text-uppercase">
