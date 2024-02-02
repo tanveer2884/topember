@@ -1,1 +1,0 @@
-<a class="dropdown-item btn" href="#" wire:click="logout" style="background: unset; outline:unset;">Logout</a>
