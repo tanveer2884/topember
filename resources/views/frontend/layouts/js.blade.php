@@ -8,6 +8,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js" defer></script>
 <script src="/frontend/js/main.js" defer></script>
 <script src="/frontend/js/lightgallery.js" defer></script>
+@vite(['resources/js/app.js'], 'tallAdmin')
 <script>
     $(window).on('load', function () {
         $('.loading-spinner').hide();

@@ -16,3 +16,4 @@
 <link rel="stylesheet" href="/frontend/css/image-zoom.css" />
 <link rel="stylesheet" href="/frontend/css/custom.css" />
 <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.12/css/lightgallery.min.css" />
+@vite(['resources/css/app.css'], 'tallAdmin')
