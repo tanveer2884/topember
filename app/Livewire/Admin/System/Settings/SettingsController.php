@@ -70,15 +70,15 @@ class SettingsController extends SystemAbstract
                     $setting = Setting::where('key', $key)->first();
 
                     if ($setting) {
-                        $setting->clearMediaCollection();
-                        $this->settings[$key] = $setting->addMedia($value)->toMediaCollection()->getFullUrl();
+                        $setting->clearMediaCollection($key);
+                        $this->settings[$key] = $setting->addMedia($value)->preservingOriginal()->withCustomProperties(['caption' => null, 'primary' => true, 'position' => 1])->toMediaCollection($key)->getFullUrl();
                     }
                 }
 
                 $value = 'file';
             }
 
-            Setting::updateOrCreate(
+            $a =Setting::updateOrCreate(
                 compact('key'),
                 compact('value')
             );

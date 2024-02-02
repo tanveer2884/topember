@@ -41,7 +41,7 @@ if (!function_exists('get_max_fileupload_size')) {
             'youtube_url' => ['value' => '', 'type' => 'text', 'rules' => 'string|max:255'],
             'instagram_url' => ['value' => '', 'type' => 'text', 'rules' => 'string|max:255'],
             'pinterest_url' => ['value' => '', 'type' => 'text', 'rules' => 'string|max:255'],
-            'logo_full' => ['value' => '/frontend/images/logo.png', 'type' => 'file', 'rules' => ['bail', 'required', (new SettingsImageValidation)->mimes(['*']), 'max:3000']],
+            'logo_full' => ['value' => '/frontend/images/logo.png', 'type' => 'file', 'rules' => ['bail', 'required', (new SettingsImageValidation)->mimes(['svg', 'png', 'jpeg']), 'max:3000']],
             'logo_small' => ['value' => '/frontend/images/logo.png', 'type' => 'file', 'rules' => ['bail', 'required', new SettingsImageValidation, 'max:3000']],
         ]);
 
