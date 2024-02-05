@@ -12,7 +12,13 @@
                                 <div class="col-md-4 col-12">
                                     <div class="footer-logo-wrap">
                                         <a href="{{ route('homepage') }}">
-                                            <img src="/frontend/images/logo.png" class="img img-fluid" alt="logo">
+                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                            xmlns:xlink="http://www.w3.org/1999/xlink" width="193px"
+                                            height="71px">
+                                            <image x="0px" y="0px" width="193px" height="71px" alt="logo"
+                                                xlink:href="{{ config('custom.logo_small', '/frontend/images/logo.png') }}">
+                                            </image>
+                                        </svg>
                                         </a>
                                         <div class="footer-social div-flex">
                                             @if (config('custom.facebook_url'))
@@ -66,7 +72,7 @@
                         <div class="copy-right-wrap">
                             <div class="text-center copy-right">
                                 <p>
-                                    © {{ date('Y') }}
+                                    {!! str_replace(':CURRENT_YEAR', date("Y"), config('custom.copyright_text')) !!}
                                     <strong class="text-uppercase">
                                         {{ config('custom.site_title') }}
                                     </strong>

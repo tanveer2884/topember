@@ -31,7 +31,7 @@ if (!function_exists('get_max_fileupload_size')) {
         $settings = collect([
             'site_title' => ['value' => 'Demo', 'type' => 'text', 'rules' => 'required|string|max:255'],
             'meta_tag' => ['value' => 'Demo', 'type' => 'text', 'rules' => 'string|max:255'],
-            'copyright_text' => ['value' => 'All Rights Reserved.', 'type' => 'text', 'rules' => 'string|max:255'],
+            'copyright_text' => ['value' => '<p>©:CURRENT_YEAR <span>topdot</span>', 'type' => 'text', 'rules' => 'string|max:255'],
             'phone_number' => ['value' => '+1 (123) 456 7890', 'type' => 'text', 'rules' => 'required|string|max:255'],
             'contact_us_email' => ['value' => 'info@companyname.com', 'type' => 'email', 'rules' => 'required|email|max:255'],
             'information_email' => ['value' => 'info@companyname.com', 'type' => 'email', 'rules' => 'required|email|max:255'],
@@ -91,3 +91,5 @@ if (!function_exists('auth_staff')) {
         return $staff;
     }
 }
+
+

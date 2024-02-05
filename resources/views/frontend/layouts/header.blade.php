@@ -4,8 +4,9 @@
             <div class="col-md-12">
                 <nav class="navbar">
                     <a href="{{ route('homepage') }}" class="navbar-brand">
-                        @if ($logo_full_svg = config('custom.logo_full_svg'))
-                            {!! $logo_full_svg !!}
+                        @if ($logo_full = config('custom.logo_full'))
+                            <img src="{!! $logo_full !!}" height="36px" class="w-48 img img-responsive"
+                                alt="logo">
                         @else
                             <img src="/frontend/images/logo.png" height="36px" class="w-48 img img-responsive"
                                 alt="logo">
