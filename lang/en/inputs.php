@@ -128,4 +128,9 @@ return [
     'smtp_encryption' => 'Smtp Encryption',
     'mail_from_address' => 'Mail From Address',
     'mail_from_name' => 'Mail From Name',
+    'aws_access_key_id' => 'AWS Access Key ID',
+    'aws_secret_access_key' => 'AWS Secret Access Key',
+    'aws_default_region' => 'AWS Default Region',
+    'aws_bucket' => 'AWS Bucket',
+    'aws_use_path_style_endpoint' => 'AWS Use Path Style Endpoint',
 ];
