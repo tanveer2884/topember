@@ -53,9 +53,13 @@ if (!function_exists('get_max_fileupload_size')) {
             'smtp_encryption' => ['value' => 'tls', 'type' => 'text', 'rules' => 'string|max:255'],
             'mail_from_address' => ['value' => 'your_from_email_address', 'type' => 'text', 'rules' => 'email|max:255'],
             'mail_from_name' => ['value' => 'your_from_name', 'type' => 'text', 'rules' => 'string|max:255'],
-            'single' => ['value' => '', 'type' => 'hidden'],
+            'aws' => ['value' => '', 'type' => 'hidden'],
             's3_settings' => ['value' => 'S3 Setting', 'type' => 'heading'],
-
+            'aws_access_key_id' => ['value' => 'your_aws_access_key_id', 'type' => 'text', 'rules' => 'required|string|max:255'],
+            'aws_secret_access_key' => ['value' => 'your_aws_secret_access_key', 'type' => 'text', 'rules' => 'required|string|max:255'],
+            'aws_default_region' => ['value' => 'us-east-1', 'type' => 'text', 'rules' => 'required|string|max:255'],
+            'aws_bucket' => ['value' => 'your_aws_bucket', 'type' => 'text', 'rules' => 'required|string|max:255'],
+            'aws_use_path_style_endpoint' => ['value' => false, 'type' => 'toggle', 'rules' => 'boolean'],
         ]);
 
         if ($key && $type) {

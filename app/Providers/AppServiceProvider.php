@@ -15,6 +15,7 @@ class AppServiceProvider extends ServiceProvider
     {
         $this->setCustomConfig();
         $this->configureSmtp();
+        $this->configureAws();
     }
 
     public function setCustomConfig(): void
@@ -64,5 +65,22 @@ class AppServiceProvider extends ServiceProvider
 
         Config::set('mail.from.address', $smtpSettings['mail_from_address'] ?? null);
         Config::set('mail.from.name', $smtpSettings['mail_from_name'] ?? config('app.name'));
+    }
+
+    protected function configureAws()
+    {
+        $awsSettings = Setting::whereIn('key', [
+            'AWS_ACCESS_KEY_ID',
+            'AWS_SECRET_ACCESS_KEY',
+            'AWS_DEFAULT_REGION',
+            'AWS_BUCKET',
+            'AWS_USE_PATH_STYLE_ENDPOINT',
+        ])->pluck('value', 'key')->toArray();
+
+        Config::set('filesystems.disks.s3.key', $awsSettings['AWS_ACCESS_KEY_ID'] ?? null);
+        Config::set('filesystems.disks.s3.secret', $awsSettings['AWS_SECRET_ACCESS_KEY'] ?? null);
+        Config::set('filesystems.disks.s3.region', $awsSettings['AWS_DEFAULT_REGION'] ?? 'us-east-1');
+        Config::set('filesystems.disks.s3.bucket', $awsSettings['AWS_BUCKET'] ?? null);
+        Config::set('filesystems.disks.s3.use_path_style_endpoint', $awsSettings['AWS_USE_PATH_STYLE_ENDPOINT'] ?? false);
     }
 }

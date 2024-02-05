@@ -5,7 +5,7 @@
             @foreach ($settings as $key => $value)
                 @php($type = get_general_site_settings($key))
 
-                @if ($type == 'hidden')
+                @if($type == 'hidden')
                     <div></div>
                 @elseif ($type == 'heading')
                 <div class="space-y-1">
@@ -15,30 +15,43 @@
                 </div>
                 <div></div>
                 @else
-                    <x-admin.components.input.group label="{{ __('inputs.' . $key) }}" for="{{ $key }}"
-                        :error="$errors->first('settings.' . $key)">
-                        @if ($type == 'file')
-                            <x-admin.components.input.fileupload wire:model="{{ 'settings.' . $key }}" :imagesHolder="'settings.' . $key"
-                                :maxFiles="1" label="<span class='text-gray-400 plus'>+</span>" />
+                    <x-admin.components.input.group label="{{ __('inputs.'.$key) }}" for="{{ $key }}" :error="$errors->first('settings.'.$key)">
+                        @if($type == 'file')
+                            <x-admin.components.input.fileupload
+                                wire:model="{{ 'settings.'.$key }}"
+                                :imagesHolder="'settings.'.$key"
+                                
+                                :maxFiles="1"
+                                label="<span class='text-gray-400 plus'>+</span>"
+                            />
 
-                            @if ($value)
+                            @if($value)
+                                
                                 <div class="relative flex-row flex-wrap p-2 border rounded feature-upload d-flex">
                                     <div class="bg-gray-200 rounded preview-img">
-                                        <img class="img-fluid d-block mx-auto h-[150px]"
-                                            src="{{ !is_string($value) ? $value->temporaryUrl() : $value }}"
-                                            alt="">
+                                        <img class="img-fluid d-block mx-auto h-[150px]" src="{{ !is_string($value) ? $value->temporaryUrl() : $value }}" alt="">
                                     </div>
-                                    <button wire:loading.attr="disabled"
+                                    <button 
+                                        wire:loading.attr="disabled"
                                         class="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-gray-700 rounded-full cursor-pointer top-1 right-1 opacity-80"
-                                        wire:click.prevent="$set('{{ 'settings.' . $key }}', '')">
+                                        wire:click.prevent="$set('{{ 'settings.'.$key }}', '')"
+                                    >
                                         x
                                     </button>
                                 </div>
                             @endif
+                        @elseif($type == 'toggle')
+                            <x-admin.components.input.toggle
+                                wire:model.defer="settings.{{ $key }}" 
+                                :error="$errors->first('settings.'.$key)" />
                         @else
-                            <x-admin.components.input.text type="{{ $type }}"
-                                wire:model="settings.{{ $key }}" name="{{ $key }}"
-                                id="{{ $key }}" :error="$errors->first('settings.' . $key)" />
+                            <x-admin.components.input.text
+                                type="{{ $type }}" 
+                                wire:model.defer="settings.{{ $key }}"
+                                name="{{ $key }}" 
+                                id="{{ $key == 'phone_number' ? 'mask_us_phone' : $key }}"
+                                :error="$errors->first('settings.'.$key)"
+                            />
                         @endif
                     </x-admin.components.input.group>
                 @endif

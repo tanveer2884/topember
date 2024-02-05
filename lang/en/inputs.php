@@ -131,4 +131,9 @@ return [
     'general_setting' => 'General Setting',
     'smtp_settings' => 'SMTP Settings',
     's3_settings' => 'S3 Settings',
+    'aws_access_key_id' => 'AWS Access Key ID',
+    'aws_secret_access_key' => 'AWS Secret Access Key',
+    'aws_default_region' => 'AWS Default Region',
+    'aws_bucket' => 'AWS Bucket',
+    'aws_use_path_style_endpoint' => 'AWS Use Path Style Endpoint',
 ];
