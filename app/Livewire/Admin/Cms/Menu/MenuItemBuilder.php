@@ -47,7 +47,7 @@ class MenuItemBuilder extends MenuAbstract
                 'max:191',
                 Rule::unique('menu_items', 'title')
                     ->when($this->menuItem->id, fn ($query) => $query->ignore($this->menuItem->id))
-                    ->when($this->menuItem->menu_id, fn ($query) => $query->where('menu_id', $this->menuItem->menu_id)),
+                    ->when($this->menu->id, fn ($query) => $query->where('menu_id', $this->menu->id)),
             ],
             'menuItem.link' => [
                 'required',
