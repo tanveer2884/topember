@@ -7,22 +7,29 @@
 
                 @if ($type == 'hidden')
                     <div></div>
+                @elseif ($type == 'heading')
+                <div class="space-y-1">
+                    <h3 class="text-lg font-medium leading-6 text-gray-900">
+                        {{ __('inputs.' . $key) }}
+                    </h3>
+                </div>
+                <div></div>
                 @else
                     <x-admin.components.input.group label="{{ __('inputs.' . $key) }}" for="{{ $key }}"
                         :error="$errors->first('settings.' . $key)">
                         @if ($type == 'file')
                             <x-admin.components.input.fileupload wire:model="{{ 'settings.' . $key }}" :imagesHolder="'settings.' . $key"
-                                :maxFiles="1" label="<span class='plus text-gray-400'>+</span>" />
+                                :maxFiles="1" label="<span class='text-gray-400 plus'>+</span>" />
 
                             @if ($value)
-                                <div class="feature-upload relative flex-wrap d-flex flex-row rounded border p-2">
-                                    <div class="preview-img bg-gray-200 rounded">
+                                <div class="relative flex-row flex-wrap p-2 border rounded feature-upload d-flex">
+                                    <div class="bg-gray-200 rounded preview-img">
                                         <img class="img-fluid d-block mx-auto h-[150px]"
                                             src="{{ !is_string($value) ? $value->temporaryUrl() : $value }}"
                                             alt="">
                                     </div>
                                     <button wire:loading.attr="disabled"
-                                        class="inline-flex absolute top-1 right-1 justify-center items-center w-6 h-6 text-xs opacity-80 font-bold text-white bg-gray-700 rounded-full cursor-pointer"
+                                        class="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-gray-700 rounded-full cursor-pointer top-1 right-1 opacity-80"
                                         wire:click.prevent="$set('{{ 'settings.' . $key }}', '')">
                                         x
                                     </button>

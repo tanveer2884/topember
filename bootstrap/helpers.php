@@ -30,6 +30,7 @@ if (!function_exists('get_max_fileupload_size')) {
     function get_general_site_settings($key = null, $type = 'type')
     {
         $settings = collect([
+            //'general_setting' => ['value' => 'General Setting', 'type' => 'heading'],
             'site_title' => ['value' => 'Demo', 'type' => 'text', 'rules' => 'required|string|max:255'],
             'meta_tag' => ['value' => 'Demo', 'type' => 'text', 'rules' => 'string|max:255'],
             'copyright_text' => ['value' => '<p>©:CURRENT_YEAR <span>topdot</span>', 'type' => 'text', 'rules' => 'string|max:255'],
@@ -44,6 +45,7 @@ if (!function_exists('get_max_fileupload_size')) {
             'pinterest_url' => ['value' => '', 'type' => 'text', 'rules' => 'string|max:255'],
             'logo_full' => ['value' => '/frontend/images/logo.png', 'type' => 'file', 'rules' => ['bail', 'required', (new SettingsImageValidation)->mimes(['svg', 'png', 'jpeg']), 'max:3000']],
             'logo_small' => ['value' => '/frontend/images/logo.png', 'type' => 'file', 'rules' => ['bail', 'required', new SettingsImageValidation, 'max:3000']],
+            'smtp_settings' => ['value' => 'SMTP Setting', 'type' => 'heading'],
             'smtp_host' => ['value' => 'smtp.example.com', 'type' => 'text', 'rules' => 'required|string|max:255'],
             'smtp_port' => ['value' => '587', 'type' => 'text', 'rules' => 'required|numeric'],
             'smtp_username' => ['value' => 'your_smtp_username', 'type' => 'text', 'rules' => 'required|string|max:255'],
@@ -51,6 +53,9 @@ if (!function_exists('get_max_fileupload_size')) {
             'smtp_encryption' => ['value' => 'tls', 'type' => 'text', 'rules' => 'string|max:255'],
             'mail_from_address' => ['value' => 'your_from_email_address', 'type' => 'text', 'rules' => 'email|max:255'],
             'mail_from_name' => ['value' => 'your_from_name', 'type' => 'text', 'rules' => 'string|max:255'],
+            'single' => ['value' => '', 'type' => 'hidden'],
+            's3_settings' => ['value' => 'S3 Setting', 'type' => 'heading'],
+
         ]);
 
         if ($key && $type) {

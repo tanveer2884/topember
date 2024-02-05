@@ -128,4 +128,7 @@ return [
     'smtp_encryption' => 'Smtp Encryption',
     'mail_from_address' => 'Mail From Address',
     'mail_from_name' => 'Mail From Name',
+    'general_setting' => 'General Setting',
+    'smtp_settings' => 'SMTP Settings',
+    's3_settings' => 'S3 Settings',
 ];
