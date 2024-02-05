@@ -121,4 +121,11 @@ return [
     'logo_small' => 'Logo small',
     'link' => 'Link',
     'open_in' => 'Open in',
+    'smtp_host' => 'Smtp Host',
+    'smtp_port' => 'Smtp Port',
+    'smtp_username' => 'Smtp Username',
+    'smtp_password' => 'Smtp Password',
+    'smtp_encryption' => 'Smtp Encryption',
+    'mail_from_address' => 'Mail From Address',
+    'mail_from_name' => 'Mail From Name',
 ];

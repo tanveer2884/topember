@@ -13,8 +13,8 @@ class AppServiceProvider extends ServiceProvider
 {
     public function boot()
     {
-
         $this->setCustomConfig();
+        $this->configureSmtp();
     }
 
     public function setCustomConfig(): void
@@ -42,5 +42,27 @@ class AppServiceProvider extends ServiceProvider
         }
 
         Config::set('custom', $config->toArray());
+    }
+
+    protected function configureSmtp()
+    {
+        $smtpSettings = Setting::whereIn('key', [
+            'smtp_host',
+            'smtp_port',
+            'smtp_username',
+            'smtp_password',
+            'smtp_encryption',
+        ])->pluck('value', 'key')->toArray();
+
+        Config::set('mail.mailers.smtp', array_merge(config('mail.mailers.smtp'), [
+            'host' => $smtpSettings['smtp_host'] ?? 'smtp.mailgun.org',
+            'port' => $smtpSettings['smtp_port'] ?? 587,
+            'encryption' => $smtpSettings['smtp_encryption'] ?? 'tls',
+            'username' => $smtpSettings['smtp_username'] ?? null,
+            'password' => $smtpSettings['smtp_password'] ?? null,
+        ]));
+
+        Config::set('mail.from.address', $smtpSettings['mail_from_address'] ?? null);
+        Config::set('mail.from.name', $smtpSettings['mail_from_name'] ?? config('app.name'));
     }
 }

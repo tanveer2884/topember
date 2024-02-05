@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Menu;
+use App\Models\Setting;
 use App\Models\Admin\Staff;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
@@ -43,6 +44,13 @@ if (!function_exists('get_max_fileupload_size')) {
             'pinterest_url' => ['value' => '', 'type' => 'text', 'rules' => 'string|max:255'],
             'logo_full' => ['value' => '/frontend/images/logo.png', 'type' => 'file', 'rules' => ['bail', 'required', (new SettingsImageValidation)->mimes(['svg', 'png', 'jpeg']), 'max:3000']],
             'logo_small' => ['value' => '/frontend/images/logo.png', 'type' => 'file', 'rules' => ['bail', 'required', new SettingsImageValidation, 'max:3000']],
+            'smtp_host' => ['value' => 'smtp.example.com', 'type' => 'text', 'rules' => 'required|string|max:255'],
+            'smtp_port' => ['value' => '587', 'type' => 'text', 'rules' => 'required|numeric'],
+            'smtp_username' => ['value' => 'your_smtp_username', 'type' => 'text', 'rules' => 'required|string|max:255'],
+            'smtp_password' => ['value' => 'your_smtp_password', 'type' => 'text', 'rules' => 'required|string|max:255'],
+            'smtp_encryption' => ['value' => 'tls', 'type' => 'text', 'rules' => 'string|max:255'],
+            'mail_from_address' => ['value' => 'your_from_email_address', 'type' => 'text', 'rules' => 'email|max:255'],
+            'mail_from_name' => ['value' => 'your_from_name', 'type' => 'text', 'rules' => 'string|max:255'],
         ]);
 
         if ($key && $type) {
