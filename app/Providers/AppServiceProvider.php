@@ -70,17 +70,17 @@ class AppServiceProvider extends ServiceProvider
     protected function configureAws()
     {
         $awsSettings = Setting::whereIn('key', [
-            'AWS_ACCESS_KEY_ID',
-            'AWS_SECRET_ACCESS_KEY',
-            'AWS_DEFAULT_REGION',
-            'AWS_BUCKET',
-            'AWS_USE_PATH_STYLE_ENDPOINT',
+            'aws_access_key_id',
+            'aws_secret_access_key',
+            'aws_default_region',
+            'aws_bucket',
+            'aws_use_path_style_endpoint',
         ])->pluck('value', 'key')->toArray();
 
-        Config::set('filesystems.disks.s3.key', $awsSettings['AWS_ACCESS_KEY_ID'] ?? null);
-        Config::set('filesystems.disks.s3.secret', $awsSettings['AWS_SECRET_ACCESS_KEY'] ?? null);
-        Config::set('filesystems.disks.s3.region', $awsSettings['AWS_DEFAULT_REGION'] ?? 'us-east-1');
-        Config::set('filesystems.disks.s3.bucket', $awsSettings['AWS_BUCKET'] ?? null);
-        Config::set('filesystems.disks.s3.use_path_style_endpoint', $awsSettings['AWS_USE_PATH_STYLE_ENDPOINT'] ?? false);
+        Config::set('filesystems.disks.s3.key', $awsSettings['aws_access_key_id'] ?? null);
+        Config::set('filesystems.disks.s3.secret', $awsSettings['aws_secret_access_key'] ?? null);
+        Config::set('filesystems.disks.s3.region', $awsSettings['aws_default_region'] ?? 'us-east-1');
+        Config::set('filesystems.disks.s3.bucket', $awsSettings['aws_bucket'] ?? null);
+        Config::set('filesystems.disks.s3.use_path_style_endpoint', $awsSettings['aws_use_path_style_endpoint'] ?? false);
     }
 }
