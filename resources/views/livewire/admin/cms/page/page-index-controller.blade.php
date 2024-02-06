@@ -7,17 +7,17 @@
         this.$dispatch('notify', {message: 'Copied.', level: 'success'})
     }
 }">
-    <div class="text-right mb-4">
+    <div class="mb-4 text-right">
         <x-admin.components.button tag="a" href="{{ route('admin.cms.pages.create') }}">
             {{ __('pages.index.action.create') }}
         </x-admin.components.button>
     </div>
 
     <div
-        class="shadow-gray-800 dark:shadow-gray-50 border border-gray-300 dark:border-gray-500 sm:rounded-lg">
+        class="border border-gray-300 shadow-gray-800 dark:shadow-gray-50 dark:border-gray-500 sm:rounded-lg">
         <div class="p-4 space-y-4">
             <div class="flex items-center space-x-4">
-                <div class="grid grid-cols-12 w-full space-x-4">
+                <div class="grid w-full grid-cols-12 space-x-4">
                     <div class="col-span-8 md:col-span-8">
                         <x-admin.components.input.text wire:model.live.debounce.300ms="search"
                             placeholder="{{ __('pages.index.search.placeholder') }}" />
@@ -31,7 +31,7 @@
             </div>
         </div>
 
-        <x-admin.components.table class="w-full whitespace-no-wrap p-2">
+        <x-admin.components.table class="w-full p-2 whitespace-no-wrap">
             <x-slot name="head">
                 <x-admin.components.table.heading>{{ __('global.title') }}</x-admin.components.table.heading>
                 <x-admin.components.table.heading>{{ __('global.slug') }}</x-admin.components.table.heading>
@@ -51,7 +51,7 @@
                             <button 
                                 title="Copy Link"
                                 @click="copyText('{{ $page->slug }}')"
-                                class="w-7 h-7 font-semibold leading-tight text-xs text-gray-500 p-1 dark:bg-gray-500 dark:text-green-100">
+                                class="p-1 text-xs font-semibold leading-tight text-gray-500 w-7 h-7 dark:bg-gray-500 dark:text-green-100">
                                 <x-icon ref="document-duplicate" class="text-xs" />
                             </button>
                         </x-admin.components.table.cell>
@@ -78,6 +78,11 @@
                                     href="{{ route('admin.cms.pages.editor', $page) }}" target="_blank">
                                     {{ __('global.editor') }}
                                 </a>
+                            @else
+                                <button class="text-indigo-500 hover:underline" wire:click="restore('{{ $page->id }}')">
+                                    {{ __('staff.index.action.restore') }}
+                                </button> |
+                                <x-confirmation-modal model="forceDelete('{{ $page->id }}')" />
                             @endif
                         </x-admin.components.table.cell>
                     </x-admin.components.table.row>

@@ -9,6 +9,7 @@ use App\Models\Page;
 use Illuminate\Contracts\View\View;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Livewire\WithPagination;
+use Throwable;
 
 class PageIndexController extends CmsAbstract
 {
@@ -31,5 +32,38 @@ class PageIndexController extends CmsAbstract
     public function render(): View
     {
         return $this->view('livewire.admin.cms.page.page-index-controller');
+    }
+
+
+    /**
+     * Force delete page
+     *
+     * @param  int|null  $id
+     */
+    public function forceDelete($id): void
+    {
+        try {
+            Page::onlyTrashed()->find($id)->forceDelete();
+
+            $this->notify(__('pages.form.page.deleted_permanently'), 'admin.cms.pages.index');
+        } catch (Throwable $th) {
+            $this->notify($th->getMessage(), level: 'error');
+        }
+    }
+
+    /**
+     * Restore page member
+     *
+     * @param  int|null  $id
+     */
+    public function restore($id): void
+    {
+        try {
+            Page::withTrashed()->find($id)->restore();
+
+            $this->notify(__('pages.form.page.restore'), 'admin.cms.pages.index');
+        } catch (\Throwable $th) {
+            $this->notify($th->getMessage(), level: 'error');
+        }
     }
 }

@@ -19,4 +19,9 @@ return [
     'form.danger_zone.label' => 'Remove Page',
     'form.danger_zone.instructions' => 'Enter the page slug to confirm removal.',
     'delete' => 'Page deleted successfully',
+    'form.page.created' => 'Page created',
+    'form.page.deleted' => 'Page deleted',
+    'form.page.deleted_permanently' => 'Page deleted permanently',
+    'form.page.restore' => 'Page restored',
+    'form.page.updated' => 'Page updated',
 ];
