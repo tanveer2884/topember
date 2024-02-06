@@ -1,25 +1,21 @@
 <?php
 
-use App\Livewire\Admin\Dashboard\DashboardController;
 use App\Http\Controllers\Admin\Cms\PageEditorController;
 use App\Livewire\Admin\Cms\Menu\MenuBuilderController;
 use App\Livewire\Admin\Cms\Menu\MenuIndexController;
 use App\Livewire\Admin\Cms\Page\PageCreateController;
 use App\Livewire\Admin\Cms\Page\PageIndexController;
 use App\Livewire\Admin\Cms\Page\PageShowController;
+use App\Livewire\Admin\Dashboard\DashboardController;
 use App\Livewire\Admin\Profile\StaffProfileController;
 use App\Livewire\Admin\System\Settings\SettingsController;
 use App\Livewire\Admin\System\Staff\StaffCreateController;
 use App\Livewire\Admin\System\Staff\StaffIndexController;
 use App\Livewire\Admin\System\Staff\StaffShowController;
-use App\Livewire\Admin\System\Role\RoleShowController;
-use App\Livewire\Admin\System\Role\RoleIndexController;
-use App\Livewire\Admin\System\Role\RoleCreateController;
-
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:admin')->group(function () {
-    
+
     Route::get('dashboard', DashboardController::class)->name('dashboard');
 
     Route::prefix('cms')->middleware('permission:cms')->as('cms.')->group(function () {
@@ -49,7 +45,7 @@ Route::middleware('auth:admin')->group(function () {
         Route::middleware('permission:system:settings')->group(function () {
             Route::get('settings', SettingsController::class)->name('settings');
         });
-        
+
     });
 
     Route::get('staff/account', StaffProfileController::class)->name('staff.profile');

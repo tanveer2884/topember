@@ -2,13 +2,11 @@
 
 namespace App\Http\Controllers\Api\Auth;
 
-use Exception;
-use App\Models\User;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Resources\UserResource;
-use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\UpdateUserRequest;
+use App\Http\Resources\UserResource;
+use Exception;
+use Illuminate\Support\Facades\Auth;
 
 class UserProfileController extends Controller
 {
@@ -16,6 +14,7 @@ class UserProfileController extends Controller
     {
         try {
             $userDetail = new UserResource(Auth::user());
+
             return apiResponse(true, trans('messages.user_profile'), ['user' => $userDetail], 200);
         } catch (Exception $ex) {
             return apiResponse(false, $ex->getMessage(), [], 500);
@@ -33,7 +32,6 @@ class UserProfileController extends Controller
             Auth::user()->update($request->validated());
 
             $userDetail = new UserResource(Auth::user());
-
 
             return apiResponse(true, trans('messages.user_profile_updated'), ['user' => $userDetail], 200);
         } catch (Exception $ex) {

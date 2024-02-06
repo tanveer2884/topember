@@ -76,7 +76,7 @@ class ProfileTest extends TestCase
         $response->assertDispatchedBrowserEvent('notify');
 
         $this->assertNotFalse(
-            'test first' == Staff::query()->first()->first_name
+            Staff::query()->first()->first_name == 'test first'
         );
     }
 }

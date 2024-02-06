@@ -13,8 +13,8 @@ use Livewire\WithPagination;
 class PageIndexController extends CmsAbstract
 {
     use Notifies;
-    use WithPagination;
     use ResetsPagination;
+    use WithPagination;
 
     public string $search = '';
 

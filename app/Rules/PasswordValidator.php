@@ -20,7 +20,7 @@ class PasswordValidator implements Rule
      *
      * @return void
      */
-    public function __construct(User $user = null, bool $matchWithExisting = false)
+    public function __construct(?User $user = null, bool $matchWithExisting = false)
     {
         $this->user = $user;
 

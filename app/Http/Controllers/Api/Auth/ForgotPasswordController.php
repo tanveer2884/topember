@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Api\Auth;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Password;
 use App\Http\Requests\ForgotPasswordRequest;
 use Exception;
+use Illuminate\Support\Facades\Password;
 
 class ForgotPasswordController extends Controller
 {
@@ -14,7 +14,7 @@ class ForgotPasswordController extends Controller
         try {
             $response = Password::broker()->sendResetLink([
                 'email' => $request->email,
-                'is_active' => true
+                'is_active' => true,
             ]);
 
             throw_if(

@@ -19,7 +19,7 @@ class MenuBuilder extends MenuAbstract
      * @var array<mixed>
      */
     protected $listeners = [
-        'items-updated' => 'render'
+        'items-updated' => 'render',
     ];
 
     /**

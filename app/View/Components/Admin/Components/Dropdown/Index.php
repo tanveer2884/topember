@@ -23,7 +23,7 @@ class Index extends Component
      */
     public bool $minimal = false;
 
-    public function __construct(string $value = null, bool $minimal = false, string $position = 'left')
+    public function __construct(?string $value = null, bool $minimal = false, string $position = 'left')
     {
         $this->value = $value;
         $this->minimal = $minimal;

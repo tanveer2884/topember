@@ -18,7 +18,7 @@ class MasterLayout extends Component
      *
      * @return void
      */
-    public function __construct(string $title = null)
+    public function __construct(?string $title = null)
     {
         $this->title = $title;
     }

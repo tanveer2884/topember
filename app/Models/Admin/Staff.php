@@ -18,16 +18,16 @@ use Spatie\Permission\Traits\HasRoles;
 /**
  * @property string|null $profileImageUrl
  */
-class Staff extends Authenticatable implements MustVerifyEmail, HasMedia
+class Staff extends Authenticatable implements HasMedia, MustVerifyEmail
 {
     use HasApiTokens,
         HasFactory,
-        Notifiable,
-        HasRoles,
         HasPermissions,
-        SoftDeletes,
+        HasRoles,
         InteractsWithMedia,
-        MediaConversions {
+        MediaConversions,
+        Notifiable,
+        SoftDeletes {
             MediaConversions::registerMediaConversions insteadof InteractsWithMedia;
         }
 

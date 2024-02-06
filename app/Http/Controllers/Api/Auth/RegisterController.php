@@ -2,17 +2,16 @@
 
 namespace App\Http\Controllers\Api\Auth;
 
-
-use Exception;
-use App\Models\User;
-use Illuminate\Http\Request;
-use App\Mail\NewAccountRegistered;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreUserRequest;
 use App\Http\Resources\UserResource;
+use App\Mail\NewAccountRegistered;
+use App\Mail\NewVendorAccountRegistered;
+use App\Models\User;
+use Exception;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
-use App\Http\Requests\StoreUserRequest;
-use App\Mail\NewVendorAccountRegistered;
 
 class RegisterController extends Controller
 {
@@ -31,11 +30,12 @@ class RegisterController extends Controller
                 //         ? new NewVendorAccountRegistered($user)
                 //         : new NewAccountRegistered($user)
                 // );
-            } catch (Exception $e) {}
+            } catch (Exception $e) {
+            }
 
             return apiResponse(true, trans('messages.account_created'), [
                 'token' => $user->createToken($request->email)->plainTextToken,
-                'user' => new UserResource($user)
+                'user' => new UserResource($user),
             ], 200);
         } catch (Exception $exception) {
             return apiResponse(false, $exception->getMessage(), [], 500);
@@ -49,12 +49,12 @@ class RegisterController extends Controller
         }
 
         $data = $request->validate([
-            'bio' => 'required|max:1000'
+            'bio' => 'required|max:1000',
         ]);
 
         Auth::user()->update(
             array_merge($data, [
-                'is_lender' => 1
+                'is_lender' => 1,
             ])
         );
 

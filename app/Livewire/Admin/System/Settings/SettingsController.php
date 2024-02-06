@@ -2,13 +2,13 @@
 
 namespace App\Livewire\Admin\System\Settings;
 
-use App\Models\Setting;
-use Illuminate\Support\Str;
-use Livewire\WithFileUploads;
-use Illuminate\Contracts\View\View;
-use App\Livewire\Traits\Notifies;
 use App\Livewire\Admin\System\SystemAbstract;
+use App\Livewire\Traits\Notifies;
+use App\Models\Setting;
+use Illuminate\Contracts\View\View;
+use Illuminate\Support\Str;
 use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
+use Livewire\WithFileUploads;
 
 class SettingsController extends SystemAbstract
 {
@@ -78,7 +78,7 @@ class SettingsController extends SystemAbstract
                 $value = 'file';
             }
 
-            $a =Setting::updateOrCreate(
+            $a = Setting::updateOrCreate(
                 compact('key'),
                 compact('value')
             );

@@ -32,9 +32,9 @@ class StaffIndexController extends SystemAbstract
     public function getStaff(): Paginator
     {
         return Staff::query()
-        ->when($this->search, fn ($q) => $q->search($this->search))
-        ->when($this->showTrashed, fn ($q) => $q->onlyTrashed())
-        ->paginate(10);
+            ->when($this->search, fn ($q) => $q->search($this->search))
+            ->when($this->showTrashed, fn ($q) => $q->onlyTrashed())
+            ->paginate(10);
     }
 
     /**

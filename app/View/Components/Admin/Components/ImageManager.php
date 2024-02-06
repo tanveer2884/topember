@@ -29,7 +29,7 @@ class ImageManager extends Component
     public int $maxFiles;
 
     /**
-     * @param  int  $maxFileSize in MB
+     * @param  int  $maxFileSize  in MB
      * @param  array<mixed>  $existing
      * @param  array<mixed>  $filetypes
      */
@@ -38,7 +38,7 @@ class ImageManager extends Component
         string $model,
         array $filetypes = ['image/*'],
         bool $multiple = true,
-        int $maxFileSize = null,
+        ?int $maxFileSize = null,
         int $maxFiles = 10
     ) {
         $this->images = $existing;

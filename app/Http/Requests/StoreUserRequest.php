@@ -3,8 +3,8 @@
 namespace App\Http\Requests;
 
 use App\Rules\PasswordValidator;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 
 class StoreUserRequest extends FormRequest
 {
@@ -25,7 +25,7 @@ class StoreUserRequest extends FormRequest
      */
     public function rules()
     {
-        $this->phone = preg_replace("/[^0-9]/", "", $this->phone);
+        $this->phone = preg_replace('/[^0-9]/', '', $this->phone);
 
         $rules = [
             'first_name' => 'required|max:30',
@@ -35,7 +35,7 @@ class StoreUserRequest extends FormRequest
             'password' => [
                 'required',
                 'min:8',
-                new PasswordValidator()
+                new PasswordValidator(),
             ],
             'confirmPassword' => 'required|same:password',
         ];

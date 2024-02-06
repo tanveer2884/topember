@@ -22,7 +22,7 @@ class MenuItemBuilder extends MenuAbstract
      *
      * @return void
      */
-    public function mount(Menu $menu, int $order = 0, int $parentId = null)
+    public function mount(Menu $menu, int $order = 0, ?int $parentId = null)
     {
         $this->menuItem = new MenuItem();
         $this->menuItem->parent_id = $parentId;

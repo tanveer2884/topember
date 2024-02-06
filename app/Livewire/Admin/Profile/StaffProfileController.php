@@ -64,7 +64,7 @@ class StaffProfileController extends StaffAbstract
         });
     }
 
-    public function getProfileImagePreviewProperty(): string|null
+    public function getProfileImagePreviewProperty(): ?string
     {
         if (! $this->profileImage) {
             return null;

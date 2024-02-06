@@ -1,13 +1,13 @@
 <?php
 
+use App\Models\Admin\Staff;
 use App\Models\Menu;
 use App\Models\Setting;
-use App\Models\Admin\Staff;
-use Illuminate\Support\Str;
-use Illuminate\Support\Facades\Auth;
 use App\Rules\SettingsImageValidation;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
-if (!function_exists('get_max_fileupload_size')) {
+if (! function_exists('get_max_fileupload_size')) {
     function get_max_fileupload_size($maxUploadSize = null)
     {
         $maxAllowedServerSize = (int) ini_get('upload_max_filesize') * 1024;
@@ -16,7 +16,7 @@ if (!function_exists('get_max_fileupload_size')) {
 
         $appConfiguredMaxSize = ($mediaLibraryAllowedSize < $maxAllowedServerSize) ? $mediaLibraryAllowedSize : $maxAllowedServerSize;
 
-        if (!$maxUploadSize) {
+        if (! $maxUploadSize) {
             return $appConfiguredMaxSize;
         }
 
@@ -75,36 +75,35 @@ if (!function_exists('get_max_fileupload_size')) {
     }
 }
 
-if (!function_exists('vite')) {
+if (! function_exists('vite')) {
     function vite($resource, $buildDirectory = 'tallAdmin')
     {
         return app(Vite::class)($resource, $buildDirectory);
     }
 }
 
-if (!function_exists('viteCssPath')) {
+if (! function_exists('viteCssPath')) {
     function viteCssPath(string $resource, $buildDirectory = 'tallAdmin')
     {
         return Str::of(vite($resource, $buildDirectory))->after('href="')->before('" />')->toString();
     }
 }
 
-if (!function_exists('viteJsPath')) {
+if (! function_exists('viteJsPath')) {
     function viteJsPath(string $resource, $buildDirectory = 'tallAdmin')
     {
         return Str::of(vite($resource, $buildDirectory))->after('src="')->before('">')->toString();
     }
 }
 
-if (!function_exists('get_menu')) {
+if (! function_exists('get_menu')) {
     function get_menu($name)
     {
         return Menu::getMenuByName($name);
     }
 }
 
-
-if (!function_exists('auth_staff')) {
+if (! function_exists('auth_staff')) {
     function auth_staff()
     {
         /** @var Staff $staff */
@@ -114,15 +113,13 @@ if (!function_exists('auth_staff')) {
     }
 }
 
-if (!function_exists('apiResponse')) {
-    function apiResponse(bool $success = true, string $message = null, array $data = [], int $responseCode = 200)
+if (! function_exists('apiResponse')) {
+    function apiResponse(bool $success = true, ?string $message = null, array $data = [], int $responseCode = 200)
     {
         return response()->json([
-            'success'    => $success,
+            'success' => $success,
             'message' => $message,
-            'data'     => $data,
+            'data' => $data,
         ], $responseCode);
     }
 }
-
-

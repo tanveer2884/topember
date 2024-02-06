@@ -21,6 +21,6 @@ trait Notifies
             return redirect()->route($route, $routeParams);
         }
 
-        $this->dispatch('notify', message:  $message, level:  $level);
+        $this->dispatch('notify', message: $message, level: $level);
     }
 }

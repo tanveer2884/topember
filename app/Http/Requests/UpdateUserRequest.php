@@ -3,9 +3,9 @@
 namespace App\Http\Requests;
 
 use App\Rules\PasswordValidator;
+use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Foundation\Http\FormRequest;
 
 class UpdateUserRequest extends FormRequest
 {
@@ -26,9 +26,9 @@ class UpdateUserRequest extends FormRequest
      */
     public function rules()
     {
-        $this->phone = preg_replace("/[^0-9]/", "", $this->phone);
+        $this->phone = preg_replace('/[^0-9]/', '', $this->phone);
         $rules = [
-            'username' => 'required|max:30|unique:users,username,' . Auth::id(),
+            'username' => 'required|max:30|unique:users,username,'.Auth::id(),
             'first_name' => 'required|max:30',
             'last_name' => 'required|max:30',
             'phone' => 'required|min:11|regex:/^1(?!0{10})[0-9]{10}$/',
@@ -57,10 +57,10 @@ class UpdateUserRequest extends FormRequest
                 'bail',
                 'required',
                 function ($attribute, $value, $fail) {
-                    if (!Hash::check($value, Auth::user()->password)) {
+                    if (! Hash::check($value, Auth::user()->password)) {
                         $fail('The given old password is invalid.');
                     }
-                }
+                },
             ];
             $rules['new_password'] = [
                 'bail',
@@ -69,11 +69,10 @@ class UpdateUserRequest extends FormRequest
                 new PasswordValidator(
                     Auth::user(),
                     true
-                )
+                ),
             ];
             $rules['confirm_password'] = 'required|min:8|same:new_password';
         }
-
 
         return $rules;
     }

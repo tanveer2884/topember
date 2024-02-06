@@ -15,6 +15,7 @@ abstract class PageAbstract extends CmsAbstract
      * The page model
      */
     public Page $page;
+
     public string $page1 = 'testing';
 
     /**

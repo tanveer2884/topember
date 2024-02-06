@@ -11,8 +11,8 @@ use Spatie\Permission\Models\Role;
 
 class RoleIndexController extends SystemAbstract
 {
-    use WithPagination;
     use ResetsPagination;
+    use WithPagination;
 
     public string $search = '';
 

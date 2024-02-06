@@ -57,6 +57,7 @@ class Menu extends Model
                 ->get()
                 ->groupBy('menu_name');
         }
+
         /** @phpstan-ignore-next-line */
         return static::$loadedCollection->get($name);
     }

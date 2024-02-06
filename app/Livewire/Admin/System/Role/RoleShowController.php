@@ -24,7 +24,6 @@ class RoleShowController extends RoleAbstract
         });
     }
 
-
     public function update(): void
     {
         $this->validate();

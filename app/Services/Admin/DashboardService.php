@@ -22,6 +22,7 @@ class DashboardService
     public function getUsersCount(): int
     {
         return User::count();
+
         return Staff::count();
     }
 }

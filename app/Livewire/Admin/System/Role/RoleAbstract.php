@@ -2,11 +2,11 @@
 
 namespace App\Livewire\Admin\System\Role;
 
-use Illuminate\Validation\Rule;
-use Illuminate\Support\Collection;
-use Spatie\Permission\Models\Role;
-use App\Livewire\Traits\Notifies;
 use App\Livewire\Admin\System\SystemAbstract;
+use App\Livewire\Traits\Notifies;
+use Illuminate\Support\Collection;
+use Illuminate\Validation\Rule;
+use Spatie\Permission\Models\Role;
 
 abstract class RoleAbstract extends SystemAbstract
 {
@@ -16,8 +16,6 @@ abstract class RoleAbstract extends SystemAbstract
 
     /**
      * The current staff assigned permissions.
-     *
-     * @var Collection
      */
     public Collection $rolePermissions;
 
@@ -33,9 +31,9 @@ abstract class RoleAbstract extends SystemAbstract
                 'required',
                 'string',
                 'max:30',
-                Rule::unique($this->role->getTable(),'name')
-                    ->ignore($this->role)
-            ]
+                Rule::unique($this->role->getTable(), 'name')
+                    ->ignore($this->role),
+            ],
         ];
     }
 

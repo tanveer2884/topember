@@ -19,8 +19,8 @@ use Spatie\Sluggable\SlugOptions;
  */
 class Page extends Model implements Editable, HasMedia
 {
-    use HasFactory,
-        EditableTrait,
+    use EditableTrait,
+        HasFactory,
         HasSlug,
         InteractsWithMedia,
         SoftDeletes;

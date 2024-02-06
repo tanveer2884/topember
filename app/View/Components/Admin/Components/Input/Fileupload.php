@@ -29,9 +29,6 @@ class Fileupload extends Component
      */
     public int $maxFiles;
 
-    /**
-     * @var string
-     */
     public ?string $imagesHolder;
 
     public bool $multiple;
@@ -41,7 +38,7 @@ class Fileupload extends Component
      *
      * @param  bool  $error
      * @param  array<mixed>  $filetypes
-     * @param  int  $maxFileSize FileSize in MB
+     * @param  int  $maxFileSize  FileSize in MB
      */
     public function __construct(
         $error = false,

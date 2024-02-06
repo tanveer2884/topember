@@ -6,8 +6,8 @@ use App\Models\Setting;
 use Exception;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Str;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Str;
 
 class AppServiceProvider extends ServiceProvider
 {

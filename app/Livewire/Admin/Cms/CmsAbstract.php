@@ -15,7 +15,7 @@ class CmsAbstract extends Component
     /**
      * @param  view-string  $view
      */
-    public function view(string $view, Closure $closure = null): View
+    public function view(string $view, ?Closure $closure = null): View
     {
         return tap(view($view), $closure)
             ->layout(SubMasterLayout::class, [

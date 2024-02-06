@@ -11,7 +11,7 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
  */
 trait MediaConversions
 {
-    public function getThumbnailUrl(string $conversionName = 'medium'): string|null
+    public function getThumbnailUrl(string $conversionName = 'medium'): ?string
     {
         return $this->thumbnail?->getAvailableUrl([$conversionName]);
     }
@@ -25,7 +25,7 @@ trait MediaConversions
             ->where('custom_properties->primary', true);
     }
 
-    public function registerMediaConversions(Media $media = null): void
+    public function registerMediaConversions(?Media $media = null): void
     {
         $transforms = config('media.transformations');
 

@@ -10,10 +10,9 @@ class PageController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @param  Page  $page
      * @return \Illuminate\Contracts\View\View
      */
-    public function __invoke(Page $page = null)
+    public function __invoke(?Page $page = null)
     {
         if (! $page) {
             $page = Page::findOrFail(Page::HOME_PAGE_ID);
