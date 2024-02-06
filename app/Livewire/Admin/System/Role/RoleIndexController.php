@@ -29,10 +29,6 @@ class RoleIndexController extends SystemAbstract
     {
         $query = Role::query();
 
-        if ($this->search) {
-            $query->search($this->search);
-        }
-
         return $query->paginate(10);
     }
 }

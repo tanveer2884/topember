@@ -2,7 +2,6 @@
 
 namespace App\Services\Admin;
 
-use App\Models\Admin\Staff;
 use App\Models\User;
 
 class DashboardService
@@ -22,7 +21,5 @@ class DashboardService
     public function getUsersCount(): int
     {
         return User::count();
-
-        return Staff::count();
     }
 }

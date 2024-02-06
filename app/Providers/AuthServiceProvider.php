@@ -28,6 +28,11 @@ class AuthServiceProvider extends ServiceProvider
 
     }
 
+    /**
+     * The model to policy mappings for the application.
+     *
+     * @return bool|void
+     */
     public function registerGates()
     {
         Gate::after(function ($user, $ability) {
