@@ -11,6 +11,7 @@ trait Notifies
      * @param  string  $route
      * @param  array<mixed>  $routeParams
      * @param  string  $level
+     * @return \Illuminate\Routing\Redirector|\Illuminate\Http\RedirectResponse|void
      */
     public function notify($message, $route = null, $routeParams = [], $level = 'success')
     {

@@ -12,7 +12,7 @@ class RoleShowController extends RoleAbstract
     use CanDeleteRecord;
     use Notifies;
 
-    public function mount()
+    public function mount(): void
     {
         $this->rolePermissions = $this->role->permissions->pluck('name');
     }

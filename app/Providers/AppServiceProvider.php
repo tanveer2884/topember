@@ -11,7 +11,7 @@ use Illuminate\Support\Str;
 
 class AppServiceProvider extends ServiceProvider
 {
-    public function boot()
+    public function boot(): void
     {
         $this->setCustomConfig();
         $this->configureSmtp();
@@ -45,7 +45,7 @@ class AppServiceProvider extends ServiceProvider
         Config::set('custom', $config->toArray());
     }
 
-    protected function configureSmtp()
+    protected function configureSmtp(): void
     {
         $smtpSettings = Setting::whereIn('key', [
             'smtp_host',
@@ -67,7 +67,7 @@ class AppServiceProvider extends ServiceProvider
         Config::set('mail.from.name', $smtpSettings['mail_from_name'] ?? config('app.name'));
     }
 
-    protected function configureAws()
+    protected function configureAws(): void
     {
         $awsSettings = Setting::whereIn('key', [
             'aws_access_key_id',

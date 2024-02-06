@@ -3,7 +3,6 @@
 namespace App\Traits;
 
 use Illuminate\Database\Eloquent\Relations\MorphOne;
-use Spatie\Image\Manipulations;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 /**
@@ -33,7 +32,7 @@ trait MediaConversions
         collect($transforms)->each(function ($transform, $handle) {
             $conversion = $this->addMediaConversion($handle)
                 ->fit(
-                    $transform['fit'] ?? Manipulations::FIT_FILL,
+                    $transform['fit'] ?? 'max',
                     $transform['width'],
                     $transform['height']
                 );
