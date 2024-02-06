@@ -1,12 +1,14 @@
 <?php
 
+$checkMiddlewareAdminGuard = array_key_exists('admin', config('auth.guards')) ? 'auth:admin' : 'auth';
+
 return [
     /*
     |--------------------------------------------------------------------------
     | Expose API
     |--------------------------------------------------------------------------
     |
-    | This will expose the editor variable. 
+    | This will expose the editor variable.
     | It can be accessed via a window.gjsEditor
     |
     */
@@ -15,16 +17,16 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Routes 
+    | Routes
     |--------------------------------------------------------------------------
     |
     | Routes Settings
     |
     */
-    
+
     'routes' => [
         'middleware' => [
-            'web', 'auth',
+            'web', $checkMiddlewareAdminGuard,
         ],
     ],
 
@@ -36,7 +38,7 @@ return [
     | @See https://github.com/artf/grapesjs/issues/546
     |
     */
-    
+
     'force_class' => false,
 
     /*
@@ -48,7 +50,7 @@ return [
     */
 
     'styles' => [
-        'vendor/laravel-grapesjs/assets/editor.css'
+        'vendor/laravel-grapesjs/assets/editor.css',
     ],
 
     /*
@@ -60,7 +62,7 @@ return [
     */
 
     'scripts' => [
-        'vendor/laravel-grapesjs/assets/editor.js'
+        'vendor/laravel-grapesjs/assets/editor.js',
     ],
 
     /*
@@ -73,7 +75,6 @@ return [
     | e.g the bootstrap files, etc
     |
     */
-
     'canvas' => [
         'styles' => [
             //'vendor/laravel-grapesjs/assets/editor.css',
@@ -152,7 +153,7 @@ return [
     |
     | 1. Simplest way
     |   'plugin-name' => 'https://url_to_plugin_script.com'
-    |    
+    |
     | 2. Simple with options (Plugin script will be added to global scrips above)
     |   'plugin-name' => [
     |       //plugin options goes here
@@ -200,23 +201,23 @@ return [
                      * Available options can be found here https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR_config.html
                      * Or you can use config builder https://cdn.ckeditor.com/4.14.0/full-all/samples/toolbarconfigurator/index.html
                      */
-                    'options' => [ 
+                    'options' => [
                         'toolbarGroups' => [
-                            [ "name" => "document", "groups" => [ "mode", "document", "doctools" ] ],
-                            [ "name" => "clipboard", "groups" => [ "clipboard", "undo" ] ],
-                            [ "name" => "editing", "groups" => [ "find", "selection", "spellchecker", "editing" ] ],
-                            [ "name" => "forms", "groups" => [ "forms" ] ],
-                            [ "name" => "basicstyles", "groups" => [ "basicstyles", "cleanup" ] ],
-                            [ "name" => "styles", "groups" => [ "styles" ] ],
-                            [ "name" => "paragraph", "groups" => [ "list", "indent", "blocks", "align", "bidi", "paragraph" ] ],
-                            [ "name" => "links", "groups" => [ "links" ] ],
-                            [ "name" => "insert", "groups" => [ "insert" ] ],
-                            [ "name" => "colors", "groups" => [ "colors" ] ],
-                            [ "name" => "tools", "groups" => [ "tools" ] ],
-                            [ "name" => "others", "groups" => [ "others" ] ],
-                            [ "name" => "about", "groups" => [ "about" ] ]
+                            ['name' => 'document', 'groups' => ['mode', 'document', 'doctools']],
+                            ['name' => 'clipboard', 'groups' => ['clipboard', 'undo']],
+                            ['name' => 'editing', 'groups' => ['find', 'selection', 'spellchecker', 'editing']],
+                            ['name' => 'forms', 'groups' => ['forms']],
+                            ['name' => 'basicstyles', 'groups' => ['basicstyles', 'cleanup']],
+                            ['name' => 'styles', 'groups' => ['styles']],
+                            ['name' => 'paragraph', 'groups' => ['list', 'indent', 'blocks', 'align', 'bidi', 'paragraph']],
+                            ['name' => 'links', 'groups' => ['links']],
+                            ['name' => 'insert', 'groups' => ['insert']],
+                            ['name' => 'colors', 'groups' => ['colors']],
+                            ['name' => 'tools', 'groups' => ['tools']],
+                            ['name' => 'others', 'groups' => ['others']],
+                            ['name' => 'about', 'groups' => ['about']],
                         ],
-                        'removeButtons' => 'Save,NewPage,Preview,Print,Templates,Source,Form,Checkbox,Radio,TextField,Textarea,Select,Button,ImageButton,HiddenField,Flash,Table,About'
+                        'removeButtons' => 'Save,NewPage,Preview,Print,Templates,Source,Form,Checkbox,Radio,TextField,Textarea,Select,Button,ImageButton,HiddenField,Flash,Table,About',
                     ],
                 ],
             ],
