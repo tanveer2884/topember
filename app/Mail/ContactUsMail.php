@@ -38,6 +38,7 @@ class ContactUsMail extends Mailable
     {
         return $this->markdown('emails.contact-us')
             ->to(config('custom.contact_us_email'), config('custom.site_title'))
+            ->from(env('MAIL_FROM_ADDRESS', 'hello@example.com'))
             ->subject(trans('global.email.contact-us'));
     }
 }
