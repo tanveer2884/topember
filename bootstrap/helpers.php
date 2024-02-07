@@ -56,7 +56,7 @@ if (! function_exists('get_max_fileupload_size')) {
             'smtp_username' => ['value' => 'your_smtp_username', 'type' => 'text', 'rules' => 'required|string|max:255'],
             'smtp_password' => ['value' => 'your_smtp_password', 'type' => 'text', 'rules' => 'required|string|max:255'],
             'smtp_encryption' => ['value' => 'tls', 'type' => 'text', 'rules' => 'string|max:255'],
-            'mail_from_address' => ['value' => 'your_from_email_address', 'type' => 'text', 'rules' => 'email|max:255'],
+            'mail_from_address' => ['value' => 'mail@example.com', 'type' => 'text', 'rules' => 'email|max:255'],
             'mail_from_name' => ['value' => 'your_from_name', 'type' => 'text', 'rules' => 'string|max:255'],
             'aws' => ['value' => '', 'type' => 'hidden', 'rules' => ''],
             's3_settings' => ['value' => 'S3 Setting', 'type' => 'heading', 'rules' => ''],

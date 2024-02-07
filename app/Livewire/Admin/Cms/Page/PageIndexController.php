@@ -34,7 +34,6 @@ class PageIndexController extends CmsAbstract
         return $this->view('livewire.admin.cms.page.page-index-controller');
     }
 
-
     /**
      * Force delete page
      *
