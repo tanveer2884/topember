@@ -19,7 +19,7 @@
             <x-admin.components.nav-bar />
 
             <main class="h-full overflow-y-auto">
-                <div class="container px-6 mx-auto grid py-6">
+                <div class="container grid px-6 py-6 mx-auto">
 
                     <div class="flex items-center justify-between">
                         <strong class="text-lg font-bold md:text-2xl dark:text-white">
@@ -30,7 +30,7 @@
 
                     </div>
 
-                    <div class="w-full mb-8 rounded-lg shadow-xs py-4">
+                    <div class="w-full py-4 mb-8 rounded-lg shadow-xs">
                         {{ $slot ?? '' }}
                         @yield('page')
                     </div>

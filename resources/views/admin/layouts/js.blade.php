@@ -6,5 +6,5 @@
 <script src="{{ asset('assets/js/filepond-plugin-file-validate-type.js') }}"></script>
 <script src="{{ asset('assets/js/filepond.js') }}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/0.9.0/jquery.mask.min.js"></script>
-
+@livewireScripts
 @vite(['resources/js/app.js'], 'tallAdmin')

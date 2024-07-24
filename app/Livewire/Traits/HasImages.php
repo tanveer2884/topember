@@ -2,12 +2,12 @@
 
 namespace App\Livewire\Traits;
 
-use App\Traits\WithSaveImages;
-use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Str;
-use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
+use App\Traits\WithSaveImages;
+use Illuminate\Support\Facades\Artisan;
+use Illuminate\Database\Eloquent\Collection;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
+use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
 
 trait HasImages
 {
@@ -76,6 +76,7 @@ trait HasImages
         $media = $owner->media;
 
         $this->images = $media
+            /** @phpstan-ignore-next-line */
             ->filter(fn ($media) => $media->collection_name == $this->collectionName)
             ->map(function ($media) {
                 /** @var Media $media */
@@ -107,7 +108,7 @@ trait HasImages
      * Method to handle when Livewire uploads a product image.
      *
      * @param  string  $name
-     * @param  array<mixed>  $tmpFilenames
+     * @param  array<mixed>  $filenames
      * @return void
      */
     public function handleUploadFinished($name, array $tmpFilenames = [])
@@ -120,10 +121,8 @@ trait HasImages
         if ($name != 'imageUploadQueue') {
             return;
         }
-
-        if ($this->getErrorBag->has('imageUploadQueue.*') || $this->getErrorBag->has('images.*.caption')) {
+        if ($this->getErrorBag()->has('imageUploadQueue.*') || $this->getErrorBag()->has('images.*.caption')) {
             unset($this->imageUploadQueue[0]);
-
             return;
         }
 

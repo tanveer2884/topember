@@ -87,6 +87,20 @@ class MenuService
                         ->route('admin.cms.pages.index')
                         ->permission('cms:manage-pages')
                         ->icon('collection');
+                })
+                ->addItem(function (MenuItem $item) {
+                    $item->name('Members')
+                    ->handle('admin.cms.members')
+                        ->route('admin.cms.members.index')
+                        ->permission('cms:manage-members')
+                        ->icon('collection');
+                })
+                ->addItem(function (MenuItem $item) {
+                    $item->name('Projects')
+                    ->handle('admin.cms.projects')
+                        ->route('admin.cms.projects.index')
+                        ->permission('cms:manage-projects')
+                        ->icon('collection');
                 }),
         ]);
     }

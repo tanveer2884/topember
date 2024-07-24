@@ -1,0 +1,1 @@
+<livewire:frontend.projects.project-index-controller>

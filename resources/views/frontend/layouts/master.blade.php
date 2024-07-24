@@ -8,7 +8,8 @@
     <meta charset="UTF-8">
     <meta name="author" content="Box Store">
     <meta name="robots" content="index, follow">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=1.0, minimum-scale=1.0, maximum-scale=3.0">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=1.0, minimum-scale=1.0, maximum-scale=3.0">
 
     <meta name="description" content="@yield('description', $description ?? '')">
     <meta name="keywords" content="@yield('meta_keywords', $keywords ?? '')">
@@ -26,74 +27,32 @@
 
 </head>
 
-<body>
-    <div class="main-site">
-        <!-- page-loader  -->
-        @include('frontend.layouts.page-loader')
-        <!-- page-loader  -->
+<body data-spy="scroll" data-target=".navbar" data-offset="90">
 
-        <!-- header  -->
-        @include('frontend.layouts.header')
-        <!-- header  -->
-
-        <div class="clearfix"></div>
-
-        <div class="inner-section">
-
-            @yield('page')
-            {{ $slot ?? '' }}
+    <!-- Preloader -->
+    <div class="loader" id="loader-fade">
+        <div class="linear-activity">
+            <div class="indeterminate"></div>
         </div>
-
-        <div class="clearfix"></div>
-
-        <x-notify-component />
-        @include('frontend.layouts.footer')
     </div>
+    <!-- Preloader End -->
+    @include('frontend.layouts.header')
+
+    @yield('page')
+    {{ $slot ?? '' }}
+    <!--Animated Cursor-->
+    <div id="animated-cursor">
+        <div id="cursor">
+            <div id="cursor-loader"></div>
+        </div>
+    </div>
+
+    
     @include('frontend.layouts.js')
     @include('frontend.layouts.livewirejs')
     @include('frontend.layouts.toastr-events')
     @stack('page_js')
-    
-    <script>
-        function initLightGallery(){
-            $('.lightgallery').each(function(i, item) {
-                $(item).lightGallery({
-                    thumbnail: false,
-                });
-            });
-        }
 
-        jQuery(document).ready(initLightGallery);
-
-        Livewire.hook('message.processed', function() {
-            $('.phone_number, .mask_us_phone').trigger('input');
-            $('.card_number, .mask_us_credit_card').trigger('input');
-
-            initLightGallery();
-        });
-
-        jQuery(document).on('click', '.lg img', function(e){
-            let src = $(this).attr('src');
-            let url = $('#lightgallery, .lightgallery').find(`img[src="${src}"]`).data('url');
-
-            if(url){
-                window.open(url, '_blank').focus();
-            }
-        })
-
-        $(document).on('DOMNodeInserted', function(e) {
-            if ( $(e.target).is('.lg-outer .lg-item .lg-img-wrap') ) {
-                let img = $(e.target).find('.lg-image');
-
-                let src = img.attr('src');
-                let url = $('#lightgallery, .lightgallery').find(`img[src="${src}"]`).data('url');
-
-                if(url){
-                    img.addClass('cursor-pointer')
-                }
-            }
-        });
-    </script>
 </body>
 
 </html>

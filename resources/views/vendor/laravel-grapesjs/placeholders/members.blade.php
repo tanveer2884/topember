@@ -1,0 +1,1 @@
+<livewire:frontend.members.member-index-controller>
