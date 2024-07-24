@@ -15,7 +15,6 @@
                                     <span class="cases-line bottom"></span>
                                     <span class="cases-line bottom-left"></span>
                                     <div class="image-overlay">
-                                        {{-- <div class="search-icon"><i class="fa fa-search"></i></div> --}}
                                         <span class="text-white text-uppercase alt-font">{!! $project->description !!}</span>
                                     </div>
                                 </div>

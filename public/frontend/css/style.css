@@ -2094,4 +2094,7 @@ svg.slider-shape{
     .contact-sec .contact-details .heading {
         font-size: 24px;
     }
+    .error{
+        color: red !important;
+    }
 }
